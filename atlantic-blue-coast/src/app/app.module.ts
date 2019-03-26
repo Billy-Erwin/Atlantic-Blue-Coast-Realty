@@ -1,18 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AbcFooterComponent } from './abc-footer/abc-footer.component';
+import { AbcHeaderComponent } from './abc-header/abc-header.component';
+import { AbcSocialMediaComponent } from './abc-social-media/abc-social-media.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AbcFooterComponent,
+    AbcHeaderComponent,
+    AbcSocialMediaComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
