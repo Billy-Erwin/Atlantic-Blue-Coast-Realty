@@ -28,3 +28,16 @@
 	font-style: normal;
 	font-weight: 900;
 }
+
+.withGradient{
+	height: 100vh;
+	width: 100vw;
+	background-repeat: no-repeat !important;
+	background:
+		url("../assets/images/abc_logo_1.jpg"),
+		no-repeat,
+		no-repeat,
+		linear-gradient(-154deg, #8dd8f8 46%, transparent 25%),
+		linear-gradient(135deg, #e2e2e4 30%, transparent 30%);
+}
+		/*linear-gradient(-154deg, #7ec2dd 46%, transparent 0%),*/
