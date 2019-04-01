@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
 	selector: 'abc-social-media',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./abc-social-media.component.css']
 })
 export class AbcSocialMediaComponent implements OnInit {
-
+	@Input() socialMediaData;
 	constructor() { }
 
 	ngOnInit() {
