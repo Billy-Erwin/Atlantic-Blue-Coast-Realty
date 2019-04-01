@@ -1,0 +1,30 @@
+.mn-thin {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 200;
+}
+.mn-light {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 300;
+}
+.mn-regular {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+.mn-bold {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+}
+.mn-heavy {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 800;
+}
+.mn-black {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 900;
+}

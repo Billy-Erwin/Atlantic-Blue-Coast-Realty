@@ -1,6 +1,1 @@
-<div class="socialMediaLinks pull-right">
-	<a href="#" class="contactUs">Contact us</a>
-	<a href="http://facebook.com/AtlanticBlueCoast" target='_blank'class="fa fa-facebook"></a>
-	<a href="http://twitter.com/ABlueCoastReal" target='_blank' class="fa fa-twitter"></a>
-	<a href="http://instagram.com/AtlanticBlueCoast" target='_blank' class="fa fa-instagram"></a>
-</div>
+<a [href]="socialMediaData.href" [class]="socialMediaData.class" target="_blank">{{socialMediaData.displayText}}</a>

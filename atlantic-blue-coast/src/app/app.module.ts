@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AbcFooterComponent } from './abc-footer/abc-footer.component';
 import { AbcHeaderComponent } from './abc-header/abc-header.component';
 import { AbcSocialMediaComponent } from './abc-social-media/abc-social-media.component';
+import { AbcSocialMediaWrapperComponent } from './abc-social-media-wrapper/abc-social-media-wrapper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AbcFooterComponent,
     AbcHeaderComponent,
-    AbcSocialMediaComponent
+    AbcSocialMediaComponent,
+    AbcSocialMediaWrapperComponent
   ],
   imports: [
     BrowserModule,
