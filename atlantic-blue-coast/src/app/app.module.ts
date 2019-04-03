@@ -7,6 +7,7 @@ import { AbcFooterComponent } from './abc-footer/abc-footer.component';
 import { AbcHeaderComponent } from './abc-header/abc-header.component';
 import { AbcSocialMediaComponent } from './abc-social-media/abc-social-media.component';
 import { AbcSocialMediaWrapperComponent } from './abc-social-media-wrapper/abc-social-media-wrapper.component';
+import { AbcTextAreaComponent } from './abc-text-area/abc-text-area.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AbcSocialMediaWrapperComponent } from './abc-social-media-wrapper/abc-s
     AbcFooterComponent,
     AbcHeaderComponent,
     AbcSocialMediaComponent,
-    AbcSocialMediaWrapperComponent
+    AbcSocialMediaWrapperComponent,
+    AbcTextAreaComponent
   ],
   imports: [
     BrowserModule,
