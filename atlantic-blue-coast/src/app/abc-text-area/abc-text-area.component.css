@@ -1,0 +1,14 @@
+.abc-text-area{
+	color:black;
+	text-align:left;
+	padding: 10% 5%;
+}
+.mn-bold {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+}
+a {
+	text-decoration: none;
+	color: black;
+}

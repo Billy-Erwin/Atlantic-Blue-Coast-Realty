@@ -13,13 +13,13 @@ export class AbcSocialMediaWrapperComponent implements OnInit {
 
 	ngOnInit() {
 		this.socialMediaLinks = [
-			{class: 'contactUs', href: '#', displayText: 'Contact us'},
+			{class: 'contactUs', href: '#', displayText: 'Atlantic Blue Coast'},
 			{class: 'fa fa-facebook', href: 'http://facebook.com/AtlanticBlueCoast'},
 			{class: 'fa fa-twitter', href: 'http://twitter.com/ABlueCoastReal'},
 			{class: 'fa fa-instagram', href: 'http://instagram.com/AtlanticBlueCoast'},
 		];
 		this.ericSocialMediaLinks = [
-			{class: 'contactUs', href: '#', displayText: 'Eric Hill ->'},
+			{class: 'contactUs', href: '#', displayText: 'Eric Hill'},
 			{class: 'fa fa-facebook', href: 'http://facebook.com/erichillreal'},
 			{class: 'fa fa-twitter', href: 'http://twitter.com/erichillreal'},
 			{class: 'fa fa-instagram', href: 'http://instagram.com/erichillreal'},
