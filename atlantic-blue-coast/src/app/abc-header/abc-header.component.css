@@ -3,9 +3,26 @@
 	height: 60px;
 	width: 100%;
 	top: 0px;
-	padding: 15px 30px;
 	text-align: center;
 	text-decoration: none;
 	color: white;
 	position: fixed;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+}
+.header-welcome{
+	font-size: 1.5rem;
+	padding-top: 10px;
+}
+.header-contact{
+	font-size: 1rem;
+	padding: 17px 30px;
+}
+.header-contact-name{
+	color: black;
+	padding-right: 10px;
+	font-weight: 700;
+}
+.header-contact-phone{
+	text-decoration: underline
 }
