@@ -8,6 +8,8 @@ import { AbcHeaderComponent } from './abc-header/abc-header.component';
 import { AbcSocialMediaComponent } from './abc-social-media/abc-social-media.component';
 import { AbcSocialMediaWrapperComponent } from './abc-social-media-wrapper/abc-social-media-wrapper.component';
 import { AbcTextAreaComponent } from './abc-text-area/abc-text-area.component';
+import { AbcUnderConstructionComponent } from './abc-under-construction/abc-under-construction.component';
+import { AbcBannerComponent } from './abc-banner/abc-banner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AbcTextAreaComponent } from './abc-text-area/abc-text-area.component';
     AbcHeaderComponent,
     AbcSocialMediaComponent,
     AbcSocialMediaWrapperComponent,
-    AbcTextAreaComponent
+    AbcTextAreaComponent,
+    AbcUnderConstructionComponent,
+    AbcBannerComponent
   ],
   imports: [
     BrowserModule,
