@@ -1,14 +1,14 @@
 .header{
 	background-color:#1882cd;
-	height: 60px;
-	width: 100%;
-	top: 0px;
 	text-align: center;
 	text-decoration: none;
 	color: white;
-	position: fixed;
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
+	padding-bottom: 15px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
 }
 .header-welcome{
 	font-size: 1.5rem;
@@ -18,7 +18,6 @@
 .header-contact{
 	font-size: 1rem;
 	padding-top: 17px;
-	padding-right:10px;
 }
 .header-contact-name{
 	color: black;

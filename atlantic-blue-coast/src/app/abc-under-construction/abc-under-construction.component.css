@@ -1,8 +1,6 @@
-.mainContainer{
-	height: 80%;
-	overflow-y: auto;
+.logoContainer{
 	background-repeat: no-repeat !important;
 	background-image:url("../../assets/images/abc_logo_1.jpg");
 	background-position: 0% 50% !important;
-	background-size: 50%;
+	background-size: 100%;
 }
