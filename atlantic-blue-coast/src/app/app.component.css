@@ -29,22 +29,8 @@
 	font-weight: 900;
 }
 .backgroundPattern{
-	position:fixed;
-	top:59px;
-	bottom:59px;
-	height: 100vh;
-	width: 100vw;
 	background-image:url("../assets/images/ABCReal1.jpg");
 	background-size: 100% 100%;
-}
-
-.mainContainer{
-	height: 80%;
-	overflow-y: auto;
-	background-repeat: no-repeat !important;
-	background-image:url("../assets/images/abc_logo_1.jpg");
-	background-position: 0% 50% !important;
-	background-size: 50%;
 }
 
 .withGradient{
