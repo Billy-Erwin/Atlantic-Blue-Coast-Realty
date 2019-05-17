@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlidingHeaderComponent } from './sliding-header.component';
+import { AbcSlidingHeaderComponent } from './abc-sliding-header.component';
 
 describe('SlidingHeaderComponent', () => {
-  let component: SlidingHeaderComponent;
-  let fixture: ComponentFixture<SlidingHeaderComponent>;
+  let component: AbcSlidingHeaderComponent;
+  let fixture: ComponentFixture<AbcSlidingHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SlidingHeaderComponent ]
+      declarations: [ AbcSlidingHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SlidingHeaderComponent);
+    fixture = TestBed.createComponent(AbcSlidingHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

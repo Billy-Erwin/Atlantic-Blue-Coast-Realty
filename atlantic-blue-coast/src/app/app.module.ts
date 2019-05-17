@@ -10,7 +10,7 @@ import { AbcSocialMediaWrapperComponent } from './abc-social-media-wrapper/abc-s
 import { AbcTextAreaComponent } from './abc-text-area/abc-text-area.component';
 import { AbcUnderConstructionComponent } from './abc-under-construction/abc-under-construction.component';
 import { AbcBannerComponent } from './abc-banner/abc-banner.component';
-import { SlidingHeaderComponent } from './sliding-header/sliding-header.component';
+import { AbcSlidingHeaderComponent } from './abc-sliding-header/abc-sliding-header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { SlidingHeaderComponent } from './sliding-header/sliding-header.componen
     AbcTextAreaComponent,
     AbcUnderConstructionComponent,
     AbcBannerComponent,
-    SlidingHeaderComponent
+    AbcSlidingHeaderComponent
   ],
   imports: [
     BrowserModule,

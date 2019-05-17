@@ -1,8 +1,16 @@
-.bannerMessage {
+.welcomeMessage {
 	color: black;
-	font-size: 4rem;
+	font-size: 3rem;
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
+}
+.sloganMessage{
+	color: black;
+	font-size: 2rem;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+}
+.centerAligned{
 	position: relative;
 	top: 50%;
 	transform: perspective(1px) translateY(-50%);
