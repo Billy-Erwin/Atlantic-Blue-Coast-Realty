@@ -1,8 +1,20 @@
-div{
+.welcomeMessage {
 	color: black;
-	text-align: center;
-	font-size: 4rem;
+	font-size: 3rem;
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
-	margin-top: 30px;
 }
+.sloganMessage{
+	color: black;
+	font-size: 2rem;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+}
+.centerAligned{
+	position: relative;
+	top: 50%;
+	transform: perspective(1px) translateY(-50%);
+}
+.center-div{
+	height: 100%;
+ }

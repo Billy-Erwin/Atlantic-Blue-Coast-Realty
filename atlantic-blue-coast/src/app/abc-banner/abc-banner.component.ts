@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./abc-banner.component.css']
 })
 export class AbcBannerComponent implements OnInit {
-  bannerMessage = 'Real Estate... easy as A B C';
+  welcomeMessage = `Welcome to Atlantic Blue Coast Realty!`;
+  sloganMessage = `Real Estate... as easy as A B C`;
   constructor() { }
 
   ngOnInit() {
