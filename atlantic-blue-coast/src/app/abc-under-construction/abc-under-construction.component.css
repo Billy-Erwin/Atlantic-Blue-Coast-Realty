@@ -4,3 +4,16 @@
 	background-position: 0% 50% !important;
 	background-size: 100%;
 }
+.textContainer{
+	/*background: rgba(255, 255, 255, 0.3);*/
+	background: #e2e2e4;
+	padding: 10px;
+	max-width: 70%;
+	max-height: 70%;
+	margin-top: 50px !important;
+	margin: 0 auto;
+	border-radius: 10px;
+	overflow-wrap: break-word;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow-y: scroll;
+}

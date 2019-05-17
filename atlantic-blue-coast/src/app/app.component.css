@@ -31,6 +31,7 @@
 .backgroundPattern{
 	background-image:url("../assets/images/ABCReal1.jpg");
 	background-size: 100% 100%;
+	/*height: 100vh;*/
 }
 
 .withGradient{
