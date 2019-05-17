@@ -1,8 +1,12 @@
-div{
+.bannerMessage {
 	color: black;
-	text-align: center;
 	font-size: 4rem;
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
-	margin-bottom: 60px;
+	position: relative;
+	top: 50%;
+	transform: perspective(1px) translateY(-50%);
 }
+.center-div{
+	height: 100%;
+ }
