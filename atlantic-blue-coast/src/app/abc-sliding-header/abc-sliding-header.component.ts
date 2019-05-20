@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'app-sliding-header',
+	selector: 'abc-sliding-header',
 	templateUrl: './abc-sliding-header.component.html',
 	styleUrls: ['./abc-sliding-header.component.css']
 })

@@ -11,6 +11,10 @@ import { AbcTextAreaComponent } from './abc-text-area/abc-text-area.component';
 import { AbcUnderConstructionComponent } from './abc-under-construction/abc-under-construction.component';
 import { AbcBannerComponent } from './abc-banner/abc-banner.component';
 import { AbcSlidingHeaderComponent } from './abc-sliding-header/abc-sliding-header.component';
+import { AbcFeaturedListingsComponent } from './abc-featured-listings/abc-featured-listings.component';
+import { AbcLargeRowComponent } from './abc-large-row/abc-large-row.component';
+import { AbcListingCardComponent } from './abc-listing-card/abc-listing-card.component';
+import { AbcListingCardDeckComponent } from './abc-listing-card-deck/abc-listing-card-deck.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { AbcSlidingHeaderComponent } from './abc-sliding-header/abc-sliding-head
     AbcTextAreaComponent,
     AbcUnderConstructionComponent,
     AbcBannerComponent,
-    AbcSlidingHeaderComponent
+    AbcSlidingHeaderComponent,
+    AbcFeaturedListingsComponent,
+    AbcLargeRowComponent,
+    AbcListingCardComponent,
+    AbcListingCardDeckComponent
   ],
   imports: [
     BrowserModule,
