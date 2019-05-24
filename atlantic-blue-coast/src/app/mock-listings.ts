@@ -24,11 +24,12 @@ export const LISTINGS: Listing[] = [
 		listingTitle: 'Listing 4',
 		listingText: 'This is listing 4',
 		listingFooterText: 'Thanks for looking at listing 4'
-	},
-	{
-		listingImage: '../../assets/images/abc_logo_1.jpg',
-		listingTitle: 'Listing 5',
-		listingText: 'This is listing 5',
-		listingFooterText: 'Thanks for looking at listing 5'
 	}
+	// ,
+	// {
+	// 	listingImage: '../../assets/images/abc_logo_1.jpg',
+	// 	listingTitle: 'Listing 5',
+	// 	listingText: 'This is listing 5',
+	// 	listingFooterText: 'Thanks for looking at listing 5'
+	// }
 ];
