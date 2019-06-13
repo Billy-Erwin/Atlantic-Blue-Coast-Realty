@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from "rxjs";
 import { Listing } from "./Listing";
-import {LISTINGS} from "./mock-listings";
+import { HttpClient } from '@angular/common/http'
 
-@Injectable({
-	providedIn: 'root'
-})
+
+@Injectable({providedIn: 'root'})
 
 export class ListingsService {
+	constructor(private http: HttpClient) {}
 
-	constructor() { }
-
-	getListings(): Observable<Listing[]>  {
-		return of(LISTINGS);
+	getFeaturedListings(listings) {
+		this.http.get('http://localhost:4040/getFeaturedListings').subscribe(
+			data => {
+				// console.log(data);
+				for(let i = 0; i < 4; i++){
+					console.log(data[i].StandardFields.ListAgentId);
+					listings.push(new Listing(data[i].StandardFields));
+				}
+		});
 	}
+
+
 }

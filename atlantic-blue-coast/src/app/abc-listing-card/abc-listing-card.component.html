@@ -1,9 +1,11 @@
-
-<img class="card-img-top" src="{{listing.listingImage}}" alt="Card image cap">
-<div class="card-body">
-	<h5 class="card-title">{{listing.listingTitle}}</h5>
-	<p class="card-text">{{listing.listingText}}</p>
-</div>
-<div class="card-footer">
-	<small class="text-muted">{{listing.listingFooterText}}</small>
+<div>
+	<img class="card-img-top" src="{{listing.primaryPhoto}}" alt="Card image cap">
+	<div class="card-body">
+		<h5 class="card-title">{{listing.listPrice | currency}}</h5>
+		<p class="card-text">{{listing.getStreetAddress()}}</p>
+		<p class="card-text">{{listing.getCityAndState()}}</p>
+	</div>
+	<div class="card-footer">
+		<small class="text-muted">{{listing.getBasicDetails()}}</small>
+	</div>
 </div>

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,28 +17,33 @@ import { AbcFeaturedListingsComponent } from './abc-featured-listings/abc-featur
 import { AbcLargeRowComponent } from './abc-large-row/abc-large-row.component';
 import { AbcListingCardComponent } from './abc-listing-card/abc-listing-card.component';
 import { AbcListingCardDeckComponent } from './abc-listing-card-deck/abc-listing-card-deck.component';
+import { AbcCarouselCardDeckComponent } from './abc-carousel-card-deck/abc-carousel-card-deck.component';
+import { AbcSelectedListingComponent } from './abc-selected-listing/abc-selected-listing.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AbcFooterComponent,
-    AbcHeaderComponent,
-    AbcSocialMediaComponent,
-    AbcSocialMediaWrapperComponent,
-    AbcTextAreaComponent,
-    AbcUnderConstructionComponent,
-    AbcBannerComponent,
-    AbcSlidingHeaderComponent,
-    AbcFeaturedListingsComponent,
-    AbcLargeRowComponent,
-    AbcListingCardComponent,
-    AbcListingCardDeckComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		AbcFooterComponent,
+		AbcHeaderComponent,
+		AbcSocialMediaComponent,
+		AbcSocialMediaWrapperComponent,
+		AbcTextAreaComponent,
+		AbcUnderConstructionComponent,
+		AbcBannerComponent,
+		AbcSlidingHeaderComponent,
+		AbcFeaturedListingsComponent,
+		AbcLargeRowComponent,
+		AbcListingCardComponent,
+		AbcListingCardDeckComponent,
+		AbcCarouselCardDeckComponent,
+		AbcSelectedListingComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
