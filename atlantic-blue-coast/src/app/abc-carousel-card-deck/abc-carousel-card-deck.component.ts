@@ -14,7 +14,7 @@ export class AbcCarouselCardDeckComponent implements OnInit {
 	constructor(private listingsService: ListingsService) { }
 
 	public ngOnInit()	{
-		this.getListings();
+		// this.getListings();
 		$(document).ready(function(){
 			// $('#recipeCarousel').carousel({
 			// 	interval: 10000
@@ -48,8 +48,5 @@ export class AbcCarouselCardDeckComponent implements OnInit {
 		});
 	}
 
-	getListings(): void {
-		this.listingsService.getListings()
-				.subscribe(listings => this.listings = listings);
-	}
+
 }

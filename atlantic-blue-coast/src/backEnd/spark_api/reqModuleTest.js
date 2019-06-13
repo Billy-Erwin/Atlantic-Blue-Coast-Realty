@@ -1,20 +1,19 @@
-var request = require('request');
+let request = require('request');
 
 let specificListing = '/v1/listings/20080303201245019178000000';
 let idxDefault = '/v1/idxlinks/default';
 let listingPhotos = '/v1/listings/20080303201245019178000000/photos';
-// console.log('listingPhoto : ', listingPhotos);
-let listingSelect = '/v1/listings';
+let listingSelect = encodeURI('_select=ListOfficeId');
 let listingFilter = encodeURI('_filter=BathsFull Eq 3 And BedsTotal Eq 4');
-
+let token = '';
 	// uri: 'sparkapi.com',
 	// path: listingPhotos,
-var options = {
+let options = {
 	url: `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=4`,
 	method: 'GET',
 	headers: {
 		'X-SparkApi-User-Agent': 'SparkAPIExamples',
-		'Authorization': 'Bearer ',
+		'Authorization': `Bearer ${token}`,
 		'Accept': 'application/json',
 		'Content-Type': 'application/json'
 	},
@@ -26,7 +25,7 @@ var incomingResponse;
 function callback(error, response, body) {
 	if (!error && response.statusCode == 200) {
 		// console.log('body : ', body);
-		var info = JSON.parse(body);
+		let info = JSON.parse(body);
 		console.log(info.D.Results[0]);
 		console.log(info.D.Results[1]);
 		console.log(info.D.Results[2]);

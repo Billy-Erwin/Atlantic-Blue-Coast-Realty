@@ -4,7 +4,7 @@ const data = JSON.stringify({
 	'_select': 'BathsFull,ListPrice'
 });
 
-let token = ;
+let token = 'alecxrelpen098otxjtg31p2r';
 
 let specificListing = '/v1/listings/20080303201245019178000000';
 let idxDefault = '/v1/idxlinks/default';

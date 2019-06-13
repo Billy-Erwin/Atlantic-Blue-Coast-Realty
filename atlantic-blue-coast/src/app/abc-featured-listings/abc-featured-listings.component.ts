@@ -8,7 +8,7 @@ import {ListingsService} from "../listings.service";
 	styleUrls: ['./abc-featured-listings.component.css']
 })
 export class AbcFeaturedListingsComponent implements OnInit {
-//Need a service to get the listings and pass into card-deck component
+
 	listings: Listing[];
 	constructor(private listingsService: ListingsService) { }
 
@@ -20,15 +20,8 @@ export class AbcFeaturedListingsComponent implements OnInit {
 		// this.listingsService.getListings()
 		// 	.subscribe(listings => this.listings = listings);
 		let listing1 = [];
-		this.listingsService.doSomething(listing1);
+		this.listingsService.getFeaturedListings(listing1);
 		this.listings = listing1;
-	}
-
-	doSomething(): void {
-		// console.log(thing);
-		// this.listingsService.doSomething();
-		console.log('did something');
-		// _getStuff();
 	}
 
 }

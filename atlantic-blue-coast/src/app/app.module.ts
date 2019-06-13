@@ -18,6 +18,7 @@ import { AbcLargeRowComponent } from './abc-large-row/abc-large-row.component';
 import { AbcListingCardComponent } from './abc-listing-card/abc-listing-card.component';
 import { AbcListingCardDeckComponent } from './abc-listing-card-deck/abc-listing-card-deck.component';
 import { AbcCarouselCardDeckComponent } from './abc-carousel-card-deck/abc-carousel-card-deck.component';
+import { AbcSelectedListingComponent } from './abc-selected-listing/abc-selected-listing.component';
 
 @NgModule({
 	declarations: [
@@ -34,7 +35,8 @@ import { AbcCarouselCardDeckComponent } from './abc-carousel-card-deck/abc-carou
 		AbcLargeRowComponent,
 		AbcListingCardComponent,
 		AbcListingCardDeckComponent,
-		AbcCarouselCardDeckComponent
+		AbcCarouselCardDeckComponent,
+		AbcSelectedListingComponent
 	],
 	imports: [
 		BrowserModule,
