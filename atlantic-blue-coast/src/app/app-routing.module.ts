@@ -4,7 +4,10 @@ import {AbcSelectedListingComponent} from "./abc-selected-listing/abc-selected-l
 import {AbcHomePageComponent} from "./abc-home-page/abc-home-page.component";
 
 const routes: Routes = [
-	{ path: 'selected-listing', component: AbcSelectedListingComponent },
+	{
+		path: 'selected-listing/:id',
+		component: AbcSelectedListingComponent
+	},
 	{
 		path: 'home',
 		component: AbcHomePageComponent,
@@ -14,12 +17,17 @@ const routes: Routes = [
 		path: '',
 		redirectTo: '/home',
 		pathMatch: 'full'
+	},
+	{
+		path: '**',
+		redirectTo: '/home',
+		pathMatch: 'full'
 	}
-	// { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

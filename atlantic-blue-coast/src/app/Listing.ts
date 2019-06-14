@@ -1,4 +1,5 @@
 export class Listing {
+	id: string;
 	primaryPhoto: string;
 	streetNumber: string;
 	streetName: string;
@@ -6,6 +7,7 @@ export class Listing {
 	streetSuffix: string;
 	city: string;
 	stateOrProvince: string;
+	mlsId: string;
 	listPrice: number;
 	bedsTotal: number;
 	bathsFull: number;
@@ -16,20 +18,22 @@ export class Listing {
 
 	constructor(listingObject: object){
 		if(listingObject != null){
-			this.listPrice = listingObject['ListPrice'];
-			this.primaryPhoto = listingObject['Photos'][0]['Uri300'];
-			this.streetNumber = listingObject['StreetNumber'];
-			this.streetName = listingObject['StreetName'];
-			this.streetDirSuffix = listingObject['StreetDirSuffix'];
-			this.streetSuffix = listingObject['StreetSuffix'];
-			this.city = listingObject['City'];
-			this.stateOrProvince = listingObject['StateOrProvince'];
-			this.bedsTotal = listingObject['BedsTotal'];
-			this.bathsFull = listingObject['BathsFull'];
-			this.bathsHalf = listingObject['BathsHalf'];
-			this.bathsTotal = listingObject['BathsTotal'];
-			this.buildingAreaTotal = listingObject['BuildingAreaTotal'];
-			this.yearBuilt = listingObject['YearBuilt'];
+			this.id = listingObject['Id'];
+			this.listPrice = listingObject['StandardFields']['ListPrice'];
+			this.primaryPhoto = listingObject['StandardFields']['Photos'][0]['Uri300'];
+			this.streetNumber = listingObject['StandardFields']['StreetNumber'];
+			this.streetName = listingObject['StandardFields']['StreetName'];
+			this.streetDirSuffix = listingObject['StandardFields']['StreetDirSuffix'];
+			this.streetSuffix = listingObject['StandardFields']['StreetSuffix'];
+			this.city = listingObject['StandardFields']['City'];
+			this.stateOrProvince = listingObject['StandardFields']['StateOrProvince'];
+			this.bedsTotal = listingObject['StandardFields']['BedsTotal'];
+			this.bathsFull = listingObject['StandardFields']['BathsFull'];
+			this.bathsHalf = listingObject['StandardFields']['BathsHalf'];
+			this.bathsTotal = listingObject['StandardFields']['BathsTotal'];
+			this.buildingAreaTotal = listingObject['StandardFields']['BuildingAreaTotal'];
+			this.yearBuilt = listingObject['StandardFields']['YearBuilt'];
+			this.mlsId = listingObject['StandardFields']['MlsId'];
 		}
 	}
 
