@@ -11,18 +11,17 @@ export class ListingsService {
 		this.http.get('http://localhost:4040/getFeaturedListings').subscribe(
 			data => {
 				// console.log(data);
-				console.log(data[0]);
 				for(let i = 0; i < 4; i++){
-					console.log(data[i].Id);
 					listings.push(new Listing(data[i]));
 				}
 		});
 	}
 
-	getSelectedListing(listingId) {
+	getSelectedListing(theListing, listingId) {
 		let listingUrl = `http://localhost:4040/getSelectedListing?id=${listingId}`
 		this.http.get(listingUrl).subscribe(
 			data => {
+				theListing = data;
 				console.log(data);
 		});
 	}

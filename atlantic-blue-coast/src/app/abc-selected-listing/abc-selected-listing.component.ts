@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ListingsService} from "../listings.service";
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 import {Listing} from "../Listing";
 
 @Component({
@@ -10,9 +9,9 @@ import {Listing} from "../Listing";
 	styleUrls: ['./abc-selected-listing.component.css']
 })
 export class AbcSelectedListingComponent implements OnInit {
+	selectedListing;
 	constructor(
 		private route: ActivatedRoute,
-		private router: Router,
 		private listingsService: ListingsService) { }
 
 	ngOnInit() {
@@ -21,9 +20,10 @@ export class AbcSelectedListingComponent implements OnInit {
 
 	getSelectedListing(): void {
 		let id = this.route.snapshot.paramMap.get('id');
-
+		this.selectedListing = {};
 		console.log('theId : ', id);
-		this.listingsService.getSelectedListing(id);
+		this.listingsService.getSelectedListing(this.selectedListing, id);
+		console.log(this.selectedListing);
 	}
 
 }
