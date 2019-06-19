@@ -5,7 +5,9 @@ let idxDefault = '/v1/idxlinks/default';
 let listingPhotos = '/v1/listings/20080303201245019178000000/photos';
 let listingSelect = encodeURI('_select=ListOfficeId');
 let listingFilter = encodeURI('_filter=BathsFull Eq 3 And BedsTotal Eq 4');
+
 let token = 'alecxrelpen098otxjtg31p2r';
+
 	// uri: 'sparkapi.com',
 	// path: listingPhotos,
 let options = {
