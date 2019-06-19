@@ -9,7 +9,7 @@ import {Listing} from "../Listing";
 	styleUrls: ['./abc-selected-listing.component.css']
 })
 export class AbcSelectedListingComponent implements OnInit {
-	selectedListing;
+	selectedListing: Listing;
 	constructor(
 		private route: ActivatedRoute,
 		private listingsService: ListingsService) { }
@@ -20,7 +20,7 @@ export class AbcSelectedListingComponent implements OnInit {
 
 	getSelectedListing(): void {
 		let id = this.route.snapshot.paramMap.get('id');
-		this.selectedListing = {};
+		// this.selectedListing = {};
 		console.log('theId : ', id);
 		this.listingsService.getSelectedListing(this.selectedListing, id);
 		console.log(this.selectedListing);

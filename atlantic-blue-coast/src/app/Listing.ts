@@ -15,6 +15,7 @@ export class Listing {
 	bathsTotal: number;
 	buildingAreaTotal: number;
 	yearBuilt: number;
+	photos: object[];
 
 	constructor(listingObject: object){
 		if(listingObject != null){
@@ -34,6 +35,7 @@ export class Listing {
 			this.buildingAreaTotal = listingObject['StandardFields']['BuildingAreaTotal'];
 			this.yearBuilt = listingObject['StandardFields']['YearBuilt'];
 			this.mlsId = listingObject['StandardFields']['MlsId'];
+			this.photos = listingObject['StandardFields']['Photos'];
 		}
 	}
 

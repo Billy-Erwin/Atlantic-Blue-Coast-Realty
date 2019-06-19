@@ -12,8 +12,7 @@ exports.routeRequest = function(req, resp){
 
 	if(resourcePath === '/getFeaturedListings') {
 		featuredListings.getFeaturedListings(resp);
-	} else {
-	// } else if(resourcePath === '/getSelectedListing') {
+	} else if(resourcePath === '/getSelectedListing') {
 		console.log('resourcePath : ' + resourcePath);
 		console.log(urlObj);
 		selectedListing.getSelectedListing(resp, urlObj.query.id);

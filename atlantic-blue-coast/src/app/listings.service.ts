@@ -21,8 +21,8 @@ export class ListingsService {
 		let listingUrl = `http://localhost:4040/getSelectedListing?id=${listingId}`
 		this.http.get(listingUrl).subscribe(
 			data => {
-				theListing = data;
-				console.log(data);
+				theListing = new Listing(data[0]);
+				console.log(theListing);
 		});
 	}
 }

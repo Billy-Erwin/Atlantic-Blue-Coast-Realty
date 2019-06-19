@@ -1,7 +1,7 @@
 let request = require('request');
 
 
-let token = 'alecxrelpen098otxjtg31p2r';
+let token = '';
 let agentId = '20110315124649945876000000';
 
 let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}' And BathsFull Eq 3 And BedsTotal Eq 4`);
