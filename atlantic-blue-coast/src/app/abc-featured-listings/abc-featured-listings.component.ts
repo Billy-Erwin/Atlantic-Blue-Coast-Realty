@@ -9,7 +9,7 @@ import {ListingsService} from "../listings.service";
 })
 export class AbcFeaturedListingsComponent implements OnInit {
 
-	listings: Listing[];
+	listings: Listing[] = [];
 	constructor(private listingsService: ListingsService) { }
 
 	ngOnInit() {
@@ -17,11 +17,7 @@ export class AbcFeaturedListingsComponent implements OnInit {
 	}
 
 	getListings(): void {
-		// this.listingsService.getListings()
-		// 	.subscribe(listings => this.listings = listings);
-		let listing1 = [];
-		this.listingsService.getFeaturedListings(listing1);
-		this.listings = listing1;
+		this.listingsService.getFeaturedListings(this.listings);
 	}
 
 }

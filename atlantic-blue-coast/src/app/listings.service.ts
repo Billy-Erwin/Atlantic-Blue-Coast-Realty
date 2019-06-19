@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Listing } from "./Listing";
 import { HttpClient } from '@angular/common/http'
 
-
 @Injectable({providedIn: 'root'})
 
 export class ListingsService {
@@ -13,11 +12,17 @@ export class ListingsService {
 			data => {
 				// console.log(data);
 				for(let i = 0; i < 4; i++){
-					console.log(data[i].StandardFields.ListAgentId);
-					listings.push(new Listing(data[i].StandardFields));
+					listings.push(new Listing(data[i]));
 				}
 		});
 	}
 
-
+	getSelectedListing(theListing, listingId) {
+		let listingUrl = `http://localhost:4040/getSelectedListing?id=${listingId}`
+		this.http.get(listingUrl).subscribe(
+			data => {
+				theListing = data;
+				console.log(data);
+		});
+	}
 }

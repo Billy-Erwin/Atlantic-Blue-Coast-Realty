@@ -19,6 +19,13 @@ import { AbcListingCardComponent } from './abc-listing-card/abc-listing-card.com
 import { AbcListingCardDeckComponent } from './abc-listing-card-deck/abc-listing-card-deck.component';
 import { AbcCarouselCardDeckComponent } from './abc-carousel-card-deck/abc-carousel-card-deck.component';
 import { AbcSelectedListingComponent } from './abc-selected-listing/abc-selected-listing.component';
+import { AbcHomePageComponent } from './abc-home-page/abc-home-page.component';
+import { AbcSearchPropertiesComponent } from './abc-search-properties/abc-search-properties.component';
+import { AbcAboutComponent } from './abc-about/abc-about.component';
+import { AbcContactUsComponent } from './abc-contact-us/abc-contact-us.component';
+import { AbcCommunityComponent } from './abc-community/abc-community.component';
+import { AbcFeaturedListingsPageComponent } from './abc-featured-listings-page/abc-featured-listings-page.component';
+import { AbcSpillwayComponent } from './abc-spillway/abc-spillway.component';
 
 @NgModule({
 	declarations: [
@@ -36,7 +43,14 @@ import { AbcSelectedListingComponent } from './abc-selected-listing/abc-selected
 		AbcListingCardComponent,
 		AbcListingCardDeckComponent,
 		AbcCarouselCardDeckComponent,
-		AbcSelectedListingComponent
+		AbcSelectedListingComponent,
+		AbcHomePageComponent,
+		AbcSearchPropertiesComponent,
+		AbcAboutComponent,
+		AbcContactUsComponent,
+		AbcCommunityComponent,
+		AbcFeaturedListingsPageComponent,
+		AbcSpillwayComponent
 	],
 	imports: [
 		BrowserModule,

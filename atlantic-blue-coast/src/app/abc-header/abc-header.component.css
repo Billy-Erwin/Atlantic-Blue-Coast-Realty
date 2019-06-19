@@ -5,10 +5,10 @@
 	color: white;
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
-	padding-bottom: 15px;
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	margin-right:10px;
 }
 .header-welcome{
 	font-size: 1.5rem;
@@ -26,4 +26,18 @@
 }
 .header-contact-phone{
 	text-decoration: underline
+}
+.header-logo{
+	background-image: url("../../assets/images/abc_logo_white.png");
+	background-size: cover;
+	cursor: pointer;
+	margin: 6px;
+	height: 42px;
+	width: 56px;
+}
+.header-logo:focus, .header:focus{
+	outline: none !important;
+}
+.header span{
+	cursor: pointer;
 }
