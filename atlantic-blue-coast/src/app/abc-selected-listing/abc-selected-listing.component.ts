@@ -8,6 +8,7 @@ import {Listing} from "../Listing";
 	templateUrl: './abc-selected-listing.component.html',
 	styleUrls: ['./abc-selected-listing.component.css']
 })
+
 export class AbcSelectedListingComponent implements OnInit {
 	selectedListing: Listing;
 	constructor(
@@ -20,10 +21,8 @@ export class AbcSelectedListingComponent implements OnInit {
 
 	getSelectedListing(): void {
 		let id = this.route.snapshot.paramMap.get('id');
-		// this.selectedListing = {};
-		console.log('theId : ', id);
-		this.listingsService.getSelectedListing(this.selectedListing, id);
-		console.log(this.selectedListing);
+		this.listingsService.getSelectedListing(id).subscribe(data => {
+			this.selectedListing = data;
+		});
 	}
-
 }

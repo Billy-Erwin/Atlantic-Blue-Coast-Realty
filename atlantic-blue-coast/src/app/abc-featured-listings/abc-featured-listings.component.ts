@@ -17,7 +17,9 @@ export class AbcFeaturedListingsComponent implements OnInit {
 	}
 
 	getListings(): void {
-		this.listingsService.getFeaturedListings(this.listings);
+		this.listingsService.getFeaturedListings().subscribe(data => {
+			this.listings = data;
+		});
 	}
 
 }
