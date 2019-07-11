@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import $ from 'jquery';
+import * as $ from 'jquery';
+
 
 @Component({
 	selector: 'abc-photo-viewer',

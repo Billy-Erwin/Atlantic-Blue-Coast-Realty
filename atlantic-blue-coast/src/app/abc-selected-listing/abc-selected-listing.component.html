@@ -1,18 +1,27 @@
-<div class="container-fluid" align="center" *ngIf="selectedListing && selectedListing.photos">
+<div
+	class="container-fluid"
+	align="center"
+	*ngIf="selectedListing && selectedListing.standardFields['Photos']">
+			<h3>{{selectedListing.getStreetAddress()}} {{selectedListing.standardFields['ListPrice'] | currency}}</h3>
 	<div class="row">
-		<div class="col-md-6"  style="height:800px; overflow-x: scroll;  border:2px solid black;">Here is some stuff about the listing
-			<div style="height: fit-content; border:2px solid red;">
-				<img *ngFor="let photo of selectedListing.photos" src="{{photo.Uri300}}"/>
-
+		<div class="col-md-6" style="height:800px; overflow-x: scroll;">
+			<div align="left" style="height: fit-content; padding:15px;">
+				<div *ngFor="let standardField of standardFieldService.standardFields">
+					<!--<div *ngIf="selectedListing.standardFields[standardField.fieldName] != null">-->
+					<div>
+						<span>{{standardField.label}} : </span>
+						<span>{{selectedListing.standardFields[standardField.fieldName]}}</span>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-6">
-			<abc-photo-viewer [listingPhotos]="selectedListing.photos"></abc-photo-viewer>
+			<abc-photo-viewer [listingPhotos]="selectedListing.standardFields['Photos']"></abc-photo-viewer>
 		</div>
 	</div>
 	<div class="row" style="margin: 50px 0px;">
 		<div class="col-12-sm">
-			<img *ngFor="let photo of selectedListing.photos" src="{{photo.Uri300}}"/>
+			<img *ngFor="let photo of selectedListing.standardFields['Photos']" src="{{photo.Uri300}}"/>
 
 		</div>
 	</div>

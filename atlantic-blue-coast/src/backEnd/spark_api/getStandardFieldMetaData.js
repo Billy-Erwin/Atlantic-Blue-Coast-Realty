@@ -1,6 +1,5 @@
 let request = require('request');
 
-
 let token = '';
 
 let options = {
@@ -18,6 +17,7 @@ var incomingResponse;
 function callback(error, response, body) {
 	if (!error && response.statusCode == 200) {
 		let info = JSON.parse(body);
+		console.log('info : ', info.D.Results);
 		incomingResponse.writeHead(200, {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Origin': '*',
@@ -30,8 +30,8 @@ function callback(error, response, body) {
 	}
 }
 
-module.exports.getSelectedListing = function(resp, id){
-	options.url = `https://sparkapi.com/v1/listings/${id}?_expand=Photos,CustomFieldsExpanded`;
+module.exports.getStandardFieldMetadata = function(resp){
+	options.url = `https://sparkapi.com/v1/standardfields`;
 	incomingResponse = resp;
 	request(options, callback);
 }
