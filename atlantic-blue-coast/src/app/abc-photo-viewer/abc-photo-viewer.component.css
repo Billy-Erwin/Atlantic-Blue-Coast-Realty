@@ -1,0 +1,17 @@
+.photoContainer{
+	margin: 20px 0;
+}
+img {
+	/*border-radius: .25em;*/
+	/*overflow: hidden;*/
+}
+.thumbIndicator {
+	margin-right: 3px;
+}
+.photoNavWrapper {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	max-height: 45px !important;
+	display: inline-block !important;
+	margin-bottom: 100px;
+}

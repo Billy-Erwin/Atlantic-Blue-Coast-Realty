@@ -1,13 +1,8 @@
 let request = require('request');
 
-
 let token = '';
-let agentId = '20110315124649945876000000';
-
-let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}' And BathsFull Eq 3 And BedsTotal Eq 4`);
 
 let options = {
-	url: `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=4`,
 	method: 'GET',
 	headers: {
 		'X-SparkApi-User-Agent': 'SparkAPIExamples',
@@ -22,6 +17,7 @@ var incomingResponse;
 function callback(error, response, body) {
 	if (!error && response.statusCode == 200) {
 		let info = JSON.parse(body);
+		console.log('info : ', info.D.Results);
 		incomingResponse.writeHead(200, {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Origin': '*',
@@ -34,7 +30,8 @@ function callback(error, response, body) {
 	}
 }
 
-module.exports.getFeaturedListings = function(resp){
+module.exports.getStandardFieldMetadata = function(resp){
+	options.url = `https://sparkapi.com/v1/standardfields`;
 	incomingResponse = resp;
 	request(options, callback);
 }

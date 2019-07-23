@@ -2,17 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {ListingsService} from "../listings.service";
 import { ActivatedRoute } from '@angular/router';
 import {Listing} from "../Listing";
+import {StandardFieldService} from "../standard-field.service";
 
 @Component({
 	selector: 'abc-selected-listing',
 	templateUrl: './abc-selected-listing.component.html',
 	styleUrls: ['./abc-selected-listing.component.css']
 })
+
 export class AbcSelectedListingComponent implements OnInit {
-	selectedListing;
+	selectedListing: Listing;
 	constructor(
 		private route: ActivatedRoute,
-		private listingsService: ListingsService) { }
+		private listingsService: ListingsService,
+		private standardFieldService: StandardFieldService) { }
 
 	ngOnInit() {
 		this.getSelectedListing();
@@ -20,10 +23,12 @@ export class AbcSelectedListingComponent implements OnInit {
 
 	getSelectedListing(): void {
 		let id = this.route.snapshot.paramMap.get('id');
-		this.selectedListing = {};
-		console.log('theId : ', id);
-		this.listingsService.getSelectedListing(this.selectedListing, id);
-		console.log(this.selectedListing);
+		this.listingsService.getSelectedListing(id).subscribe(data => {
+			this.selectedListing = data;
+		});
+		// while(this.standardFieldService.standardFields.length === 0){
+		// 	console.log(this.standardFieldService.standardFields);
+		//
+		// }
 	}
-
 }

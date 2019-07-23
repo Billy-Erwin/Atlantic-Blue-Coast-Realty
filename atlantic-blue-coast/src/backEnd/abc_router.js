@@ -1,7 +1,8 @@
 const url = require('url');
 // const featuredListings = require('./spark_api/reqModuleTest.js')
-const featuredListings = require('./spark_api/getFeaturedListings')
-const selectedListing = require('./spark_api/getSelectedListing')
+const featuredListings = require('./spark_api/getFeaturedListings');
+const selectedListing = require('./spark_api/getSelectedListing');
+const standardFieldMetadata = require('./spark_api/getStandardFieldMetaData');
 
 //@param req = HTTP request object
 //@param resp = HTTP response object
@@ -12,10 +13,11 @@ exports.routeRequest = function(req, resp){
 
 	if(resourcePath === '/getFeaturedListings') {
 		featuredListings.getFeaturedListings(resp);
-	} else {
-	// } else if(resourcePath === '/getSelectedListing') {
-		console.log('resourcePath : ' + resourcePath);
-		console.log(urlObj);
+	} else if(resourcePath === '/getSelectedListing') {
 		selectedListing.getSelectedListing(resp, urlObj.query.id);
+	} else if(resourcePath === '/getStandardFieldMetadata') {
+		console.log('resourcePath : ', resourcePath);
+		console.log(urlObj);
+		standardFieldMetadata.getStandardFieldMetadata(resp);
 	}
 }

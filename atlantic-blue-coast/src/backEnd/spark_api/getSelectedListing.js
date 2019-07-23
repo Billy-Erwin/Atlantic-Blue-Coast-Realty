@@ -1,5 +1,6 @@
 let request = require('request');
 
+
 let token = '';
 
 let options = {
@@ -30,7 +31,7 @@ function callback(error, response, body) {
 }
 
 module.exports.getSelectedListing = function(resp, id){
-	options.url = `https://sparkapi.com/v1/listings/${id}?_expand=Photos`;
+	options.url = `https://sparkapi.com/v1/listings/${id}?_expand=Photos,CustomFieldsExpanded`;
 	incomingResponse = resp;
 	request(options, callback);
 }

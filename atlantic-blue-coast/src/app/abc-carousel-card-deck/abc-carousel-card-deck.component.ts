@@ -15,20 +15,20 @@ export class AbcCarouselCardDeckComponent implements OnInit {
 
 	public ngOnInit()	{
 		// this.getListings();
-		$(document).ready(function(){
+		// $(document).ready(function(){
 			// $('#recipeCarousel').carousel({
 			// 	interval: 10000
 			// })
-			$('.next').click(function(){
-				$('.carousel').carousel('next');
-				console.log('next');
-				return false;
-			});
-			$('.prev').click(function(){
-				// $('.carousel').carousel('prev');
-				console.log('previous');
-				return false;
-			});
+			// $('.next').click(function(){
+			// 	$('.carousel').carousel('next');
+			// 	console.log('next');
+			// 	return false;
+			// });
+			// $('.prev').click(function(){
+			// 	// $('.carousel').carousel('prev');
+			// 	console.log('previous');
+			// 	return false;
+			// });
 			// $('.carousel .carousel-item').each(function(){
 			// 	var next = $(this).next();
 			// 	if (!next.length) {
@@ -45,7 +45,7 @@ export class AbcCarouselCardDeckComponent implements OnInit {
 			// 		next.children(':first-child').clone().appendTo($(this));
 			// 	}
 			// });
-		});
+		// });
 	}
 
 

@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { StandardField } from "./StandardField";
+import { HttpClient } from '@angular/common/http'
+import {Observable, ObservedValueOf} from "rxjs";
+import {
+	map,
+	debounceTime,
+	distinctUntilChanged,
+	switchMap,
+	tap
+} from "rxjs/operators";
+
+@Injectable({providedIn: 'root'})
+export class StandardFieldService {
+	standardFields: StandardField[] = [];
+	standardFieldsMap: Map<string, StandardField> = new Map<string, StandardField>();
+
+	constructor(private http: HttpClient) {}
+
+	setStandardFields(): Observable<Map<string, StandardField>> {
+		let listingUrl = `http://localhost:4040/getStandardFieldMetadata`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			let resKeys = Object.keys(data[0]);
+			for(let theKey of resKeys){
+				// console.log(theKey);
+				this.standardFields.push(new StandardField(theKey, data[0][theKey]));
+				this.standardFieldsMap.set(theKey, new StandardField(theKey, data[0][theKey]))
+			}
+			// console.log(this.standardFieldsMap);
+			return this.standardFieldsMap
+		}));
+	}
+	init(){
+		this.setStandardFields().subscribe(data =>{});
+	}
+}

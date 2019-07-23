@@ -26,6 +26,7 @@ import { AbcContactUsComponent } from './abc-contact-us/abc-contact-us.component
 import { AbcCommunityComponent } from './abc-community/abc-community.component';
 import { AbcFeaturedListingsPageComponent } from './abc-featured-listings-page/abc-featured-listings-page.component';
 import { AbcSpillwayComponent } from './abc-spillway/abc-spillway.component';
+import { AbcPhotoViewerComponent } from './abc-photo-viewer/abc-photo-viewer.component';
 
 @NgModule({
 	declarations: [
@@ -50,7 +51,8 @@ import { AbcSpillwayComponent } from './abc-spillway/abc-spillway.component';
 		AbcContactUsComponent,
 		AbcCommunityComponent,
 		AbcFeaturedListingsPageComponent,
-		AbcSpillwayComponent
+		AbcSpillwayComponent,
+		AbcPhotoViewerComponent
 	],
 	imports: [
 		BrowserModule,
