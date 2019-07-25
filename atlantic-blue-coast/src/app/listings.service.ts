@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Listing } from "./Listing";
 import { HttpClient } from '@angular/common/http'
-import {Observable, ObservedValueOf} from "rxjs";
-import {
-	map,
-	debounceTime,
-	distinctUntilChanged,
-	switchMap,
-	tap
-} from "rxjs/operators";
+import { Observable } from "rxjs";
+import {	map } from "rxjs/operators";
 
-@Injectable({providedIn: 'root'})
+@Injectable({providedIn: "root"})
 
 export class ListingsService {
-
+	featuredListings: Listing[] = [];
 	constructor(private http: HttpClient) {}
 
-	getFeaturedListings(): Observable<Listing[]> {
-		let listings: Listing[] = [];
+	setFeaturedListings(): Observable<Listing[]> {
+		this.featuredListings = [];
 		let listingUrl = `http://localhost:4040/getFeaturedListings`;
 		return this.http.get(listingUrl).pipe(map(data => {
-			for(let i = 0; i < 4; i++){
-				listings.push(new Listing(data[i]));
+			for(let i = 0; i < 6; i++){
+				this.featuredListings.push(new Listing(data[i]));
 			}
-			return listings;
+			return this.featuredListings;
+		}));
+	}
+
+	getFeaturedListings(): Observable<Listing[]> {
+		let returnFeaturedListings: Listing[] = [];
+		let listingUrl = `http://localhost:4040/getFeaturedListings`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			for(let i = 0; i < 6; i++){
+				returnFeaturedListings.push(new Listing(data[i]));
+			}
+			return returnFeaturedListings;
 		}));
 	}
 

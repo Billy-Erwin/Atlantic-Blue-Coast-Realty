@@ -10,43 +10,30 @@ import {ListingsService} from "../listings.service";
 })
 export class AbcCarouselCardDeckComponent implements OnInit {
 
-	listings: Listing[];
+	listings: Listing[] = [];
+	title: string = 'Atlantic Blue Coast Featured Listings';
 	constructor(private listingsService: ListingsService) { }
 
-	public ngOnInit()	{
-		// this.getListings();
-		// $(document).ready(function(){
-			// $('#recipeCarousel').carousel({
-			// 	interval: 10000
-			// })
-			// $('.next').click(function(){
-			// 	$('.carousel').carousel('next');
-			// 	console.log('next');
-			// 	return false;
-			// });
-			// $('.prev').click(function(){
-			// 	// $('.carousel').carousel('prev');
-			// 	console.log('previous');
-			// 	return false;
-			// });
-			// $('.carousel .carousel-item').each(function(){
-			// 	var next = $(this).next();
-			// 	if (!next.length) {
-			// 		next = $(this).siblings(':first');
-			// 	}
-			// 	next.children(':first-child').clone().appendTo($(this));
-			//
-			// 	for (var i = 0; i < 4; i++) {
-			// 		next=next.next();
-			// 		if (!next.length) {
-			// 			next = $(this).siblings(':first');
-			// 		}
-			//
-			// 		next.children(':first-child').clone().appendTo($(this));
-			// 	}
-			// });
-		// });
+	ngOnInit(){
+		this.listings = this.listingsService.featuredListings;
 	}
 
+	ngAfterViewInit() {
+		$('.carousel-item').each(function(){
+			let minPerSlide = 4;
+			let next = $(this).next();
+			if (!next.length) {
+				next = $(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
 
+			for (let i = 0; i < minPerSlide; i++){
+				next = next.next();
+				if(!next.length){
+					next = $(this).siblings(':first');
+				}
+				next.children(':first-child').clone().appendTo($(this));
+			}
+		});
+	}
 }

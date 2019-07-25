@@ -1,4 +1,4 @@
-<div [routerLink]="['/selected-listing', listing.id]" routerLinkActive="active" style="cursor:pointer;">
+<div [routerLink]="['/selected-listing', listing.id]" routerLinkActive="active" class="listing-card">
 	<img class="card-img-top" src="{{listing.primaryPhoto}}" alt="Card image cap">
 	<div class="card-body">
 		<h5 class="card-title">{{listing.standardFields['ListPrice'] | currency}}</h5>

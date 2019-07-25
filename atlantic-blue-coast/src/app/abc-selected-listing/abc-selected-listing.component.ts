@@ -26,9 +26,5 @@ export class AbcSelectedListingComponent implements OnInit {
 		this.listingsService.getSelectedListing(id).subscribe(data => {
 			this.selectedListing = data;
 		});
-		// while(this.standardFieldService.standardFields.length === 0){
-		// 	console.log(this.standardFieldService.standardFields);
-		//
-		// }
 	}
 }
