@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from "jquery";
 import { ListingsService } from "../listings.service";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: 'abc-listing-card-deck',
@@ -10,10 +11,13 @@ import { ListingsService } from "../listings.service";
 export class AbcListingCardDeckComponent {
 	title: string = 'Atlantic Blue Coast Featured Listings';
 
-	constructor(private listingsService: ListingsService) { }
+	constructor(
+		private router: Router,
+		private listingsService: ListingsService) { }
 
 	ngAfterViewInit() {
-		$('.carousel-item').each(function(){
+		let theRouter = this.router;
+		$('.carousel .carousel-item').each(function(){
 			let minPerSlide = 4;
 			let next = $(this).next();
 			if (!next.length) {
@@ -28,6 +32,11 @@ export class AbcListingCardDeckComponent {
 				}
 				next.children(':first-child').clone().appendTo($(this));
 			}
+		});
+		$('.listing-card').each(function(){
+			$(this).click(function () {
+				theRouter.navigate(['/selected-listing', this.id])
+			});
 		});
 	}
 }
