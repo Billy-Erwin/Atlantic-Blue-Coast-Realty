@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import { StandardField } from "./StandardField";
 import { HttpClient } from '@angular/common/http'
-import {Observable, ObservedValueOf} from "rxjs";
-import {
-	map,
-	debounceTime,
-	distinctUntilChanged,
-	switchMap,
-	tap
-} from "rxjs/operators";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class StandardFieldService {
@@ -29,8 +23,5 @@ export class StandardFieldService {
 			// console.log(this.standardFieldsMap);
 			return this.standardFieldsMap
 		}));
-	}
-	init(){
-		this.setStandardFields().subscribe(data =>{});
 	}
 }
