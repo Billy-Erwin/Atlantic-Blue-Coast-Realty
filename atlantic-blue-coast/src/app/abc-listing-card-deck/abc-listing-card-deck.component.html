@@ -19,13 +19,12 @@
 				<span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
-			<ol style="margin:5px;" class="carousel-indicators">
-				<li style="border:3px solid #1982ce;" data-target="#recipeCarousel" data-slide-to="0" class="active"></li>
-				<li style="border:3px solid #1982ce;" data-target="#recipeCarousel" data-slide-to="1"></li>
-				<li style="border:3px solid #1982ce;" data-target="#recipeCarousel" data-slide-to="2"></li>
-				<li style="border:3px solid #1982ce;" data-target="#recipeCarousel" data-slide-to="3"></li>
-				<li style="border:3px solid #1982ce;" data-target="#recipeCarousel" data-slide-to="4"></li>
-				<li style="border:3px solid #1982ce;" data-target="#recipeCarousel" data-slide-to="5"></li>
+			<ol class="carousel-indicators listing-indicators">
+				<li
+					*ngFor="let listing of listingsService.featuredListings; index as i"
+					data-target="#recipeCarousel"
+					[attr.data-slide-to]="i"
+					[ngClass]="{'listing-indicator-item': true, 'active': i === 0}">
 			</ol>
 		</div>
 	</div>

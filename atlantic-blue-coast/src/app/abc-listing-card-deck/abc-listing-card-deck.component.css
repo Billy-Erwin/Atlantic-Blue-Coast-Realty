@@ -33,4 +33,10 @@
 .carousel {
 	padding: 20px;
 }
+.listing-indicators{
+	margin:5px;
+}
+.listing-indicator-item {
+	border:3px solid #1982ce;
+}
 
