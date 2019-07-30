@@ -14,7 +14,8 @@ export class Listing {
 				// console.log('Main : ', this.customFields[0]['Main']);
 				// console.log('Details : ', this.customFields[0]['Details']);
 				this.primaryPhoto =
-					listingObject['StandardFields']['Photos'][0]['Uri300'] != null ?
+						(listingObject['StandardFields']['Photos'][0] &&
+						listingObject['StandardFields']['Photos'][0]['Uri300'])?
 						listingObject['StandardFields']['Photos'][0]['Uri300'] : '';
 			}
 		}

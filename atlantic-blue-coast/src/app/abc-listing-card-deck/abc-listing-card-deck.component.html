@@ -1,31 +1,9 @@
 <div class="container-fluid text-center my-3">
-	<h2 class="font-weight-light">{{title}}</h2>
-	<div class="row mx-auto my-auto">
-		<div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-			<div class="carousel-inner w-100" role="listbox">
-				<div
-					*ngFor="let listing of listingsService.featuredListings; index as i"
-					[ngClass]="{'carousel-item': true, 'active': i === 0}">
-					<div class="col-md-3">
-						<abc-listing-card [listing]="listing"></abc-listing-card>
-					</div>
-				</div>
+	<div class="row">
+		<div *ngFor="let listing of listings; index as i">
+			<div class="col-md-3">
+				<abc-listing-card [listing]="listing"></abc-listing-card>
 			</div>
-			<a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-				<span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-			<ol class="carousel-indicators listing-indicators">
-				<li
-					*ngFor="let listing of listingsService.featuredListings; index as i"
-					data-target="#recipeCarousel"
-					[attr.data-slide-to]="i"
-					[ngClass]="{'listing-indicator-item': true, 'active': i === 0}">
-			</ol>
 		</div>
 	</div>
 </div>

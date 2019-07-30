@@ -27,6 +27,9 @@ import { AbcCommunityComponent } from './abc-community/abc-community.component';
 import { AbcFeaturedListingsPageComponent } from './abc-featured-listings-page/abc-featured-listings-page.component';
 import { AbcSpillwayComponent } from './abc-spillway/abc-spillway.component';
 import { AbcPhotoViewerComponent } from './abc-photo-viewer/abc-photo-viewer.component';
+import { AbcSimpleSearchComponent } from './abc-simple-search/abc-simple-search.component';
+import { AbcAdvancedSearchComponent } from './abc-advanced-search/abc-advanced-search.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
 	declarations: [
@@ -52,10 +55,13 @@ import { AbcPhotoViewerComponent } from './abc-photo-viewer/abc-photo-viewer.com
 		AbcCommunityComponent,
 		AbcFeaturedListingsPageComponent,
 		AbcSpillwayComponent,
-		AbcPhotoViewerComponent
+		AbcPhotoViewerComponent,
+		AbcSimpleSearchComponent,
+		AbcAdvancedSearchComponent
 	],
 	imports: [
 		BrowserModule,
+		FormsModule,
 		AppRoutingModule,
 		HttpClientModule
 	],

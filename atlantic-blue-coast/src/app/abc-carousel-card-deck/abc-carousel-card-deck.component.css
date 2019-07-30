@@ -13,7 +13,6 @@
 	display: flex;
 }
 
-/* display 3 */
 @media (min-width: 768px) {
 	.carousel-inner .carousel-item-right.active,
 	.carousel-inner .carousel-item-next {
@@ -29,5 +28,15 @@
 .carousel-inner .carousel-item-right,
 .carousel-inner .carousel-item-left{
 	transform: translateX(0);
+}
+
+.carousel {
+	padding: 20px;
+}
+.listing-indicators{
+	margin:5px;
+}
+.listing-indicator-item {
+	border:3px solid #1982ce;
 }
 

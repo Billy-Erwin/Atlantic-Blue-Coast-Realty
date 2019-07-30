@@ -1,5 +1,6 @@
 <div class="container mainRow" *ngIf="listingsService.featuredListings.length > 0">
-	<abc-listing-card-deck></abc-listing-card-deck>
+	<!--<abc-listing-card-deck></abc-listing-card-deck>-->
+	<abc-carousel-card-deck [listings]="listingsService.featuredListings"></abc-carousel-card-deck>
 </div>
 <!--<div class="searchComponent" style="height: 500px; border:3px solid red;">-->
 	<!--<button (click)="getFeaturedListings()" class="btn btn-outline-dark">Here is a button</button>-->
