@@ -1,6 +1,6 @@
 let request = require('request');
 
-let token = '';
+let token = 'alecxrelpen098otxjtg31p2r';
 
 let options = {
 	method: 'GET',
