@@ -32,6 +32,36 @@ export class ListingsService {
 		}));
 	}
 
+	getFilteredListings(params): Observable<Listing[]> {
+		let returnFilteredListings: Listing[] = [];
+		let queryString =
+			Object.keys(params).map(key => key + '=' + params[key]).join('&');
+		console.log('queryString : ', queryString);
+		let listingUrl = `http://localhost:4040/getFilteredListings?${queryString}`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			for(let listing of <object[]> data){
+				console.log('listing : ', listing['StandardFields']['Photos']);
+				returnFilteredListings.push(new Listing(listing));
+			}
+			return returnFilteredListings;
+		}));
+	}
+
+	getSimpleFilteredListings(params): Observable<Listing[]> {
+		let returnFilteredListings: Listing[] = [];
+		let queryString =
+			Object.keys(params).map(key => key + '=' + params[key]).join('&');
+		console.log('queryString : ', queryString);
+		let listingUrl = `http://localhost:4040/getSimpleFilteredListings?${queryString}`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			for(let listing of <object[]> data){
+				console.log('listing : ', listing['StandardFields']['Photos']);
+				returnFilteredListings.push(new Listing(listing));
+			}
+			return returnFilteredListings;
+		}));
+	}
+
 	getSelectedListing(listingId): Observable<Listing> {
 		let listingUrl = `http://localhost:4040/getSelectedListing?id=${listingId}`;
 		return this.http.get(listingUrl).pipe(map(res => {

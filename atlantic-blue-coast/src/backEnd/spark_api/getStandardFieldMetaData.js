@@ -17,7 +17,7 @@ var incomingResponse;
 function callback(error, response, body) {
 	if (!error && response.statusCode == 200) {
 		let info = JSON.parse(body);
-		console.log('info : ', info.D.Results);
+		// console.log('info : ', info.D.Results);
 		incomingResponse.writeHead(200, {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Origin': '*',

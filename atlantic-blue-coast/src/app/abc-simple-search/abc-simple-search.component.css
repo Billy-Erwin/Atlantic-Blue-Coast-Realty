@@ -1,0 +1,27 @@
+.simpleSearchWrapper * {
+	color: black;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	text-align: center;
+	border-radius: .2rem;
+}
+.simpleSearch {
+	background-color: #e2e2e4;
+	margin: 50px 0px;
+	padding: 30px 0px 75px 0px;
+}
+.searchHeader {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+.simpleSearchButton {
+	background-color: #8dd8f8;
+	border: 1px solid #8dd8f8;
+	margin-left: 10px;
+	color: ghostwhite !important;
+	font-size: 1rem;
+}
+
+.simpleSearchTextBox {
+	text-align: left !important;
+}
