@@ -1,4 +1,4 @@
-<div class="container text-center my-3">
+<div class="container-fluid text-center my-3">
 	<h2 class="font-weight-light">{{title}}</h2>
 	<div class="row mx-auto my-auto">
 		<div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
@@ -19,7 +19,13 @@
 				<span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
+			<ol class="carousel-indicators listing-indicators">
+				<li
+					*ngFor="let listing of listings; index as i"
+					data-target="#recipeCarousel"
+					[attr.data-slide-to]="i"
+					[ngClass]="{'listing-indicator-item': true, 'active': i === 0}">
+			</ol>
 		</div>
 	</div>
 </div>
-

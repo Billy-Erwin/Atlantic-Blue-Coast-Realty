@@ -1,25 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as $ from 'jquery';
-import {Listing} from "../Listing";
 import {ListingsService} from "../listings.service";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: 'abc-carousel-card-deck',
 	templateUrl: './abc-carousel-card-deck.component.html',
 	styleUrls: ['./abc-carousel-card-deck.component.css']
 })
-export class AbcCarouselCardDeckComponent implements OnInit {
+export class AbcCarouselCardDeckComponent {
 
-	listings: Listing[] = [];
+	@Input() listings;
 	title: string = 'Atlantic Blue Coast Featured Listings';
-	constructor(private listingsService: ListingsService) { }
-
-	ngOnInit(){
-		this.listings = this.listingsService.featuredListings;
-	}
+	constructor(private router: Router, private listingsService: ListingsService) { }
 
 	ngAfterViewInit() {
-		$('.carousel-item').each(function(){
+		let theRouter = this.router;
+		$('.carousel .carousel-item').each(function(){
 			let minPerSlide = 4;
 			let next = $(this).next();
 			if (!next.length) {
@@ -34,6 +31,11 @@ export class AbcCarouselCardDeckComponent implements OnInit {
 				}
 				next.children(':first-child').clone().appendTo($(this));
 			}
+		});
+		$('.listing-card').each(function(){
+			$(this).click(function () {
+				theRouter.navigate(['/selected-listing', this.id])
+			});
 		});
 	}
 }

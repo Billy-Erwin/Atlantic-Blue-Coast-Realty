@@ -1,0 +1,18 @@
+<div class="simpleSearch simpleSearchWrapper">
+	<div class="searchHeader">Search local listings</div>
+	<form (ngSubmit)="onSubmit()" #AbcSimpleSearch="ngForm">
+		<div class="row justify-content-center" >
+			<input
+				[(ngModel)]="model.searchText"
+				type="text"
+				class="simpleSearchTextBox col-5"
+				name="searchText"
+				placeholder="Enter the City, State, or ZIP code you want to search"
+				required>
+			<button type="submit" class="btn btn-primary simpleSearchButton">Search</button>
+		</div>
+	</form>
+</div>
+<!--<div *ngIf="filteredListings.length > 0">-->
+	<!--<abc-listing-card-deck [listings]="filteredListings"></abc-listing-card-deck>-->
+<!--</div>-->

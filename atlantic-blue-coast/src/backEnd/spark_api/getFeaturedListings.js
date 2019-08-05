@@ -4,10 +4,10 @@ let request = require('request');
 let token = 'alecxrelpen098otxjtg31p2r';
 let agentId = '20110315124649945876000000';
 
-let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}' And BathsFull Eq 3 And BedsTotal Eq 4`);
+let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}'`);
 
 let options = {
-	url: `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=4`,
+	url: `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=6`,
 	method: 'GET',
 	headers: {
 		'X-SparkApi-User-Agent': 'SparkAPIExamples',
