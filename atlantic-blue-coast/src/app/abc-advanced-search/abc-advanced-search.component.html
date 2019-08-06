@@ -1,3 +1,150 @@
-<p>
-  abc-advanced-search works!
-</p>
+<div class="container-fluid advancedSearch advancedSearchWrapper">
+	<div class="row justify-content-center">
+		<div class="searchHeader">Advanced Search</div>
+	</div>
+	<form (ngSubmit)="onSubmit()" #AbcSimpleSearch="ngForm">
+		<div class="row justify-content-center">
+			<div class="form-group col-sm-3">
+				<label for="searchText">Location</label>
+				<input
+					[(ngModel)]="model.searchText"
+					type="text"
+					class="advancedSearchTextBox form-control"
+					id="searchText"
+					name="searchText"
+					placeholder="City, State, or ZIP">
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="beds">Bedrooms</label>
+					<!--#beds="ngModel">-->
+				<i class="fas fa-caret-square-down"></i>
+				<select
+					[(ngModel)]="model.beds"
+					class="form-control fas fa-caret-square-down"
+					id="beds"
+					name="beds">
+					<option *ngFor="let bed of theSearchOptions['beds']" [value]="bed">{{bed}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="baths">Bathrooms</label>
+				<select
+					[(ngModel)]="model.baths"
+					class="form-control"
+					id="baths"
+					name="baths"
+					#baths="ngModel">
+					<option *ngFor="let bath of theSearchOptions['baths']" [value]="bath">{{bath}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="min_price">Min Price</label>
+				<select
+					[(ngModel)]="model.min_price"
+					class="form-control"
+					id="min_price"
+					name="min_price"
+					#min_price="ngModel">
+					<option *ngFor="let price of theSearchOptions['min_price']" [value]="price">{{price}}</option>
+				</select>
+			</div>
+
+			<div class="w-100"></div>
+
+			<div class="form-group col-sm-3">
+				<label for="max_price">Max Price</label>
+				<select
+					[(ngModel)]="model.max_price"
+					class="form-control"
+					id="max_price"
+					name="max_price"
+					#max_price="ngModel">
+					<option *ngFor="let price of theSearchOptions['max_price']" [value]="price">{{price}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="min_sqft">Min Sqft</label>
+				<select
+					[(ngModel)]="model.min_sqft"
+					class="form-control"
+					id="min_sqft"
+					name="min_sqft"
+					#min_sqft="ngModel">
+					<option *ngFor="let sqft of theSearchOptions['min_sqft']" [value]="sqft">{{sqft}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="max_sqft">Max Sqft</label>
+				<select
+					[(ngModel)]="model.max_sqft"
+					class="form-control"
+					id="max_sqft"
+					name="max_sqft"
+					#max_sqft="ngModel">
+					<option *ngFor="let sqft of theSearchOptions['max_sqft']" [value]="sqft">{{sqft}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="min_lot_size">Min Lot Size</label>
+				<select
+					[(ngModel)]="model.min_lot_size"
+					class="form-control"
+					id="min_lot_size"
+					name="min_lot_size"
+					#min_lot_size="ngModel">
+					<option *ngFor="let lot_size of theSearchOptions['min_lot_size']" [value]="lot_size">{{lot_size}}</option>
+				</select>
+			</div>
+
+			<div class="w-100"></div>
+
+			<div class="form-group col-sm-3">
+				<label for="max_lot_size">Max Lot Size</label>
+				<select
+					[(ngModel)]="model.max_lot_size"
+					class="form-control"
+					id="max_lot_size"
+					name="max_lot_size"
+					#max_lot_size="ngModel">
+					<option *ngFor="let lot_size of theSearchOptions['max_lot_size']" [value]="lot_size">{{lot_size}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="min_lot_size">Min Year Built</label>
+				<select
+					[(ngModel)]="model.min_lot_size"
+					class="form-control"
+					id="min_year_built"
+					name="min_year_built"
+					#min_year_built="ngModel">
+					<option *ngFor="let year_built of theSearchOptions['min_year_built']" [value]="year_built">{{year_built}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="max_year_built">Max Year Built</label>
+				<select
+					[(ngModel)]="model.max_year_built"
+					class="form-control"
+					id="max_year_built"
+					name="max_year_built"
+					#max_year_built="ngModel">
+					<option *ngFor="let year_built of theSearchOptions['max_year_built']" [value]="year_built">{{year_built}}</option>
+				</select>
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="submit"></label>
+				<button id="submit" type="submit" class="btn btn-primary advancedSearchButton form-control">Search</button>
+			</div>
+
+		</div>
+	</form>
+</div>

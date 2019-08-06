@@ -1,0 +1,43 @@
+.advancedSearchWrapper * {
+	color: black;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	border-radius: 0px !important;
+}
+
+label {
+	font-style: oblique;
+	font-size: small;
+}
+
+.advancedSearch {
+	background-color: #e2e2e4;
+	padding: 30px 20px 75px 20px;
+}
+
+.searchHeader {
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.advancedSearchButton {
+	background-color: #8dd8f8;
+	border: 1px solid #8dd8f8;
+	color: ghostwhite !important;
+	font-size: 1rem;
+	margin-top: 30px;
+}
+
+.advancedSearchTextBox {
+	text-align: left !important;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-border-radius: 0px;
+	background-image: url("https://image.flaticon.com/icons/svg/60/60781.svg");
+	background-position: 95% 50%;
+	background-repeat: no-repeat;
+	background-size: 16px;
+}

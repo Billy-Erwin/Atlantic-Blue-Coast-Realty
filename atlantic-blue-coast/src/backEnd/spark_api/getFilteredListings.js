@@ -1,7 +1,7 @@
 let request = require('request');
 let state_hash = require('../../assets/files/states_hash')
 
-let token = 'alecxrelpen098otxjtg31p2r';
+let token = '';
 
 let options = {
 	method: 'GET',
