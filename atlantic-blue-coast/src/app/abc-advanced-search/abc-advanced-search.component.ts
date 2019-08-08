@@ -20,6 +20,10 @@ export class AbcAdvancedSearchComponent implements OnInit {
 
 	onSubmit(){
 		console.log('submitting : ', this.model);
+		this.model.formatQuery();
+		console.log('theString : ', this.model.filterString);
+		this.model.filterParameters = [];
+		this.model.filterString = '_filter=';
 
 		// let searchTextParameter = {searchText: this.model.searchText};
 		// this.listingsService.getSimpleFilteredListings(searchTextParameter).subscribe(data => {
@@ -29,7 +33,7 @@ export class AbcAdvancedSearchComponent implements OnInit {
 
 	ngOnInit() {
 		this.theSearchOptions = this.theOptions['default'];
-		console.log('search options : ', this.theOptions);
+		// console.log('search options : ', this.theOptions);
 		// console.log('search options : ', this.theOptions.default.beds);
 	}
 
