@@ -19,20 +19,27 @@ label {
 	font-size: 2rem;
 	margin-bottom: 20px;
 }
+.advancedSearchButtonWrapper{
+	width:100px;
+}
 
 .advancedSearchButton {
 	background-color: #8dd8f8;
-	border: 1px solid #8dd8f8;
+	border: 1px solid #8dd8f8 !important;
 	color: ghostwhite !important;
 	font-size: 1rem;
-	margin-top: 30px;
+	width: 100%;
 }
 
 .advancedSearchTextBox {
 	text-align: left !important;
+	margin-right: 10px !important;
+	width: 240px;
 }
 
 select {
+	width: 100px;
+	margin-right: 10px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	-webkit-border-radius: 0px;

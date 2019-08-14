@@ -3,8 +3,6 @@ import * as searchOptions from '../../assets/files/advanced_search_options.json'
 import {Listing} from "../Listing";
 import {ListingsService} from "../listings.service";
 import {AbcAdvancedSearch} from "../abc-advanced-search";
-import {forEach} from "@angular/router/src/utils/collection";
-// import searchOptions from '../../assets/files/';
 
 @Component({
 	selector: 'abc-advanced-search',
