@@ -17,14 +17,16 @@
 
 			<div class="form-group col-sm-3">
 				<label for="beds">Bedrooms</label>
-					<!--#beds="ngModel">-->
-				<i class="fas fa-caret-square-down"></i>
 				<select
 					[(ngModel)]="model.beds"
 					class="form-control fas fa-caret-square-down"
 					id="beds"
 					name="beds">
-					<option *ngFor="let bed of theSearchOptions['beds']" [value]="bed">{{bed}}</option>
+					<option
+						*ngFor="let bed of advancedSearchOptions.bedOptions"
+						[value]="bed">
+						{{bed}}
+					</option>
 				</select>
 			</div>
 
@@ -36,7 +38,11 @@
 					id="baths"
 					name="baths"
 					#baths="ngModel">
-					<option *ngFor="let bath of theSearchOptions['baths']" [value]="bath">{{bath}}</option>
+					<option
+						*ngFor="let bath of advancedSearchOptions.bathOptions"
+						[value]="bath">
+						{{bath}}
+					</option>
 				</select>
 			</div>
 
@@ -47,8 +53,13 @@
 					class="form-control"
 					id="min_price"
 					name="min_price"
+					(change)="minChanged(model.min_price, 'maxPriceOptions', 'max_price')"
 					#min_price="ngModel">
-					<option *ngFor="let price of theSearchOptions['min_price']" [value]="price">{{price}}</option>
+					<option
+						*ngFor="let price of advancedSearchOptions.minPriceOptions"
+						[value]="price">
+						{{price}}
+					</option>
 				</select>
 			</div>
 
@@ -61,8 +72,13 @@
 					class="form-control"
 					id="max_price"
 					name="max_price"
+					(change)="maxChanged(model.max_price, 'minPriceOptions', 'min_price')"
 					#max_price="ngModel">
-					<option *ngFor="let price of theSearchOptions['max_price']" [value]="price">{{price}}</option>
+					<option
+						*ngFor="let price of advancedSearchOptions.maxPriceOptions"
+						[value]="price">
+						{{price}}
+					</option>
 				</select>
 			</div>
 
@@ -73,8 +89,13 @@
 					class="form-control"
 					id="min_sqft"
 					name="min_sqft"
+					(change)="minChanged(model.min_sqft, 'maxSqftOptions', 'max_sqft')"
 					#min_sqft="ngModel">
-					<option *ngFor="let sqft of theSearchOptions['min_sqft']" [value]="sqft">{{sqft}}</option>
+					<option
+						*ngFor="let sqft of advancedSearchOptions.minSqftOptions"
+						[value]="sqft">
+						{{sqft}}
+					</option>
 				</select>
 			</div>
 
@@ -85,8 +106,13 @@
 					class="form-control"
 					id="max_sqft"
 					name="max_sqft"
+					(change)="maxChanged(model.max_sqft, 'minSqftOptions', 'min_sqft')"
 					#max_sqft="ngModel">
-					<option *ngFor="let sqft of theSearchOptions['max_sqft']" [value]="sqft">{{sqft}}</option>
+					<option
+						*ngFor="let sqft of advancedSearchOptions.maxSqftOptions"
+						[value]="sqft">
+						{{sqft}}
+					</option>
 				</select>
 			</div>
 
@@ -97,8 +123,13 @@
 					class="form-control"
 					id="min_lot_size"
 					name="min_lot_size"
+					(change)="minChanged(model.min_lot_size, 'maxLotSizeOptions', 'max_lot_size')"
 					#min_lot_size="ngModel">
-					<option *ngFor="let lot_size of theSearchOptions['min_lot_size']" [value]="lot_size">{{lot_size}}</option>
+					<option
+						*ngFor="let lot_size of advancedSearchOptions.minLotSizeOptions"
+						[value]="lot_size">
+						{{lot_size}}
+					</option>
 				</select>
 			</div>
 
@@ -111,8 +142,13 @@
 					class="form-control"
 					id="max_lot_size"
 					name="max_lot_size"
+					(change)="maxChanged(model.max_lot_size, 'minLotSizeOptions', 'min_lot_size')"
 					#max_lot_size="ngModel">
-					<option *ngFor="let lot_size of theSearchOptions['max_lot_size']" [value]="lot_size">{{lot_size}}</option>
+					<option
+						*ngFor="let lot_size of advancedSearchOptions.maxLotSizeOptions"
+						[value]="lot_size">
+						{{lot_size}}
+					</option>
 				</select>
 			</div>
 
@@ -123,8 +159,13 @@
 					class="form-control"
 					id="min_year_built"
 					name="min_year_built"
+					(change)="minChanged(model.min_year_built, 'maxYearBuiltOptions', 'max_year_built')"
 					#min_year_built="ngModel">
-					<option *ngFor="let year_built of theSearchOptions['min_year_built']" [value]="year_built">{{year_built}}</option>
+					<option
+						*ngFor="let year_built of advancedSearchOptions.minYearBuiltOptions"
+						[value]="year_built">
+						{{year_built}}
+					</option>
 				</select>
 			</div>
 
@@ -135,8 +176,13 @@
 					class="form-control"
 					id="max_year_built"
 					name="max_year_built"
+					(change)="maxChanged(model.max_year_built, 'minYearBuiltOptions', 'min_year_built')"
 					#max_year_built="ngModel">
-					<option *ngFor="let year_built of theSearchOptions['max_year_built']" [value]="year_built">{{year_built}}</option>
+					<option
+						*ngFor="let year_built of advancedSearchOptions.maxYearBuiltOptions"
+						[value]="year_built">
+						{{year_built}}
+					</option>
 				</select>
 			</div>
 

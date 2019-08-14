@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as searchOptions from '../../assets/files/advanced_search_options.json';
 import {Listing} from "../Listing";
 import {ListingsService} from "../listings.service";
 import {AbcAdvancedSearch} from "../abc-advanced-search";
+import {forEach} from "@angular/router/src/utils/collection";
 // import searchOptions from '../../assets/files/';
 
 @Component({
@@ -10,10 +11,22 @@ import {AbcAdvancedSearch} from "../abc-advanced-search";
 	templateUrl: './abc-advanced-search.component.html',
 	styleUrls: ['./abc-advanced-search.component.css']
 })
-export class AbcAdvancedSearchComponent implements OnInit {
-	theOptions = searchOptions;
-	theSearchOptions;
+export class AbcAdvancedSearchComponent {
+	advancedSearchOptions = {
+		bedOptions : searchOptions['default']['beds'],
+		bathOptions : searchOptions['default']['baths'],
+		minYearBuiltOptions : searchOptions['default']['min_year_built'],
+		maxYearBuiltOptions : searchOptions['default']['max_year_built'],
+		minPriceOptions : searchOptions['default']['min_price'],
+		maxPriceOptions : searchOptions['default']['max_price'],
+		minSqftOptions : searchOptions['default']['min_sqft'],
+		maxSqftOptions : searchOptions['default']['max_sqft'],
+		minLotSizeOptions : searchOptions['default']['min_lot_size'],
+		maxLotSizeOptions : searchOptions['default']['max_lot_size']
+	}
+
 	model = new AbcAdvancedSearch();
+
 	private filteredListings: Listing[] = [];
 
 	constructor(private listingsService: ListingsService) { }
@@ -31,10 +44,21 @@ export class AbcAdvancedSearchComponent implements OnInit {
 		// })
 	}
 
-	ngOnInit() {
-		this.theSearchOptions = this.theOptions['default'];
-		// console.log('search options : ', this.theOptions);
-		// console.log('search options : ', this.theOptions.default.beds);
+	minChanged(minValue, maxList, defaultListName){
+		this.advancedSearchOptions[maxList] = [];
+		searchOptions['default'][defaultListName].forEach(searchOption => {
+			if(searchOption >= minValue){
+				this.advancedSearchOptions[maxList].push(searchOption);
+			}
+		});
 	}
 
+	maxChanged(maxValue, minList, defaultListName){
+		this.advancedSearchOptions[minList] = [];
+		searchOptions['default'][defaultListName].forEach(searchOption => {
+			if(searchOption <= maxValue){
+				this.advancedSearchOptions[minList].push(searchOption);
+			}
+		});
+	}
 }
