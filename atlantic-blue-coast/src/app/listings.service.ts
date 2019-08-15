@@ -8,12 +8,13 @@ import {	map } from "rxjs/operators";
 
 export class ListingsService {
 	featuredListings: Listing[] = [];
+	abcListings: Listing[] = [];
 	filteredListings: Listing[] = [];
 	constructor(private http: HttpClient) {}
 
 	setFeaturedListings(): Observable<Listing[]> {
 		this.featuredListings = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings`;
+		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
 				this.featuredListings.push(new Listing(data[i]));
@@ -22,21 +23,22 @@ export class ListingsService {
 		}));
 	}
 
-	setFilteredListings(listings) {
-		this.featuredListings = [];
-		return this.featuredListings;
-		// let listingUrl = `http://localhost:4040/getFeaturedListings`;
-		// return this.http.get(listingUrl).pipe(map(data => {
-		// 	for(let i = 0; i < 6; i++){
-		// 		this.featuredListings.push(new Listing(data[i]));
-		// 	}
-		// 	return this.featuredListings;
-		// }));
+	setAbcListings(): Observable<Listing[]> {
+		let returnAbcListings: Listing[] = [];
+		this.abcListings = [];
+		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=false`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			for(let listing of <object[]> data){
+				returnAbcListings.push(new Listing(listing));
+			}
+			this.abcListings = returnAbcListings;
+			return returnAbcListings;
+		}));
 	}
 
 	getFeaturedListings(): Observable<Listing[]> {
 		let returnFeaturedListings: Listing[] = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings`;
+		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
 				returnFeaturedListings.push(new Listing(data[i]));

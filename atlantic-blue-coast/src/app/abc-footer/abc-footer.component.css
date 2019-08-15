@@ -1,7 +1,28 @@
-.footer {
+.footer1 {
 	background-color:#1882cd;
-	position: fixed;
-	z-index: 100;
-	bottom: 0px;
+	/*position: absolute;*/
+	/*z-index: 100;*/
+	/*bottom: 0px;*/
 	padding: 15px 0px;
+	height: 500px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/*line-height: 60px;*/
 }
+.footer2{
+	width: 100%;
+	/*clear: both;*/
+	position: fixed;
+	bottom: 0px;
+	background-color:#1882cd;
+}
+.footer{
+	clear: both;
+	position: relative;
+	height: 400px;
+	/*bottom: 0px;*/
+	padding: 15px 0px;
+	margin-bottom: 0px;
+	background-color:#1882cd;
+ }

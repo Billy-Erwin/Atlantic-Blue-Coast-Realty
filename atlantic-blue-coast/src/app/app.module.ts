@@ -24,7 +24,7 @@ import { AbcSearchPropertiesComponent } from './abc-search-properties/abc-search
 import { AbcAboutComponent } from './abc-about/abc-about.component';
 import { AbcContactUsComponent } from './abc-contact-us/abc-contact-us.component';
 import { AbcCommunityComponent } from './abc-community/abc-community.component';
-import { AbcFeaturedListingsPageComponent } from './abc-featured-listings-page/abc-featured-listings-page.component';
+import { AbcListingsPageComponent } from './abc-listings-page/abc-listings-page.component';
 import { AbcSpillwayComponent } from './abc-spillway/abc-spillway.component';
 import { AbcPhotoViewerComponent } from './abc-photo-viewer/abc-photo-viewer.component';
 import { AbcSimpleSearchComponent } from './abc-simple-search/abc-simple-search.component';
@@ -53,7 +53,7 @@ import {FormsModule} from "@angular/forms";
 		AbcAboutComponent,
 		AbcContactUsComponent,
 		AbcCommunityComponent,
-		AbcFeaturedListingsPageComponent,
+		AbcListingsPageComponent,
 		AbcSpillwayComponent,
 		AbcPhotoViewerComponent,
 		AbcSimpleSearchComponent,

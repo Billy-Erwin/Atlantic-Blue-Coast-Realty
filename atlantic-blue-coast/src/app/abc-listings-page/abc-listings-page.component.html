@@ -1,0 +1,11 @@
+<div class="container-fluid listingsPageWrapper">
+	<div class="listingsPageHeader row justify-content-center">Atlantic Blue Coast Realty Listings</div>
+</div>
+<div class="row justify-content-center my-lg-5 mx-lg-5">
+	<div *ngIf="listingsService.abcListings.length > 0">
+		<abc-listing-card-deck [listings]="listingsService.abcListings"></abc-listing-card-deck>
+	</div>
+</div>
+<div class="row justify-content-center">
+	<div style="height: 500px;"></div>
+</div>

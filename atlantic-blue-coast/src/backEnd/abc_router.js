@@ -13,7 +13,7 @@ exports.routeRequest = function(req, resp){
 	let resourcePath = urlObj.pathname.toString();
 
 	if(resourcePath === '/getFeaturedListings') {
-		featuredListings.getFeaturedListings(resp);
+		featuredListings.getFeaturedListings(resp, urlObj.query.limit);
 	} else if(resourcePath === '/getSelectedListing') {
 		selectedListing.getSelectedListing(resp, urlObj.query.id);
 	} else if(resourcePath === '/getStandardFieldMetadata') {

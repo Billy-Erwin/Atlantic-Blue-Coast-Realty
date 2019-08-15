@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {AbcSelectedListingComponent} from "./abc-selected-listing/abc-selected-listing.component";
 import {AbcHomePageComponent} from "./abc-home-page/abc-home-page.component";
 import {AbcAboutComponent} from "./abc-about/abc-about.component";
-import {AbcFeaturedListingsPageComponent} from "./abc-featured-listings-page/abc-featured-listings-page.component";
+import {AbcListingsPageComponent} from "./abc-listings-page/abc-listings-page.component";
 import {AbcCommunityComponent} from "./abc-community/abc-community.component";
 import {AbcSearchPropertiesComponent} from "./abc-search-properties/abc-search-properties.component";
 import {AbcContactUsComponent} from "./abc-contact-us/abc-contact-us.component";
@@ -36,7 +36,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'listings',
-		component: AbcFeaturedListingsPageComponent,
+		component: AbcListingsPageComponent,
 		data: { title: 'Featured Listings' }
 	},
 	{
