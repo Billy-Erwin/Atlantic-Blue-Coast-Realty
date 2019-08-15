@@ -9,24 +9,19 @@ export class AbcAdvancedSearch {
 	max_year_built: number;
 	min_sqft: number;
 	max_sqft: number;
+	searchText: string;
 
 	filterParameters: string[] = [];
 
-	filterString: string = '_filter='
+	filterString: string = ''
 
 	formatQuery(){
 		this.setBedsCondition();
-		console.log('filterParameters : ', this.filterParameters);
 		this.setBathsCondition();
-		console.log('filterParameters : ', this.filterParameters);
 		this.setPriceCondition();
-		console.log('filterParameters : ', this.filterParameters);
 		this.setYearBuiltCondition();
-		console.log('filterParameters : ', this.filterParameters);
 		this.setSqftCondition();
-		console.log('filterParameters : ', this.filterParameters);
 		for(let i = 0; i < this.filterParameters.length; i++){
-			console.log('param : ', this.filterParameters[i]);
 			this.filterString += `${this.filterParameters[i]} And `
 		}
 		this.filterString = this.filterString.substring(0, this.filterString.length - 5);

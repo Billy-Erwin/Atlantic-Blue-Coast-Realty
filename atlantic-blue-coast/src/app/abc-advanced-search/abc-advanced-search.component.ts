@@ -30,16 +30,20 @@ export class AbcAdvancedSearchComponent {
 	constructor(private listingsService: ListingsService) { }
 
 	onSubmit(){
-		console.log('submitting : ', this.model);
+		// console.log('submitting : ', this.model);
 		this.model.formatQuery();
-		console.log('theString : ', this.model.filterString);
+		// console.log('theString : ', this.model.filterString);
+		this.listingsService.getFilteredListings(
+			this.model.filterString, this.model.searchText).subscribe(listings => {
+				// this.listingsService.setFilteredListings(listings).subscribe(data =>{});
+			// this.listingsService.filteredListings = listings;
+			// this.filteredListings = data;
+			console.log('filteredListings : ', listings);
+		});
 		this.model.filterParameters = [];
-		this.model.filterString = '_filter=';
+		this.model.filterString = '';
 
 		// let searchTextParameter = {searchText: this.model.searchText};
-		// this.listingsService.getSimpleFilteredListings(searchTextParameter).subscribe(data => {
-		// 	this.filteredListings = data;
-		// })
 	}
 
 	minChanged(minValue, maxList, defaultListName){

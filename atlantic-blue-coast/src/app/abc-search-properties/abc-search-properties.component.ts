@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ListingsService} from "../listings.service";
 
 @Component({
   selector: 'abc-search-properties',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbcSearchPropertiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private listingsService: ListingsService) { }
 
   ngOnInit() {
   }

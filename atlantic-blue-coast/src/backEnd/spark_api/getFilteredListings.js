@@ -47,27 +47,30 @@ function buildFilterSegment(filterFieldsMap){
 	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${filterSegment}`;
 }
 
-function buildSimpleFilterSegment(searchText){
-	if(searchText){
-		let filterSegment = '_filter=';
-		let city = searchText;
+function buildLocationSegment(locationSearchText){
+	let filterSegment = '';
+	if(locationSearchText){
+		console.log('yay');
+		let city = locationSearchText;
 		let postalCode = 0;
-		let stateAbbreviation = usaStates(searchText);
+		let stateAbbreviation = usaStates(locationSearchText);
 		filterSegment += `tolower(City) Eq tolower('${city}') Or `;
 		filterSegment += `tolower(StateOrProvince) Eq tolower('${stateAbbreviation}') Or `;
-		if(!isNaN(searchText)){
-			postalCode = searchText;
+		if(!isNaN(locationSearchText)){
+			postalCode = locationSearchText;
 		}
 		filterSegment += `tolower(PostalCode) Eq tolower('${postalCode}')`;
 
 		console.log('filterSegment : ' + filterSegment);
-		options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${encodeURI(filterSegment)}`;
+	} else {
+		console.log('booo');
 	}
+	return filterSegment;
 }
 
 function usaStates(stateString){
 	stateString = (stateString + "").toLowerCase();
-	for(var key in state_hash){
+	for(let key in state_hash){
 		if(state_hash.hasOwnProperty(key) &&
 			(stateString == (key + "").toLowerCase() || stateString == state_hash[key].toLowerCase())){
 			return state_hash[key];
@@ -77,14 +80,33 @@ function usaStates(stateString){
 }
 
 module.exports.getFilteredListings = function(resp, filterFieldsMap){
-	console.log('filteredFieldsMap : ', filterFieldsMap);
-	buildFilterSegment(filterFieldsMap);
+	console.log('filterString : ', filterFieldsMap.filterString);
+	console.log('locationSearchText : ', filterFieldsMap.searchText);
+	let filterSegment = '';
+	if(filterFieldsMap.searchText && filterFieldsMap.searchText != 'undefined'){
+		console.log('wtf : ', filterFieldsMap.searchText);
+		filterSegment = `(${buildLocationSegment(filterFieldsMap.searchText)})`;
+	}
+	if(filterFieldsMap.filterString){
+		if(filterFieldsMap.searchText && filterFieldsMap.searchText != 'undefined'){
+			filterSegment += `And ${filterFieldsMap.filterString}`;
+		} else {
+			filterSegment = filterFieldsMap.filterString.trim();
+		}
+	}
+	// console.log('filterSegment : ', filterSegment);
+	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=${encodeURI(filterSegment)}`;
+	// options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=BedsTotal Ge 2 And BathsFull Ge 1 And ListPrice Bt 100000, 200000 And YearBuilt Ge 2010 And BuildingAreaTotal Bt 500, 1750`;
+	// buildLocationSegment(filterFieldsMap.searchText);
+	// buildFilterSegment(filterFieldsMap);
 	incomingResponse = resp;
 	request(options, callback);
 }
 
-module.exports.getSimpleFilteredListings = function(resp, searchText){
-	buildSimpleFilterSegment(searchText);
+module.exports.getSimpleFilteredListings = function(resp, locationText){
+	// buildLocationSegment(locationText);
+	options.url =
+		`https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=${encodeURI(buildLocationSegment(locationText))}`;
 	incomingResponse = resp;
 	request(options, callback);
 }
