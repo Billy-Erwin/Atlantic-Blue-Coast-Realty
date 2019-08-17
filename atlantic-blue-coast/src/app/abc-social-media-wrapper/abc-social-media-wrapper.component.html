@@ -1,10 +1,15 @@
 <div class="row container-fluid no-gutters">
-	<div class="col-md-6">
+	<div class="col-md-4">
 		<span *ngFor="let socialMediaLink of ericSocialMediaLinks">
 			<abc-social-media [socialMediaData]="socialMediaLink"></abc-social-media>
 		</span>
 	</div>
-	<div class="col-md-6 text-md-right" >
+	<div class="col-md-4">
+		<div class="abc-slogan">
+			{{slogan}}
+		</div>
+	</div>
+	<div class="col-md-4 text-md-right" >
 		<span *ngFor="let socialMediaLink of socialMediaLinks">
 			<abc-social-media [socialMediaData]="socialMediaLink"></abc-social-media>
 		</span>
