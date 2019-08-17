@@ -7,7 +7,7 @@ let agentId = '20110315124649945876000000';
 let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}'`);
 
 let options = {
-	url: `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=6`,
+	url: `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}`,
 	method: 'GET',
 	headers: {
 		'X-SparkApi-User-Agent': 'SparkAPIExamples',
@@ -34,7 +34,10 @@ function callback(error, response, body) {
 	}
 }
 
-module.exports.getFeaturedListings = function(resp){
+module.exports.getFeaturedListings = function(resp, limit){
+	if(limit === 'true'){
+		options.url += '&_limit=6';
+	}
 	incomingResponse = resp;
 	request(options, callback);
 }

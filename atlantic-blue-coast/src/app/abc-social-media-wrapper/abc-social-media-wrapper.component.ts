@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AbcSocialMediaWrapperComponent implements OnInit {
 	socialMediaLinks = [];
 	ericSocialMediaLinks = [];
+	slogan = 'Real estate... easy as A B C!'
 
 	constructor() { }
 

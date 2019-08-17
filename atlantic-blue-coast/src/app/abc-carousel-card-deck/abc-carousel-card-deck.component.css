@@ -40,3 +40,11 @@
 	border:3px solid #1982ce;
 }
 
+.carouselWrapper * {
+	color: black;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+}
+.carouselHeader{
+	font-size: 2rem;
+}

@@ -8,11 +8,13 @@ import {	map } from "rxjs/operators";
 
 export class ListingsService {
 	featuredListings: Listing[] = [];
+	abcListings: Listing[] = [];
+	filteredListings: Listing[] = [];
 	constructor(private http: HttpClient) {}
 
 	setFeaturedListings(): Observable<Listing[]> {
 		this.featuredListings = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings`;
+		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
 				this.featuredListings.push(new Listing(data[i]));
@@ -21,9 +23,22 @@ export class ListingsService {
 		}));
 	}
 
+	setAbcListings(): Observable<Listing[]> {
+		let returnAbcListings: Listing[] = [];
+		this.abcListings = [];
+		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=false`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			for(let listing of <object[]> data){
+				returnAbcListings.push(new Listing(listing));
+			}
+			this.abcListings = returnAbcListings;
+			return returnAbcListings;
+		}));
+	}
+
 	getFeaturedListings(): Observable<Listing[]> {
 		let returnFeaturedListings: Listing[] = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings`;
+		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
 				returnFeaturedListings.push(new Listing(data[i]));
@@ -32,25 +47,26 @@ export class ListingsService {
 		}));
 	}
 
-	getFilteredListings(params): Observable<Listing[]> {
+	getFilteredListings(filterString, searchText): Observable<Listing[]> {
 		let returnFilteredListings: Listing[] = [];
-		let queryString =
-			Object.keys(params).map(key => key + '=' + params[key]).join('&');
-		console.log('queryString : ', queryString);
-		let listingUrl = `http://localhost:4040/getFilteredListings?${queryString}`;
+		console.log(filterString);
+		console.log(searchText);
+		// let queryString = Object.keys(filterString).map(key => key + '=' + filterString[key]).join('&');
+		// console.log('queryString : ', queryString);
+		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let listing of <object[]> data){
 				console.log('listing : ', listing['StandardFields']['Photos']);
 				returnFilteredListings.push(new Listing(listing));
 			}
+			this.filteredListings = returnFilteredListings;
 			return returnFilteredListings;
 		}));
 	}
 
 	getSimpleFilteredListings(params): Observable<Listing[]> {
 		let returnFilteredListings: Listing[] = [];
-		let queryString =
-			Object.keys(params).map(key => key + '=' + params[key]).join('&');
+		let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
 		console.log('queryString : ', queryString);
 		let listingUrl = `http://localhost:4040/getSimpleFilteredListings?${queryString}`;
 		return this.http.get(listingUrl).pipe(map(data => {
