@@ -1,7 +1,7 @@
 let request = require('request');
+let tukus = require('../../assets/files/tukus');
 
-
-let token = '';
+let token = tukus['tukus'];
 
 let options = {
 	method: 'GET',

@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import * as $ from 'jquery';
 import {ListingsService} from "../listings.service";
 import { Router } from "@angular/router";
 

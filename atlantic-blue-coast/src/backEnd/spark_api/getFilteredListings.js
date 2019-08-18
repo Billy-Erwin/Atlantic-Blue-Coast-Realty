@@ -1,7 +1,10 @@
 let request = require('request');
-let state_hash = require('../../assets/files/states_hash')
+let state_hash = require('../../assets/files/states_hash');
 
-let token = '';
+let tukus = require('../../assets/files/tukus');
+
+
+let token = tukus['tukus'];
 
 let options = {
 	method: 'GET',
