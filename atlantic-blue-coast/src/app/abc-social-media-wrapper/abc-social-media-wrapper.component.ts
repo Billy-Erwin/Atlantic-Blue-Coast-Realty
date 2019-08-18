@@ -9,6 +9,7 @@ export class AbcSocialMediaWrapperComponent implements OnInit {
 	socialMediaLinks = [];
 	ericSocialMediaLinks = [];
 	slogan = 'Real estate... easy as A B C!'
+	theDataContent=`<h2>ContactInfo</h2>`
 
 	constructor() { }
 
@@ -25,5 +26,11 @@ export class AbcSocialMediaWrapperComponent implements OnInit {
 			{class: 'fa fa-twitter', href: 'http://twitter.com/erichillreal'},
 			{class: 'fa fa-instagram', href: 'http://instagram.com/erichillreal'},
 		];
+
+		$(function () {
+			($('[data-toggle="popover"]') as any).popover(
+				{content: `<h2>Contact Info</h2>`}
+			)
+		})
 	}
 }
