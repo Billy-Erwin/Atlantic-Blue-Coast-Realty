@@ -9,7 +9,7 @@ export class Listing {
 			this.id = listingObject['Id'] != null ? listingObject['Id'] : '';
 			if(listingObject['StandardFields'] != null) {
 				this.standardFields = listingObject['StandardFields'];
-				// this.customFields = listingObject['CustomFields'];
+				this.customFields = listingObject['CustomFields'];
 				// console.log('standardFields : ', this.standardFields);
 				// console.log('Main : ', this.customFields[0]['Main']);
 				// console.log('Details : ', this.customFields[0]['Details']);

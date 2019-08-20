@@ -2,27 +2,45 @@
 	class="container-fluid"
 	align="center"
 	*ngIf="selectedListing && selectedListing.standardFields['Photos']">
-			<h3>{{selectedListing.getStreetAddress()}} {{selectedListing.standardFields['ListPrice'] | currency}}</h3>
 	<div class="row">
-		<div class="col-md-6" style="height:800px; overflow-x: scroll;">
-			<div align="left" style="height: fit-content; padding:15px;">
-				<div *ngFor="let standardField of standardFieldService.standardFields">
-					<!--<div *ngIf="selectedListing.standardFields[standardField.fieldName] != null">-->
-					<div>
-						<span>{{standardField.label}} : </span>
-						<span>{{selectedListing.standardFields[standardField.fieldName]}}</span>
+		<div class="col-md-6">
+
+			<div class="topLevelInfo">
+				<div>{{selectedListing.standardFields['ListPrice'] | currency}}</div>
+				<div>{{selectedListing.getStreetAddress()}}</div>
+				<small>
+					{{selectedListing.getCityAndState()}} {{selectedListing.standardFields['PostalCode']}}
+				</small>
+				<div>Status: {{selectedListing.standardFields['MlsStatus']}}</div>
+			</div>
+
+			<div style="height:800px; overflow-x: scroll;">
+				<div align="left" style="height: fit-content; padding:15px;">
+
+					<div class="basicInfo">
+						<div>Beds | {{selectedListing.standardFields['BedsTotal']}}</div>
+						<div>Baths | {{selectedListing.standardFields['BathsTotal']}}</div>
+						<div>Apx Total SqFt | {{selectedListing.standardFields['BuildingAreaTotal']}}</div>
+						<div>Apx Lot Size | {{selectedListing.customFields[0]['Main'][1]['Property Information'][19]['# of Acres M/L']}}</div>
+						<div>Year Built | {{selectedListing.standardFields['YearBuilt']}}</div>
+					</div>
+
+					<div *ngFor="let standardField of standardFieldService.standardFields">
+						<!--<div *ngIf="selectedListing.standardFields[standardField.fieldName] != null">-->
+						<div>
+							<span>{{standardField.label}} : </span>
+							<span>{{standardField.fieldName}} : </span>
+							<span>{{selectedListing.standardFields[standardField.fieldName]}}</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
 		<div class="col-md-6">
 			<abc-photo-viewer [listingPhotos]="selectedListing.standardFields['Photos']"></abc-photo-viewer>
-		</div>
-	</div>
-	<div class="row" style="margin: 50px 0px;">
-		<div class="col-12-sm">
-			<img *ngFor="let photo of selectedListing.standardFields['Photos']" src="{{photo.Uri300}}"/>
-
+			<div class="description">Description: {{selectedListing.standardFields['PublicRemarks']}}</div>
 		</div>
 	</div>
 </div>

@@ -83,7 +83,7 @@ export class ListingsService {
 		return this.http.get(listingUrl).pipe(map(res => {
 			// console.log(res);
 			// console.log(res[0]['StandardFields']);
-			// console.log(res[0]['CustomFields']);
+			console.log(res[0]['CustomFields']);
 			let mainCategories = Object.keys(res[0]['CustomFields'][0]);
 			for(let mainCategory of mainCategories){
 				console.log(mainCategory);
