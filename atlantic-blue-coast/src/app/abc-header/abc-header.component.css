@@ -31,7 +31,9 @@
 	text-decoration: underline
 }
 .header-logo{
+	/*background-image: url("../../assets/images/abc_logo_white.png");*/
 	background-image: url("../../assets/images/abc_logo_white.png");
+	/*background-image: url("../../assets/images/abc_logo_white_1_no_text_120.svg");*/
 	background-size: cover;
 	cursor: pointer;
 	margin: 6px;

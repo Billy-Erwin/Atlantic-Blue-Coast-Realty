@@ -1,11 +1,11 @@
 .footer {
-	background-color:#1882cd;
+	background-color: #1882cd;
 	position: fixed;
 	z-index: 100;
 	bottom: 0px;
 	padding: 15px 0px;
 	width: 100%;
 }
-.scaffold{
-	height: 60px;
+.scaffold {
+	height: 54px;
 }

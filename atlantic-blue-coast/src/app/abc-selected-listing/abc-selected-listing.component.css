@@ -1,14 +1,27 @@
-.topLevelInfo{
+.topLevelInfo {
 	margin-top: 1.25rem;
 	margin-bottom: .5rem;
-	/*border: 1px solid black;*/
+	border: 1px solid black;
 	width: fit-content;
+	text-align: left;
+	padding: 1rem;
+}
+
+.description {
 	text-align: left;
 }
 
-.description{
-	text-align: left;
+.basicInfo {
+	border: 2px solid red;
+	margin: 1rem;
+	padding: 1rem;
 }
-.basicInfo{
-	border:2px solid red;
+
+.legal {
+	border: 20px solid lightgray;
+	padding: 20px;
+	height: 400px;
+	background-color: lightgray !important;
+	background: url("../../assets/images/try5.png");
+	background-repeat: space;
 }

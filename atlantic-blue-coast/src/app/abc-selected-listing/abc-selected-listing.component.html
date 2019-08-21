@@ -19,28 +19,41 @@
 
 					<div class="basicInfo">
 						<div>Beds | {{selectedListing.standardFields['BedsTotal']}}</div>
-						<div>Baths | {{selectedListing.standardFields['BathsTotal']}}</div>
+						<div>Baths Full | {{selectedListing.standardFields['BathsFull']}} Baths Half | {{selectedListing.standardFields['BathsHalf']}}</div>
 						<div>Apx Total SqFt | {{selectedListing.standardFields['BuildingAreaTotal']}}</div>
-						<div>Apx Lot Size | {{selectedListing.customFields[0]['Main'][1]['Property Information'][19]['# of Acres M/L']}}</div>
+						<!--<div>Apx Lot Size | {{selectedListing.customFields[0]['Main'][1]['Property Information'][19]['# of Acres M/L']}}</div>-->
 						<div>Year Built | {{selectedListing.standardFields['YearBuilt']}}</div>
 					</div>
 
-					<div *ngFor="let standardField of standardFieldService.standardFields">
-						<!--<div *ngIf="selectedListing.standardFields[standardField.fieldName] != null">-->
-						<div>
-							<span>{{standardField.label}} : </span>
-							<span>{{standardField.fieldName}} : </span>
-							<span>{{selectedListing.standardFields[standardField.fieldName]}}</span>
-						</div>
+					<div class="basicInfo">
+						<div>Subdivision | </div>
+						<div>Waterfront | </div>
+						<div>garage / parking | </div>
+						<div>porch / balcony / deck | </div>
+					</div>
+
+					<div class="basicInfo">
+						<div>Cooling System | </div>
+						<div>Heating System | </div>
+						<div>Fireplace | </div>
+						<div>Interior Features | </div>
+						<div>Exterior Features | </div>
+						<div>Exterior Structures | </div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-
 		<div class="col-md-6">
 			<abc-photo-viewer [listingPhotos]="selectedListing.standardFields['Photos']"></abc-photo-viewer>
 			<div class="description">Description: {{selectedListing.standardFields['PublicRemarks']}}</div>
+		</div>
+
+
+	</div>
+	<div class="row">
+		<div class="col-12 legal">
+			<!--Legal Stuff-->
 		</div>
 	</div>
 </div>
