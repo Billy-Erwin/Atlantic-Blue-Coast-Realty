@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'abc-detail-section',
-  templateUrl: './abc-detail-section.component.html',
-  styleUrls: ['./abc-detail-section.component.css']
+	selector: 'abc-detail-section',
+	templateUrl: './abc-detail-section.component.html',
+	styleUrls: ['./abc-detail-section.component.css']
 })
 export class AbcDetailSectionComponent implements OnInit {
 
-  constructor() { }
+	// @Input() tableData;
+	tableData: {};
+	constructor() { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+		this.tableData = {
+			category: 'Basic Info',
+			fields: [
+				{label: 'Beds', value: 3},
+				{label: 'Baths', value: 2},
+				{label: 'Sqft', value: 3}
+			]
+		}
+	}
 
 }

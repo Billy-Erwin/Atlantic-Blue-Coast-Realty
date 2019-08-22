@@ -22,6 +22,10 @@
 	padding: 20px;
 	height: 400px;
 	background-color: lightgray !important;
-	background: url("../../assets/images/try5.png");
+	/*background: url("../../assets/images/slim_logo_blue_174x108.png");*/
+	background: url("../../assets/images/abc_logo_white.png");
 	background-repeat: space;
+	background-size: 125px 100px;
+	/*background-padding: 125px 100px;*/
+
 }
