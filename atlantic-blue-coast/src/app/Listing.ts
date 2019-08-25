@@ -33,7 +33,7 @@ export class Listing {
 				this.customFields = customList;
 			}
 		}
-		console.log('standardFields : ', this.standardFields);
+		// console.log('standardFields : ', this.standardFields);
 	}
 
 	getStreetAddress(): string{
