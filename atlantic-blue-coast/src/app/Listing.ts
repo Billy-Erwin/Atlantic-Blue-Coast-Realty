@@ -1,6 +1,6 @@
 export class Listing {
 	standardFields: object[];
-	customFields: object[];
+	customFields: {};
 	id: string;
 	primaryPhoto: string;
 
@@ -30,8 +30,10 @@ export class Listing {
 						}
 					}
 				}
+				this.customFields = customList;
 			}
-		} 
+		}
+		console.log('standardFields : ', this.standardFields);
 	}
 
 	getStreetAddress(): string{

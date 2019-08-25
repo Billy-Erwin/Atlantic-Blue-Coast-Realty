@@ -32,6 +32,7 @@ import { AbcAdvancedSearchComponent } from './abc-advanced-search/abc-advanced-s
 import {FormsModule} from "@angular/forms";
 import { AbcEmailComponent } from './abc-email/abc-email.component';
 import { AbcDetailSectionComponent } from './abc-detail-section/abc-detail-section.component';
+import { AbcListingDetailsComponent } from './abc-listing-details/abc-listing-details.component';
 
 @NgModule({
 	declarations: [
@@ -61,7 +62,8 @@ import { AbcDetailSectionComponent } from './abc-detail-section/abc-detail-secti
 		AbcSimpleSearchComponent,
 		AbcAdvancedSearchComponent,
 		AbcEmailComponent,
-		AbcDetailSectionComponent
+		AbcDetailSectionComponent,
+		AbcListingDetailsComponent
 	],
 	imports: [
 		BrowserModule,

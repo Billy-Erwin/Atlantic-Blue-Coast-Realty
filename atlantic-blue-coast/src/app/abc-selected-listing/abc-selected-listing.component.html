@@ -14,8 +14,10 @@
 				<div>Status: {{selectedListing.standardFields['MlsStatus']}}</div>
 			</div>
 
-			<div style="height:800px; overflow-x: scroll;">
+			<div style="height:600px; overflow-x: scroll;">
 				<div align="left" style="height: fit-content; padding:15px;">
+
+					<abc-listing-details [aInfoList]="selectedListing.customFields"></abc-listing-details>
 
 					<div class="basicInfo">
 						<div>Beds | {{selectedListing.standardFields['BedsTotal']}}</div>
@@ -25,7 +27,6 @@
 						<div>Year Built | {{selectedListing.standardFields['YearBuilt']}}</div>
 					</div>
 
-					<abc-detail-section></abc-detail-section>
 
 					<div class="basicInfo">
 						<div>Subdivision | </div>
