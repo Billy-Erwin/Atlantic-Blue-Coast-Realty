@@ -38,7 +38,7 @@ export class AbcAdvancedSearchComponent {
 				// this.listingsService.setFilteredListings(listings).subscribe(data =>{});
 			// this.listingsService.filteredListings = listings;
 			// this.filteredListings = data;
-			console.log('filteredListings : ', listings);
+				console.log('filteredListings : ', listings);
 		});
 		this.model.filterParameters = [];
 		this.model.filterString = '';
@@ -47,20 +47,32 @@ export class AbcAdvancedSearchComponent {
 	}
 
 	minChanged(minValue, maxList, defaultListName){
-		this.advancedSearchOptions[maxList] = [];
-		searchOptions['default'][defaultListName].forEach(searchOption => {
-			if(searchOption >= minValue){
-				this.advancedSearchOptions[maxList].push(searchOption);
+		if(minValue != null){
+			if(minValue == 'Any'){
+				this.advancedSearchOptions[maxList] = searchOptions['default'][defaultListName];
+			} else {
+				this.advancedSearchOptions[maxList] = [];
+				searchOptions['default'][defaultListName].forEach(searchOption => {
+					if(searchOption >= minValue){
+						this.advancedSearchOptions[maxList].push(searchOption);
+					}
+				});
 			}
-		});
+		}
 	}
 
 	maxChanged(maxValue, minList, defaultListName){
-		this.advancedSearchOptions[minList] = [];
-		searchOptions['default'][defaultListName].forEach(searchOption => {
-			if(searchOption <= maxValue){
-				this.advancedSearchOptions[minList].push(searchOption);
+		if(maxValue != null){
+			if(maxValue == 'Any'){
+				this.advancedSearchOptions[minList] = searchOptions['default'][defaultListName];
+			} else {
+				this.advancedSearchOptions[minList] = [];
+				searchOptions['default'][defaultListName].forEach(searchOption => {
+					if(searchOption <= maxValue){
+						this.advancedSearchOptions[minList].push(searchOption);
+					}
+				});
 			}
-		});
+		}
 	}
 }

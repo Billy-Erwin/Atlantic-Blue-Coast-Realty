@@ -1,0 +1,33 @@
+.fieldLabel {
+	border-right: 1px solid #dfdfd3;
+}
+
+.padding-override {
+	padding: 0px !important;
+}
+
+.addPad {
+	padding: .75rem 1.25rem;
+}
+
+.row {
+	height: 3rem;
+}
+
+.list-group {
+	margin: 2rem;
+}
+
+.list-group-item:first-child {
+	border-radius: unset !important;
+}
+
+.list-group-item:last-child {
+	border-radius: unset !important;
+}
+
+.list-group-item.active{
+	background-color: #e2e2e4;
+	border: 1px solid #e2e2e4;
+	color: black;
+}

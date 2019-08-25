@@ -30,6 +30,9 @@ import { AbcPhotoViewerComponent } from './abc-photo-viewer/abc-photo-viewer.com
 import { AbcSimpleSearchComponent } from './abc-simple-search/abc-simple-search.component';
 import { AbcAdvancedSearchComponent } from './abc-advanced-search/abc-advanced-search.component';
 import {FormsModule} from "@angular/forms";
+import { AbcEmailComponent } from './abc-email/abc-email.component';
+import { AbcDetailSectionComponent } from './abc-detail-section/abc-detail-section.component';
+import { AbcListingDetailsComponent } from './abc-listing-details/abc-listing-details.component';
 
 @NgModule({
 	declarations: [
@@ -57,7 +60,10 @@ import {FormsModule} from "@angular/forms";
 		AbcSpillwayComponent,
 		AbcPhotoViewerComponent,
 		AbcSimpleSearchComponent,
-		AbcAdvancedSearchComponent
+		AbcAdvancedSearchComponent,
+		AbcEmailComponent,
+		AbcDetailSectionComponent,
+		AbcListingDetailsComponent
 	],
 	imports: [
 		BrowserModule,

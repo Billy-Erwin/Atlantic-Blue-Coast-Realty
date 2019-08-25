@@ -1,6 +1,6 @@
 export class Listing {
 	standardFields: object[];
-	customFields: object[];
+	customFields: {};
 	id: string;
 	primaryPhoto: string;
 
@@ -9,16 +9,31 @@ export class Listing {
 			this.id = listingObject['Id'] != null ? listingObject['Id'] : '';
 			if(listingObject['StandardFields'] != null) {
 				this.standardFields = listingObject['StandardFields'];
-				// this.customFields = listingObject['CustomFields'];
-				// console.log('standardFields : ', this.standardFields);
-				// console.log('Main : ', this.customFields[0]['Main']);
-				// console.log('Details : ', this.customFields[0]['Details']);
 				this.primaryPhoto =
 					(listingObject['StandardFields']['Photos'][0] &&
 					listingObject['StandardFields']['Photos'][0]['Uri300'])?
 					listingObject['StandardFields']['Photos'][0]['Uri300'] : '';
 			}
-		} 
+			if(listingObject['CustomFields'] != null) {
+				let customList = {};
+				let mainCategories = Object.keys(listingObject['CustomFields'][0]);
+				for(let mainCategory of mainCategories){
+					customList[mainCategory] = {};
+					let subCategories = listingObject['CustomFields'][0][mainCategory];
+					for(let subCategory of subCategories) {
+						let subCategoryName = Object.keys(subCategory)[0];
+						customList[mainCategory][subCategoryName] = {};
+						let customFields = subCategory[subCategoryName];
+						for(let customField of customFields){
+							let fieldNames = Object.keys(customField)[0];
+							customList[mainCategory][subCategoryName][fieldNames] = customField[fieldNames];
+						}
+					}
+				}
+				this.customFields = customList;
+			}
+		}
+		console.log('standardFields : ', this.standardFields);
 	}
 
 	getStreetAddress(): string{
@@ -44,6 +59,4 @@ export class Listing {
 		let yearBuilt = 'Year Built: ' + (this.standardFields['YearBuilt'] != null ? this.standardFields['YearBuilt']: '');
 		return `${beds} | ${baths} | ${sqft} | ${yearBuilt}`;
 	}
-
-
 }

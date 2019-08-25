@@ -1,0 +1,31 @@
+.topLevelInfo {
+	margin-top: 1.25rem;
+	margin-bottom: .5rem;
+	border: 1px solid black;
+	width: fit-content;
+	text-align: left;
+	padding: 1rem;
+}
+
+.description {
+	text-align: left;
+}
+
+.basicInfo {
+	border: 2px solid red;
+	margin: 1rem;
+	padding: 1rem;
+}
+
+.legal {
+	border: 20px solid lightgray;
+	padding: 20px;
+	height: 400px;
+	background-color: lightgray !important;
+	/*background: url("../../assets/images/slim_logo_blue_174x108.png");*/
+	background: url("../../assets/images/abc_logo_white.png");
+	background-repeat: space;
+	background-size: 125px 100px;
+	/*background-padding: 125px 100px;*/
+
+}
