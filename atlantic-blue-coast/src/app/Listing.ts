@@ -3,6 +3,7 @@ export class Listing {
 	customFields: {};
 	id: string;
 	primaryPhoto: string;
+	defaultPhoto: string = '../../assets/images/abc_logo_2.jpg';
 
 	constructor(listingObject: object){
 		if(listingObject != null && listingObject['StandardFields'] != null){
@@ -12,7 +13,7 @@ export class Listing {
 				this.primaryPhoto =
 					(listingObject['StandardFields']['Photos'][0] &&
 					listingObject['StandardFields']['Photos'][0]['Uri300'])?
-					listingObject['StandardFields']['Photos'][0]['Uri300'] : '';
+					listingObject['StandardFields']['Photos'][0]['Uri300'] : this.defaultPhoto;
 			}
 			if(listingObject['CustomFields'] != null) {
 				let customList = {};

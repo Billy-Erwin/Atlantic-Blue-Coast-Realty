@@ -8,6 +8,7 @@ import {ListingsService} from "../listings.service";
 })
 export class AbcListingsPageComponent implements OnInit {
 
+	title: string = 'Atlantic Blue Coast Realty Listings';
 	constructor(private listingsService: ListingsService) { }
 
 	ngOnInit() {

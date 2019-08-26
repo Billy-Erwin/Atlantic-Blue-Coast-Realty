@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import * as searchOptions from '../../assets/files/advanced_search_options.json';
-import {Listing} from "../Listing";
 import {ListingsService} from "../listings.service";
 import {AbcAdvancedSearch} from "../abc-advanced-search";
 
@@ -25,8 +24,6 @@ export class AbcAdvancedSearchComponent {
 
 	model = new AbcAdvancedSearch();
 
-	private filteredListings: Listing[] = [];
-
 	constructor(private listingsService: ListingsService) { }
 
 	onSubmit(){
@@ -34,7 +31,7 @@ export class AbcAdvancedSearchComponent {
 		this.model.formatQuery();
 		// console.log('theString : ', this.model.filterString);
 		this.listingsService.getFilteredListings(
-			this.model.filterString, this.model.searchText).subscribe(listings => {
+			this.model.filterString, this.model.searchText, 1).subscribe(listings => {
 				// this.listingsService.setFilteredListings(listings).subscribe(data =>{});
 			// this.listingsService.filteredListings = listings;
 			// this.filteredListings = data;

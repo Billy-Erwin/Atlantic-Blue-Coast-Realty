@@ -47,7 +47,7 @@ export class ListingsService {
 		}));
 	}
 
-	getFilteredListings(filterString, searchText): Observable<Listing[]> {
+	getFilteredListings(filterString, searchText, page): Observable<Listing[]> {
 		let returnFilteredListings: Listing[] = [];
 		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}`;
 		return this.http.get(listingUrl).pipe(map(data => {

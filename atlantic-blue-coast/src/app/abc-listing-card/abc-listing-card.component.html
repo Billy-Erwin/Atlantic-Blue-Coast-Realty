@@ -1,9 +1,5 @@
-<div
-	[routerLink]="['/selected-listing', listing.id]"
-	id="{{listing.id}}"
-	class="listing-card">
-	<img class="card-img-top" src="{{listing.primaryPhoto}}"
-		  onerror="if (this.src != '../../assets/images/abc_logo_2.jpg') this.src = '../../assets/images/abc_logo_2.jpg';">
+<div [routerLink]="['/selected-listing', listing.id]" id="{{listing.id}}" class="listing-card">
+	<img class="card-img-top" [src]="listing.primaryPhoto">
 	<div class="card-body">
 		<h5 class="card-title">{{listing.standardFields['ListPrice'] | currency}}</h5>
 		<p class="card-text">{{listing.getStreetAddress()}}</p>

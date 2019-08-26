@@ -6,8 +6,10 @@ import {Component, Input} from '@angular/core';
 	styleUrls: ['./abc-listing-card-deck.component.css']
 })
 export class AbcListingCardDeckComponent {
+
 	@Input() listings;
-	title: string = 'Atlantic Blue Coast Featured Listings';
+	@Input() title;
+	@Input() paginationHash;
 
 	constructor() { }
 }
