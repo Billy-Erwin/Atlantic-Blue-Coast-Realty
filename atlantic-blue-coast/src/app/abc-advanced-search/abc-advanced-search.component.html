@@ -174,10 +174,10 @@
 		</div>
 	</form>
 </div>
-<div *ngIf="listingsService.filteredListings.length > 0">
+<div>
 	<abc-listing-card-deck
 			[title]=""
-			[paginationHash]=""
+			[paginationHash]="paginationObject"
 			[listings]="listingsService.filteredListings">
 	</abc-listing-card-deck>
 </div>

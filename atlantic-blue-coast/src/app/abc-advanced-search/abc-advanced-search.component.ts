@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import * as searchOptions from '../../assets/files/advanced_search_options.json';
-import {ListingsService} from "../listings.service";
-import {AbcAdvancedSearch} from "../abc-advanced-search";
+import { ListingsService } from "../listings.service";
+import { AbcAdvancedSearch } from "../abc-advanced-search";
 
 @Component({
 	selector: 'abc-advanced-search',
 	templateUrl: './abc-advanced-search.component.html',
 	styleUrls: ['./abc-advanced-search.component.css']
 })
+
 export class AbcAdvancedSearchComponent {
 	advancedSearchOptions = {
 		bedOptions : searchOptions['default']['beds'],
@@ -22,25 +23,20 @@ export class AbcAdvancedSearchComponent {
 		maxLotSizeOptions : searchOptions['default']['max_lot_size']
 	}
 
+	paginationObject: any;
+
 	model = new AbcAdvancedSearch();
 
 	constructor(private listingsService: ListingsService) { }
 
 	onSubmit(){
-		// console.log('submitting : ', this.model);
 		this.model.formatQuery();
-		// console.log('theString : ', this.model.filterString);
 		this.listingsService.getFilteredListings(
-			this.model.filterString, this.model.searchText, 1).subscribe(listings => {
-				// this.listingsService.setFilteredListings(listings).subscribe(data =>{});
-			// this.listingsService.filteredListings = listings;
-			// this.filteredListings = data;
-				console.log('filteredListings : ', listings);
+			this.model.filterString, this.model.searchText, 1).subscribe(data => {
+				this.paginationObject = data;
+				this.paginationObject.filterString = this.model.filterString;
+				this.paginationObject.searchText = this.model.searchText;
 		});
-		this.model.filterParameters = [];
-		this.model.filterString = '';
-
-		// let searchTextParameter = {searchText: this.model.searchText};
 	}
 
 	minChanged(minValue, maxList, defaultListName){

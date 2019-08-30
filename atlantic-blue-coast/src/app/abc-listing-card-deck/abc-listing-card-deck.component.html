@@ -1,12 +1,14 @@
-<div class="container-fluid text-center">
+<div class="container text-center">
 	<div class="row">
 		<div class="col-12">
-			<abc-pagination></abc-pagination>
+			<abc-pagination [paginationObject]="paginationHash"></abc-pagination>
 		</div>
 	</div>
-	<div class="row justify-content-center">
+</div>
+<div  *ngIf="listingsService.filteredListings.length > 0" class="container justify-content-center">
+	<div class="row justify-content-left">
 		<div *ngFor="let listing of listings; index as i">
-			<div style="margin:50px 10px; width:200px; height:300px;">
+			<div class="listing-card-wrapper">
 				<abc-listing-card [listing]="listing"></abc-listing-card>
 			</div>
 		</div>

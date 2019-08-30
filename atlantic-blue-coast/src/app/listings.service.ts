@@ -10,6 +10,7 @@ export class ListingsService {
 	featuredListings: Listing[] = [];
 	abcListings: Listing[] = [];
 	filteredListings: Listing[] = [];
+
 	constructor(private http: HttpClient) {}
 
 	setFeaturedListings(): Observable<Listing[]> {
@@ -47,15 +48,25 @@ export class ListingsService {
 		}));
 	}
 
-	getFilteredListings(filterString, searchText, page): Observable<Listing[]> {
-		let returnFilteredListings: Listing[] = [];
-		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}`;
+	setFilteredListings(filterString, searchText, page): Observable<any[]> {
+		this.filteredListings = [];
+		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}`;
 		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of <object[]> data){
-				returnFilteredListings.push(new Listing(listing));
+			for(let listing of data['listings']){
+				this.filteredListings.push(new Listing(listing));
 			}
-			this.filteredListings = returnFilteredListings;
-			return returnFilteredListings;
+			return data['pagination'];
+		}));
+	}
+
+	getFilteredListings(filterString, searchText, page): Observable<any[]> {
+		this.filteredListings = [];
+		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}`;
+		return this.http.get(listingUrl).pipe(map(data => {
+			for(let listing of data['listings']){
+				this.filteredListings.push(new Listing(listing));
+			}
+			return data['pagination'];
 		}));
 	}
 

@@ -11,11 +11,12 @@ export class AbcAdvancedSearch {
 	max_sqft: number;
 	searchText: string;
 
-	filterParameters: string[] = [];
-
-	filterString: string = ''
+	filterParameters: string[];
+	filterString: string;
 
 	formatQuery(){
+		this.filterString = '';
+		this.filterParameters = [];
 		this.setBedsCondition();
 		this.setBathsCondition();
 		this.setPriceCondition();
