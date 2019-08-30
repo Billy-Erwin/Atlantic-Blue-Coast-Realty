@@ -17,10 +17,10 @@ export class AbcPaginationComponent implements OnInit {
 
 	ngOnInit() {
 		this.currentPage = 1;
-		console.log('oh my lawd : ', this.paginationObject);
 	}
 
 	changePage(pageNumber){
+		console.log('oh my lawd : ', this.paginationObject);
 		console.log(pageNumber);
 		this.listingsService.getFilteredListings(
 			this.paginationObject.filterString, this.paginationObject.searchText, pageNumber).subscribe(data => {

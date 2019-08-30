@@ -3,7 +3,6 @@ let state_hash = require('../../assets/files/states_hash');
 
 let tukus = require('../../assets/files/tukus');
 
-
 let token = tukus['tukus'];
 
 let options = {
@@ -21,6 +20,10 @@ var incomingResponse;
 function callback(error, response, body) {
 	if (!error && response.statusCode == 200) {
 		let info = JSON.parse(body);
+		let returnObj = {
+			listings: info.D.Results,
+			pagination: info.D.Pagination
+		};
 		// console.log(info.length);
 		// console.log(info);
 		incomingResponse.writeHead(200, {
@@ -28,7 +31,18 @@ function callback(error, response, body) {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Headers': 'X-Requested-With'
 		});
-		incomingResponse.end(JSON.stringify(info.D.Results));
+		incomingResponse.end(JSON.stringify(returnObj));
+	} else {
+		console.log('error : ', error);
+		console.log('response.statusCode : ', response.statusCode)
+	}
+}
+
+function testCallback(error, response, body) {
+	if (!error && response.statusCode == 200) {
+		let info = JSON.parse(body);
+		console.log(info.D);
+		// console.log(info.D.Results);
 	} else {
 		console.log('error : ', error);
 		console.log('response.statusCode : ', response.statusCode)
@@ -85,6 +99,7 @@ function usaStates(stateString){
 module.exports.getFilteredListings = function(resp, filterFieldsMap){
 	console.log('filterString : ', filterFieldsMap.filterString);
 	console.log('locationSearchText : ', filterFieldsMap.searchText);
+	console.log('page : ', filterFieldsMap.page);
 	let filterSegment = '';
 	if(filterFieldsMap.searchText && filterFieldsMap.searchText != 'undefined'){
 		console.log('wtf : ', filterFieldsMap.searchText);
@@ -98,10 +113,7 @@ module.exports.getFilteredListings = function(resp, filterFieldsMap){
 		}
 	}
 	// console.log('filterSegment : ', filterSegment);
-	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=${encodeURI(filterSegment)}`;
-	// options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=BedsTotal Ge 2 And BathsFull Ge 1 And ListPrice Bt 100000, 200000 And YearBuilt Ge 2010 And BuildingAreaTotal Bt 500, 1750`;
-	// buildLocationSegment(filterFieldsMap.searchText);
-	// buildFilterSegment(filterFieldsMap);
+	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_limit=16&_pagination=1&_page=${filterFieldsMap.page}&_filter=${encodeURI(filterSegment)}`;
 	incomingResponse = resp;
 	request(options, callback);
 }
@@ -113,3 +125,12 @@ module.exports.getSimpleFilteredListings = function(resp, locationText){
 	incomingResponse = resp;
 	request(options, callback);
 }
+
+function getSimpleFilteredListingsTest(){
+	// buildLocationSegment(locationText);
+	let filterSegment = 'BathsHalf Eq 2';
+	options.url =
+		`https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_limit=16&_pagination=1&_filter=${filterSegment}`;
+	request(options, testCallback);
+}
+getSimpleFilteredListingsTest();
