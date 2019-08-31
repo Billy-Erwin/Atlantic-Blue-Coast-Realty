@@ -1,3 +1,17 @@
 .pagination {
 	margin-top: 1rem;
 }
+
+.selectedPage {
+	background-color: #8dd8f8;
+	border-left: #8dd8f8;
+	border-right: #8dd8f8;
+}
+
+.selectedPageNeighbor {
+	border-left: #8dd8f8;
+}
+
+.page-item {
+	cursor: pointer;
+}

@@ -22,12 +22,12 @@ export class AbcPaginationComponent implements OnInit {
 	changePage(pageNumber){
 		console.log('oh my lawd : ', this.paginationObject);
 		console.log(pageNumber);
+		this.currentPage = pageNumber;
+		if(this.pageNumbers[4] == this.currentPage || this.currentPage == this.pageNumbers[0] - 1){
+			this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
+		}
 		this.listingsService.getFilteredListings(
 			this.paginationObject.filterString, this.paginationObject.searchText, pageNumber).subscribe(data => {
-				this.currentPage = pageNumber;
-				if(this.pageNumbers[4] == this.currentPage){
-					this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
-				}
 		});
 	}
 }
