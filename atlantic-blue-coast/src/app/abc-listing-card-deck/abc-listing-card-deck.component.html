@@ -5,7 +5,7 @@
 		</div>
 	</div>
 </div>
-<div *ngIf="listingsService.filteredListings?.length" class="container justify-content-center">
+<div *ngIf="listings?.length" class="container justify-content-center">
 	<div class="row justify-content-left">
 		<div *ngFor="let listing of listings; index as i">
 			<div class="listing-card-wrapper">

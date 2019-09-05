@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ListingsService } from "../listings.service";
 
 @Component({
@@ -6,11 +6,8 @@ import { ListingsService } from "../listings.service";
 	templateUrl: './abc-search-properties.component.html',
 	styleUrls: ['./abc-search-properties.component.css']
 })
-export class AbcSearchPropertiesComponent implements OnInit {
+export class AbcSearchPropertiesComponent {
 
 	constructor(private listingsService: ListingsService) { }
-
-	ngOnInit() {
-	}
 
 }

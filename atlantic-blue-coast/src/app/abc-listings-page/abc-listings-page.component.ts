@@ -9,10 +9,15 @@ import {ListingsService} from "../listings.service";
 export class AbcListingsPageComponent implements OnInit {
 
 	title: string = 'Atlantic Blue Coast Realty Listings';
+	paginationObject: any;
+
+
 	constructor(private listingsService: ListingsService) { }
 
 	ngOnInit() {
-		this.listingsService.setAbcListings().subscribe(data => {});
+		this.listingsService.setAbcListings().subscribe(data => {
+			this.paginationObject = data;
+		});
 	}
 
 }

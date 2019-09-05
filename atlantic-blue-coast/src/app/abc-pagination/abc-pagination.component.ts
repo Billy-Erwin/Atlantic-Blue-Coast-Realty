@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input } from '@angular/core';
 import {ListingsService} from "../listings.service";
 
 @Component({
@@ -6,24 +6,21 @@ import {ListingsService} from "../listings.service";
 	templateUrl: './abc-pagination.component.html',
 	styleUrls: ['./abc-pagination.component.css']
 })
-export class AbcPaginationComponent implements OnInit {
+
+export class AbcPaginationComponent {
 
 	@Input() paginationObject;
-	currentPage: number;
-	lastPage: number;
-	pageNumbers: number[] = [1, 2, 3, 4, 5];
+	pageNumbers: number[];
 
 	constructor(private listingsService: ListingsService) { }
 
-	ngOnInit() {
-		this.currentPage = 1;
+	ngOnChanges() {
+		this.pageNumbers = [1, 2, 3, 4, 5];
 	}
 
 	changePage(pageNumber){
-		console.log('oh my lawd : ', this.paginationObject);
-		console.log(pageNumber);
-		this.currentPage = pageNumber;
-		if(this.pageNumbers[4] == this.currentPage || this.currentPage == this.pageNumbers[0] - 1){
+		this.paginationObject['CurrentPage'] = pageNumber;
+		if(this.pageNumbers[4] == this.paginationObject['CurrentPage'] || this.paginationObject['CurrentPage'] == this.pageNumbers[0] - 1){
 			this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
 		}
 		this.listingsService.getFilteredListings(

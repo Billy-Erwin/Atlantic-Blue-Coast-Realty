@@ -34,7 +34,6 @@ export class AbcAdvancedSearchComponent {
 		this.listingsService.getFilteredListings(
 			this.model.filterString, this.model.searchText, 1).subscribe(data => {
 				this.paginationObject = data;
-				// this.paginationObject.currentPage = 1;
 				this.paginationObject.filterString = this.model.filterString;
 				this.paginationObject.searchText = this.model.searchText;
 		});
