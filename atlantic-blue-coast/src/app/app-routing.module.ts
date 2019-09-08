@@ -30,6 +30,11 @@ const routes: Routes = [
 		data: { title: 'Search Properties' }
 	},
 	{
+		path: 'search/:searchText',
+		component: AbcSearchPropertiesComponent,
+		data: { title: 'Search Properties' }
+	},
+	{
 		path: 'community',
 		component: AbcCommunityComponent,
 		data: { title: 'Community' }

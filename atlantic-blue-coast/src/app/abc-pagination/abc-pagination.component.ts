@@ -20,7 +20,10 @@ export class AbcPaginationComponent {
 
 	changePage(pageNumber){
 		this.paginationObject['CurrentPage'] = pageNumber;
-		if(this.pageNumbers[4] == this.paginationObject['CurrentPage'] || this.paginationObject['CurrentPage'] == this.pageNumbers[0] - 1){
+		if(this.pageNumbers[4] == this.paginationObject['CurrentPage'] ||
+			this.paginationObject['CurrentPage'] == 1 ||
+			this.paginationObject['CurrentPage'] == this.pageNumbers[0] - 1 ||
+			this.paginationObject['CurrentPage'] == this.paginationObject['TotalPages']){
 			this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
 		}
 		this.listingsService.getFilteredListings(

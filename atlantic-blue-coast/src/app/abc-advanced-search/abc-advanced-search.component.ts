@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as searchOptions from '../../assets/files/advanced_search_options.json';
 import { ListingsService } from "../listings.service";
 import { AbcAdvancedSearch } from "../abc-advanced-search";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: 'abc-advanced-search',
@@ -9,7 +10,7 @@ import { AbcAdvancedSearch } from "../abc-advanced-search";
 	styleUrls: ['./abc-advanced-search.component.css']
 })
 
-export class AbcAdvancedSearchComponent {
+export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 	advancedSearchOptions = {
 		bedOptions : searchOptions['default']['beds'],
 		bathOptions : searchOptions['default']['baths'],
@@ -27,7 +28,21 @@ export class AbcAdvancedSearchComponent {
 
 	model = new AbcAdvancedSearch();
 
-	constructor(private listingsService: ListingsService) { }
+	constructor(private listingsService: ListingsService, private route: ActivatedRoute) { }
+
+	ngOnInit(){
+		let searchText = this.route.snapshot.paramMap.get('searchText');
+		if(searchText && searchText !== null){
+			this.model.searchText = searchText;
+			this.onSubmit();
+		}
+	}
+
+	ngOnDestroy(){
+		this.listingsService.filteredListings = [];
+		this.paginationObject = {};
+	}
+
 
 	onSubmit(){
 		this.model.formatQuery();

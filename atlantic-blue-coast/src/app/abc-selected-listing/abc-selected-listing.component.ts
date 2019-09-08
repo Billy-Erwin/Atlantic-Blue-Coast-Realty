@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ListingsService} from "../listings.service";
+import { Component, OnInit } from '@angular/core';
+import { ListingsService } from "../listings.service";
 import { ActivatedRoute } from '@angular/router';
-import {Listing} from "../Listing";
-import {StandardFieldService} from "../standard-field.service";
+import { Listing} from "../Listing";
+import { StandardFieldService } from "../standard-field.service";
 
 @Component({
 	selector: 'abc-selected-listing',

@@ -71,14 +71,14 @@ export class ListingsService {
 	}
 
 	getSimpleFilteredListings(params): Observable<Listing[]> {
-		let returnFilteredListings: Listing[] = [];
+		this.filteredListings = [];
 		let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
 		let listingUrl = `http://localhost:4040/getSimpleFilteredListings?${queryString}`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let listing of <object[]> data){
-				returnFilteredListings.push(new Listing(listing));
+				this.filteredListings.push(new Listing(listing));
 			}
-			return returnFilteredListings;
+			return this.filteredListings;
 		}));
 	}
 
