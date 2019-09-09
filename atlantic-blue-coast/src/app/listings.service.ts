@@ -15,45 +15,21 @@ export class ListingsService {
 
 	setFeaturedListings(): Observable<Listing[]> {
 		this.featuredListings = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
+		let listingUrl = `http://localhost:4040/getFeaturedListings`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
-				this.featuredListings.push(new Listing(data[i]));
+				this.featuredListings.push(new Listing(data['listings'][i]));
 			}
 			return this.featuredListings;
 		}));
 	}
 
-	setAbcListings(): Observable<Listing[]> {
-		let returnAbcListings: Listing[] = [];
+	setAbcListings(page): Observable<any[]> {
 		this.abcListings = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=false`;
+		let listingUrl = `http://localhost:4040/getAbcListings?page=${page}`;
 		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of <object[]> data){
-				returnAbcListings.push(new Listing(listing));
-			}
-			this.abcListings = returnAbcListings;
-			return returnAbcListings;
-		}));
-	}
-
-	getFeaturedListings(): Observable<Listing[]> {
-		let returnFeaturedListings: Listing[] = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
-		return this.http.get(listingUrl).pipe(map(data => {
-			for(let i = 0; i < 6; i++){
-				returnFeaturedListings.push(new Listing(data[i]));
-			}
-			return returnFeaturedListings;
-		}));
-	}
-
-	setFilteredListings(filterString, searchText, page): Observable<any[]> {
-		this.filteredListings = [];
-		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}`;
-		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of data['listings']){
-				this.filteredListings.push(new Listing(listing));
+			for(let listing of <object[]> data['listings']){
+				this.abcListings.push(new Listing(listing));
 			}
 			return data['pagination'];
 		}));
@@ -67,18 +43,6 @@ export class ListingsService {
 				this.filteredListings.push(new Listing(listing));
 			}
 			return data['pagination'];
-		}));
-	}
-
-	getSimpleFilteredListings(params): Observable<Listing[]> {
-		this.filteredListings = [];
-		let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-		let listingUrl = `http://localhost:4040/getSimpleFilteredListings?${queryString}`;
-		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of <object[]> data){
-				this.filteredListings.push(new Listing(listing));
-			}
-			return this.filteredListings;
 		}));
 	}
 

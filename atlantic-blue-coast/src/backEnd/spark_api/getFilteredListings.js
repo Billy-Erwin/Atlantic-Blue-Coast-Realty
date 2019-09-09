@@ -104,4 +104,4 @@ function getSimpleFilteredListingsTest(){
 		`https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_limit=16&_pagination=1&_filter=${filterSegment}`;
 	request(options, testCallback);
 }
-getSimpleFilteredListingsTest();
+// getSimpleFilteredListingsTest();
