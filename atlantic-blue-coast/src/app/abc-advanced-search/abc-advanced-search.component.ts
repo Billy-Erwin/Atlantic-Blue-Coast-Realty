@@ -43,7 +43,6 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		this.paginationObject = {};
 	}
 
-
 	onSubmit(){
 		this.model.formatQuery();
 		this.listingsService.getFilteredListings(
@@ -51,6 +50,7 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 				this.paginationObject = data;
 				this.paginationObject.filterString = this.model.filterString;
 				this.paginationObject.searchText = this.model.searchText;
+				this.paginationObject.page = 'filteredListings';
 		});
 	}
 

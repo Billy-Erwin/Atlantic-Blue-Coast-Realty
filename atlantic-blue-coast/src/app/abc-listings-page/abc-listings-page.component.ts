@@ -17,6 +17,8 @@ export class AbcListingsPageComponent implements OnInit {
 	ngOnInit() {
 		this.listingsService.setAbcListings(1).subscribe(data => {
 			this.paginationObject = data;
+			this.paginationObject.page = 'abcListings';
 		});
 	}
+
 }

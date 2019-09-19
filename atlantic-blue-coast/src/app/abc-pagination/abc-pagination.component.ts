@@ -26,8 +26,14 @@ export class AbcPaginationComponent {
 			this.paginationObject['CurrentPage'] == this.paginationObject['TotalPages']){
 			this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
 		}
-		this.listingsService.getFilteredListings(
-			this.paginationObject.filterString, this.paginationObject.searchText, pageNumber).subscribe(data => {
-		});
+
+		if(this.paginationObject.page === 'filteredListings'){
+			this.listingsService.getFilteredListings(
+				this.paginationObject.filterString, this.paginationObject.searchText, pageNumber).subscribe(data => {
+			});
+		} else if (this.paginationObject.page === 'abcListings'){
+			this.listingsService.setAbcListings(this.paginationObject['CurrentPage']).subscribe(data => {});
+		}
+
 	}
 }
