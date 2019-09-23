@@ -2,12 +2,10 @@
 	<div class="listingsPageHeader row justify-content-center">{{title}}</div>
 </div>
 
-<div class="row justify-content-center my-lg-5 mx-lg-5">
-	<div *ngIf="listingsService.abcListings.length > 0">
-		<abc-listing-card-deck
-			[title]="title"
-			[paginationHash]="paginationObject"
-			[listings]="listingsService.abcListings">
-		</abc-listing-card-deck>
-	</div>
+<div>
+	<abc-listing-card-deck
+		[title]="title"
+		[paginationHash]="paginationObject"
+		[listings]="listingsService.abcListings">
+	</abc-listing-card-deck>
 </div>
