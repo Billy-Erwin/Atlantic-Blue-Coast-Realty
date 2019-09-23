@@ -10,64 +10,39 @@ export class ListingsService {
 	featuredListings: Listing[] = [];
 	abcListings: Listing[] = [];
 	filteredListings: Listing[] = [];
+
 	constructor(private http: HttpClient) {}
 
 	setFeaturedListings(): Observable<Listing[]> {
 		this.featuredListings = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
+		let listingUrl = `http://localhost:4040/getFeaturedListings`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
-				this.featuredListings.push(new Listing(data[i]));
+				this.featuredListings.push(new Listing(data['listings'][i]));
 			}
 			return this.featuredListings;
 		}));
 	}
 
-	setAbcListings(): Observable<Listing[]> {
-		let returnAbcListings: Listing[] = [];
+	setAbcListings(page): Observable<any[]> {
 		this.abcListings = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=false`;
+		let listingUrl = `http://localhost:4040/getAbcListings?page=${page}`;
 		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of <object[]> data){
-				returnAbcListings.push(new Listing(listing));
+			for(let listing of <object[]> data['listings']){
+				this.abcListings.push(new Listing(listing));
 			}
-			this.abcListings = returnAbcListings;
-			return returnAbcListings;
+			return data['pagination'];
 		}));
 	}
 
-	getFeaturedListings(): Observable<Listing[]> {
-		let returnFeaturedListings: Listing[] = [];
-		let listingUrl = `http://localhost:4040/getFeaturedListings?limit=true`;
+	getFilteredListings(filterString, searchText, page): Observable<any[]> {
+		this.filteredListings = [];
+		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}`;
 		return this.http.get(listingUrl).pipe(map(data => {
-			for(let i = 0; i < 6; i++){
-				returnFeaturedListings.push(new Listing(data[i]));
+			for(let listing of data['listings']){
+				this.filteredListings.push(new Listing(listing));
 			}
-			return returnFeaturedListings;
-		}));
-	}
-
-	getFilteredListings(filterString, searchText): Observable<Listing[]> {
-		let returnFilteredListings: Listing[] = [];
-		let listingUrl = `http://localhost:4040/getFilteredListings?filterString=${filterString}&searchText=${searchText}`;
-		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of <object[]> data){
-				returnFilteredListings.push(new Listing(listing));
-			}
-			this.filteredListings = returnFilteredListings;
-			return returnFilteredListings;
-		}));
-	}
-
-	getSimpleFilteredListings(params): Observable<Listing[]> {
-		let returnFilteredListings: Listing[] = [];
-		let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-		let listingUrl = `http://localhost:4040/getSimpleFilteredListings?${queryString}`;
-		return this.http.get(listingUrl).pipe(map(data => {
-			for(let listing of <object[]> data){
-				returnFilteredListings.push(new Listing(listing));
-			}
-			return returnFilteredListings;
+			return data['pagination'];
 		}));
 	}
 

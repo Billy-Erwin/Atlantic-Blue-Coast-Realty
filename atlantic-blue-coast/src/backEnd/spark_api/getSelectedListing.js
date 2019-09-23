@@ -30,9 +30,32 @@ function callback(error, response, body) {
 		console.log('response.statusCode : ', response.statusCode)
 	}
 }
+function testCallback(error, response, body) {
+	// console.log('error : ', error);
+	// console.log('response : ', response);
+	// console.log('body : ', body);
+	if (!error && response.statusCode == 200) {
+		let info = JSON.parse(body);
+		console.log('info : ', info.D.Results);
+
+	} else {
+		console.log('error : ', error);
+		console.log('response.statusCode : ', response.statusCode)
+	}
+}
 
 module.exports.getSelectedListing = function(resp, id){
 	options.url = `https://sparkapi.com/v1/listings/${id}?_expand=Photos,CustomFieldsExpanded`;
 	incomingResponse = resp;
 	request(options, callback);
 }
+function getSelectedListingTest(){
+	let id = '20070816154711041927000000';
+	let mlsId = '20090403000000000001000000';
+	options.url = `https://sparkapi.com/v1/listings/${id}?_expand=Photos,CustomFieldsExpanded`;
+	options.url = `https://sparkapi.com/v1/standardfields`;
+	options.url = `https://sparkapi.com/v1/mls/${mlsId}/standardfields`;
+	request(options, testCallback);
+}
+
+// getSelectedListingTest();

@@ -33,6 +33,7 @@ import {FormsModule} from "@angular/forms";
 import { AbcEmailComponent } from './abc-email/abc-email.component';
 import { AbcDetailSectionComponent } from './abc-detail-section/abc-detail-section.component';
 import { AbcListingDetailsComponent } from './abc-listing-details/abc-listing-details.component';
+import { AbcPaginationComponent } from './abc-pagination/abc-pagination.component';
 
 @NgModule({
 	declarations: [
@@ -63,7 +64,8 @@ import { AbcListingDetailsComponent } from './abc-listing-details/abc-listing-de
 		AbcAdvancedSearchComponent,
 		AbcEmailComponent,
 		AbcDetailSectionComponent,
-		AbcListingDetailsComponent
+		AbcListingDetailsComponent,
+		AbcPaginationComponent
 	],
 	imports: [
 		BrowserModule,

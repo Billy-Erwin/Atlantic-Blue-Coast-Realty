@@ -6,12 +6,19 @@ import {ListingsService} from "../listings.service";
 	templateUrl: './abc-listings-page.component.html',
 	styleUrls: ['./abc-listings-page.component.css']
 })
+
 export class AbcListingsPageComponent implements OnInit {
+
+	title: string = 'Atlantic Blue Coast Realty Listings';
+	paginationObject: any;
 
 	constructor(private listingsService: ListingsService) { }
 
 	ngOnInit() {
-		this.listingsService.setAbcListings().subscribe(data => {});
+		this.listingsService.setAbcListings(1).subscribe(data => {
+			this.paginationObject = data;
+			this.paginationObject.page = 'abcListings';
+		});
 	}
 
 }

@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {ListingsService} from "../listings.service";
 
 @Component({
 	selector: 'abc-listing-card-deck',
@@ -6,8 +7,10 @@ import {Component, Input} from '@angular/core';
 	styleUrls: ['./abc-listing-card-deck.component.css']
 })
 export class AbcListingCardDeckComponent {
-	@Input() listings;
-	title: string = 'Atlantic Blue Coast Featured Listings';
 
-	constructor() { }
+	@Input() listings;
+	@Input() title;
+	@Input() paginationHash;
+
+	constructor(private listingsService: ListingsService) { }
 }

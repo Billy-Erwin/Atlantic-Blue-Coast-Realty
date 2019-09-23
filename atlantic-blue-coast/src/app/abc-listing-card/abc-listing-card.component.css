@@ -3,3 +3,9 @@
 	border-radius: .25rem;
 	border: 1px solid rgba(0,0,0,.125);
 }
+.card-img-top {
+	height: 150px;
+}
+div.card-body {
+	height: 140px;
+}

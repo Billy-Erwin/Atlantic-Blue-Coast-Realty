@@ -1,0 +1,28 @@
+<nav aria-label="ABC Pagination">
+	<ul class="pagination justify-content-end">
+		<li [ngClass]="{'page-item': true, 'disabled': paginationObject['CurrentPage'] == 1}">
+			<a class="page-link" (click)="changePage(1)">First</a>
+		</li>
+		<li [ngClass]="{'page-item': true, 'disabled': paginationObject['CurrentPage'] == 1}">
+			<a class="page-link" (click)="changePage(pageNumbers[0] - 1)">Previous</a>
+		</li>
+
+		<li *ngFor="let page of pageNumbers" class="page-item">
+			<a
+				*ngIf="page <= paginationObject['TotalPages']"
+				[ngClass]="{
+					'page-link': true,
+					'selectedPage': paginationObject['CurrentPage'] == page,
+					'selectedPageNeighbor': page == paginationObject['CurrentPage'] + 1}"
+				(click)="changePage(page)">
+				{{page}}
+			</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" (click)="changePage(pageNumbers[4])">Next</a>
+		</li>
+		<li [ngClass]="{'page-item': true, 'disabled': paginationObject['CurrentPage'] == paginationObject['TotalPages']}">
+			<a class="page-link" (click)="changePage(paginationObject['TotalPages'])">Last</a>
+		</li>
+	</ul>
+</nav>

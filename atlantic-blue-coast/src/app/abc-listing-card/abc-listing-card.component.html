@@ -1,8 +1,5 @@
-<div
-	[routerLink]="['/selected-listing', listing.id]"
-	id="{{listing.id}}"
-	class="listing-card">
-	<img class="card-img-top" src="{{listing.primaryPhoto}}" alt="Card image cap">
+<div [routerLink]="['/selected-listing', listing.id]" id="{{listing.id}}" class="listing-card">
+	<img class="card-img-top" [src]="listing.primaryPhoto">
 	<div class="card-body">
 		<h5 class="card-title">{{listing.standardFields['ListPrice'] | currency}}</h5>
 		<p class="card-text">{{listing.getStreetAddress()}}</p>
