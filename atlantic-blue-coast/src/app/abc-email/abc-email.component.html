@@ -1,7 +1,32 @@
-<h2>Oh No you Didn't!</h2>
+<div class="container emailWrapper" style="margin-top: 2rem !important;">
+	<div class="row no-gutters">
+		<div class="col-12 emailHeader">
+			Contact Us
+		</div>
+	</div>
 
-<div class="popover" role="tooltip">
-	<div class="arrow"></div>
-	<h3 class="popover-header"></h3>
-	<div class="popover-body"></div>
+	<form id="emailForm1" (ngSubmit)="submit()">
+		<div class="form-group">
+			<input type="text" class="form-control" id="fullName1" placeholder="Full name">
+		</div>
+		<div class="form-group">
+			<input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<input type="number" class="form-control" id="phoneNumber1" placeholder="Phone number">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" id="emailMessage1" rows="3" placeholder="Message"></textarea>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-6">
+				<button
+					id="submitButton1"
+					type="submit"
+					class="btn btn-lg submitButton">
+					Send
+				</button>
+			</div>
+		</div>
+	</form>
 </div>

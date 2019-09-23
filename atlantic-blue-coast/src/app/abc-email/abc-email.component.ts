@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AbcEmailComponent implements OnInit {
 
+  model = {
+    email: '',
+    phoneNumber: '',
+    fullName: '',
+    emailMessage: ''
+  };
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  submit(){
+    console.log('submitting form');
   }
 
 }
