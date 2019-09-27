@@ -53,8 +53,8 @@ function buildLocationSegment(locationSearchText){
 		let city = locationSearchText;
 		let postalCode = 0;
 		let stateAbbreviation = usaStates(locationSearchText);
-		filterSegment += `tolower(City) Eq tolower('${city}') Or `;
-		filterSegment += `tolower(StateOrProvince) Eq tolower('${stateAbbreviation}') Or `;
+		filterSegment += `City Eq contains('${city}') Or `;
+		filterSegment += `StateOrProvince Eq contains('${stateAbbreviation}') Or `;
 		if(!isNaN(locationSearchText)){
 			postalCode = locationSearchText;
 		}
@@ -86,6 +86,7 @@ module.exports.getFilteredListings = function(resp, filterFieldsMap){
 			filterSegment = filterFieldsMap.filterString.trim();
 		}
 	}
+
 	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_limit=20&_pagination=1&_page=${filterFieldsMap.page}&_filter=${encodeURI(filterSegment)}`;
 	incomingResponse = resp;
 	request(options, callback);

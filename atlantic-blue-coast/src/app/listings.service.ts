@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Listing } from "./Listing";
 import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
-import {	map } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 @Injectable({providedIn: "root"})
 
@@ -50,6 +50,13 @@ export class ListingsService {
 		let listingUrl = `http://localhost:4040/getSelectedListing?id=${listingId}`;
 		return this.http.get(listingUrl).pipe(map(res => {
 			return new Listing(res[0]);
+		}));
+	}
+
+	doSomething(listingId): Observable<any> {
+		let listingUrl = `http://localhost:4040/sendMail?id=${listingId}`;
+		return this.http.get(listingUrl).pipe(map(res => {
+			return 'some message';
 		}));
 	}
 }

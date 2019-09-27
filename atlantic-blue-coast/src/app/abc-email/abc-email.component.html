@@ -4,24 +4,24 @@
 			Contact Us
 		</div>
 	</div>
+	<form (ngSubmit)="submit()" #AbcEmailForm="ngForm">
+		<div class="form-group">
+			<input [(ngModel)]="model.fullName" type="text" class="form-control" name="fullName" placeholder="Full name">
+		</div>
+		<div class="form-group">
+			<input [(ngModel)]="model.emailAddress" type="email" class="form-control" name="emailAddress" aria-describedby="emailHelp" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<input [(ngModel)]="model.phoneNumber" type="number" class="form-control" name="phoneNumber" placeholder="Phone number">
+		</div>
+		<div class="form-group">
+			<textarea [(ngModel)]="model.message" class="form-control" name="message" rows="3" placeholder="Message"></textarea>
+		</div>
 
-	<form id="emailForm1" (ngSubmit)="submit()">
-		<div class="form-group">
-			<input type="text" class="form-control" id="fullName1" placeholder="Full name">
-		</div>
-		<div class="form-group">
-			<input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email">
-		</div>
-		<div class="form-group">
-			<input type="number" class="form-control" id="phoneNumber1" placeholder="Phone number">
-		</div>
-		<div class="form-group">
-			<textarea class="form-control" id="emailMessage1" rows="3" placeholder="Message"></textarea>
-		</div>
 		<div class="row justify-content-center">
 			<div class="col-6">
 				<button
-					id="submitButton1"
+					id="submitButton"
 					type="submit"
 					class="btn btn-lg submitButton">
 					Send

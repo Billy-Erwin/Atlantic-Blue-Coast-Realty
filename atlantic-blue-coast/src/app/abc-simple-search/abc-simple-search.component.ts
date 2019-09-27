@@ -17,7 +17,6 @@ export class AbcSimpleSearchComponent {
 
 	onSubmit(){
 		let searchTextParameter = {searchText: this.model.searchText};
-		// this.router.navigate(['search', searchTextParameter]);
 		this.router.navigate(['search', this.model.searchText]);
 	}
 
