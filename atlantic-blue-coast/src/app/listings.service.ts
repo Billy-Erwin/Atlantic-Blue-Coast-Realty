@@ -52,11 +52,4 @@ export class ListingsService {
 			return new Listing(res[0]);
 		}));
 	}
-
-	doSomething(listingId): Observable<any> {
-		let listingUrl = `http://localhost:4040/sendMail?id=${listingId}`;
-		return this.http.get(listingUrl).pipe(map(res => {
-			return 'some message';
-		}));
-	}
 }
