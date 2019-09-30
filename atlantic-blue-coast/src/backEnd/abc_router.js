@@ -3,12 +3,15 @@ const featuredListings = require('./spark_api/getFeaturedListings');
 const selectedListing = require('./spark_api/getSelectedListing');
 const standardFieldMetadata = require('./spark_api/getStandardFieldMetaData');
 const filteredListings = require('./spark_api/getFilteredListings');
+const abcMail = require('./abc_mail')
 
 //@param req = HTTP request object
 //@param resp = HTTP response object
 exports.routeRequest = function(req, resp){
+	// console.log('its routing...');
 	let urlObj = url.parse(req.url, true);
 	let resourcePath = urlObj.pathname.toString();
+	// console.log('resourcePath : ', resourcePath);
 
 	if(resourcePath === '/getFeaturedListings') {
 		featuredListings.getFeaturedListings(resp);
@@ -22,5 +25,7 @@ exports.routeRequest = function(req, resp){
 		filteredListings.getSimpleFilteredListings(resp, urlObj.query.searchText);
 	} else if(resourcePath === '/getAbcListings'){
 		featuredListings.getAbcListings(resp, urlObj.query.page);
+	} else if(resourcePath === '/sendMail'){
+		abcMail.sendIt(resp, urlObj.query);
 	}
 }

@@ -1,0 +1,37 @@
+.emailWrapper * {
+	color: black;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	border-radius: 0px !important;
+}
+
+.emailHeader {
+	padding-top: 0.75rem;
+	height: 5rem;
+	text-align: center;
+	background-color: #e2e2e4;
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+
+.submitButton {
+	background-color: #e2e2e4;
+	border: unset;
+	width: 100%;
+}
+
+.form-control {
+	height: 3rem;
+}
+
+.borderIt{
+	border: 1px solid black;
+}
+
+.ng-valid[required], .ng-valid.required  {
+	border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+	border-left: 5px solid #1882cd;
+}

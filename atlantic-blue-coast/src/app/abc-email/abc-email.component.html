@@ -1,7 +1,58 @@
-<h2>Oh No you Didn't!</h2>
+<div class="container emailWrapper" style="margin-top: 2rem !important;">
+	<div class="row no-gutters">
+		<div class="col-12 emailHeader">
+			{{messageHeader}}
+		</div>
+	</div>
+	<form [(hidden)]="submitted" #AbcEmailForm="ngForm" (ngSubmit)="submit(AbcEmailForm)">
+		<div class="form-group">
+			<input
+				[(ngModel)]="model.fullName"
+				type="text"
+				class="form-control"
+				name="fullName"
+				placeholder="Full name"
+				required>
+		</div>
+		<div class="form-group">
+			<input
+				[(ngModel)]="model.emailAddress"
+				type="email"
+				class="form-control"
+				name="emailAddress"
+				aria-describedby="emailHelp"
+				placeholder="Email"
+				required>
+		</div>
+		<div class="form-group">
+			<input
+				[(ngModel)]="model.phoneNumber"
+				type="number"
+				class="form-control"
+				name="phoneNumber"
+				placeholder="Phone number"
+				required>
+		</div>
+		<div class="form-group">
+			<textarea
+				[(ngModel)]="model.message"
+				class="form-control"
+				name="message"
+				rows="3"
+				placeholder="Message"
+				required></textarea>
+		</div>
 
-<div class="popover" role="tooltip">
-	<div class="arrow"></div>
-	<h3 class="popover-header"></h3>
-	<div class="popover-body"></div>
+		<div class="row justify-content-center">
+			<div class="col-6">
+				<button
+					[disabled]="!AbcEmailForm.form.valid"
+					id="submitButton"
+					type="submit"
+					class="btn btn-lg submitButton">
+					{{submitButtonText}}
+				</button>
+			</div>
+		</div>
+	</form>
 </div>

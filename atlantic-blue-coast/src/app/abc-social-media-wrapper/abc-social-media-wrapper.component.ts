@@ -47,31 +47,31 @@ export class AbcSocialMediaWrapperComponent implements OnInit {
 			let templateStuff = `
 			<script>
 			</script>
-				<form id="emailForm" (ngSubmit)="submit()">
+				<form id="popover-emailForm" (ngSubmit)="submit()">
 					<div class="form-group">
-						<input type="text" class="form-control" id="fullName" placeholder="Full name">
+						<input type="text" class="form-control" id="popover-fullName" placeholder="Full name">
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<input type="email" class="form-control" id="popover-email" aria-describedby="emailHelp" placeholder="Enter email">
+						<small id="popover-emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 					</div>
 					<div class="form-group">
-						<input type="number" class="form-control" id="phoneNumber" placeholder="Phone number">
+						<input type="number" class="form-control" id="popover-phoneNumber" placeholder="Phone number">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" id="emailMessage" placeholder="I am interested in ABC Realty!">
+						<input type="text" class="form-control" id="popover-emailMessage" placeholder="I am interested in ABC Realty!">
 					</div>
-					<button id="submitButton" type="submit" class="btn btn-primary">Send</button>
+					<button id="popover-submitButton" type="submit" class="btn btn-primary">Send</button>
 				</form>
 			`;
 
 			($('#slogan') as any).popover(
 				{content: templateStuff}
 			);
-			$('#submitButton').on('click', data => {
+			$('#popover-submitButton').on('click', data => {
 				console.log('oh my lord...');
 			});
-			$('#emailForm').submit(event, data => {
+			$('#popover-emailForm').submit(event, data => {
 				event.stopPropagation();
 				console.log('oh my lord...');
 			});

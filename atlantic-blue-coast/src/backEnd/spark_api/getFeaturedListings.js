@@ -2,7 +2,7 @@ let request = require('request');
 let tukus = require('../../assets/files/tukus');
 
 let token = tukus['tukus'];
-let agentId = '20110315124649945876000000';
+let agentId = '20151215165859922194000000';
 
 let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}'`);
 
