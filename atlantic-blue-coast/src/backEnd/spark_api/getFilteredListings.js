@@ -53,8 +53,8 @@ function buildLocationSegment(locationSearchText){
 		let city = locationSearchText;
 		let postalCode = 0;
 		let stateAbbreviation = usaStates(locationSearchText);
-		filterSegment += `City Eq contains('${city}') Or `;
-		filterSegment += `StateOrProvince Eq contains('${stateAbbreviation}') Or `;
+		filterSegment += `toupper(City) Eq toupper('${city}') Or `;
+		filterSegment += `toupper(StateOrProvince) Eq toupper('${stateAbbreviation}') Or `;
 		if(!isNaN(locationSearchText)){
 			postalCode = locationSearchText;
 		}

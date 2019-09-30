@@ -27,3 +27,11 @@
 .borderIt{
 	border: 1px solid black;
 }
+
+.ng-valid[required], .ng-valid.required  {
+	border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+	border-left: 5px solid #1882cd;
+}

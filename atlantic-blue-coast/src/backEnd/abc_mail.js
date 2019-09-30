@@ -1,14 +1,16 @@
-var nodemailer = require('nodemailer');
+let nodeMailer = require('nodemailer');
+let tukus = require('../assets/files/tukus');
 
-var transporter = nodemailer.createTransport({
+
+let transporter = nodeMailer.createTransport({
 	service: 'gmail',
 	auth: {
 		user: 'williamcerwin@gmail.com',
-		pass: ''
+		pass: tukus['mailPassword']
 	}
 });
 
-var mailOptions = {
+let mailOptions = {
 	from: 'williamcerwin@gmail.com',
 	to: 'billy.c.erwin@gmail.com'
 };
@@ -16,15 +18,18 @@ var mailOptions = {
 function mailCarrier(incomingResponse){
 	transporter.sendMail(mailOptions, function(error){
 		if (error) {
-			console.log('error : ', error);
-			incomingResponse.end(JSON.stringify(error));
+			let returnData = {
+				status: 'error',
+				error: error
+			};
+			incomingResponse.end(JSON.stringify(returnData));
 		} else {
 			incomingResponse.writeHead(200, {
 				'Content-Type': 'application/json',
 				'Access-Control-Allow-Origin': '*',
 				'Access-Control-Allow-Headers': 'X-Requested-With'
 			});
-			incomingResponse.end(JSON.stringify({status: true}));
+			incomingResponse.end(JSON.stringify({status: 'success'}));
 		}
 	});
 }

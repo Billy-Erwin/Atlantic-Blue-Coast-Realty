@@ -3,6 +3,7 @@ import { AbcEmailForm } from "../abc-email-form";
 import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import {NgForm} from "@angular/forms";
 
 @Component({
 	selector: 'abc-email',
@@ -13,15 +14,22 @@ import { map } from "rxjs/operators";
 export class AbcEmailComponent {
 
 	model = new AbcEmailForm();
+	submitted = false;
+	messageHeader = 'Contact Us';
+	submitButtonText = 'Send';
 
 	constructor(private http: HttpClient) { }
 
-	submit() {
-		console.log('model : ', this.model);
+	submit(abcForm: NgForm) {
 		this.sendMail().subscribe(data =>{
-			console.log('data : ', data);
-			// let some = JSON.parse(data.model);
-			// console.log('some : ', some);
+			if(data.status === 'success'){
+				abcForm.reset();
+				this.submitted = true;
+				this.messageHeader = 'Email sent!';
+			} else {
+				this.submitted = true;
+				this.messageHeader = `Sorry, something went wrong...\n${data.error}`
+			}
 		});
 	}
 
