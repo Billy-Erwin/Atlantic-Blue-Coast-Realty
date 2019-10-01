@@ -5,14 +5,14 @@ let tukus = require('../assets/files/tukus');
 let transporter = nodeMailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'williamcerwin@gmail.com',
+		user: 'abcrealtytest@gmail.com',
 		pass: tukus['mailPassword']
 	}
 });
 
 let mailOptions = {
-	from: 'williamcerwin@gmail.com',
-	to: 'billy.c.erwin@gmail.com'
+	from: 'abcrealtytest@gmail.com',
+	to: 'atlanticbluecoast@gmail.com'
 };
 
 function mailCarrier(incomingResponse){
@@ -36,7 +36,6 @@ function mailCarrier(incomingResponse){
 
 exports.sendIt = function(response, queryObj){
 	let model = JSON.parse(queryObj.model);
-	mailOptions.from = model.emailAddress;
 	mailOptions.text = model.fullName + '\n';
 	mailOptions.text += model.emailAddress + '\n';
 	mailOptions.text += model.phoneNumber + '\n';

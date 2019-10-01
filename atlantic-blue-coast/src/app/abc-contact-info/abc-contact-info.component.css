@@ -1,0 +1,31 @@
+.abc-text-area{
+	color:black;
+	text-align:left;
+	padding: 5% 5%;
+	font-size: 1.75rem;
+}
+.mn-bold {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+.mn-black {
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	font-weight: 900;
+}
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.contact-info{
+	padding-top: 20px;
+}
+.fa-facebook{
+	color:red !important;
+}

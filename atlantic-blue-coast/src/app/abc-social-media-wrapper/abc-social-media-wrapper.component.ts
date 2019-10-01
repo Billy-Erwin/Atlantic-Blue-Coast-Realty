@@ -26,14 +26,14 @@ export class AbcSocialMediaWrapperComponent implements OnInit {
 			{class: 'contactUs', href: '#', displayText: 'Atlantic Blue Coast'},
 			{class: 'fa fa-facebook', href: 'http://facebook.com/AtlanticBlueCoast'},
 			{class: 'fa fa-twitter', href: 'http://twitter.com/ABlueCoastReal'},
-			{class: 'fa fa-instagram', href: 'http://instagram.com/AtlanticBlueCoast'},
+			{class: 'fa fa-instagram', href: 'http://instagram.com/AtlanticBlueCoast'}
 		];
 
 		this.ericSocialMediaLinks = [
 			{class: 'contactUs', href: '#', displayText: 'Eric D Hill'},
 			{class: 'fa fa-facebook', href: 'http://facebook.com/erichillreal'},
 			{class: 'fa fa-twitter', href: 'http://twitter.com/erichillreal'},
-			{class: 'fa fa-instagram', href: 'http://instagram.com/erichillreal'},
+			{class: 'fa fa-instagram', href: 'http://instagram.com/erichillreal'}
 		];
 
 
