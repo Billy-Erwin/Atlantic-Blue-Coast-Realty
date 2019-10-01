@@ -1,41 +1,45 @@
 <div style="margin-top:32px;">
 	<div class="media">
 		<img
-			src="../../assets/images/abc_logo_1.jpg"
-			class="align-self-start mr-3" alt="..."
-			style="height: 128px; width: 128px;">
-		<div class="media-body" style="padding: 10px; background-color:#e2e2e4;">
+			src="../../assets/images/mediaLogo.png"
+			class="align-self-center mr-3 media-pic" alt="...">
+		<div class="media-body">
 			<h5 class="mt-0">{{contactInfo.name}}</h5>
 			<h6 class="mt-0">{{contactInfo.description}}</h6>
 			<p>
-				{{contactInfo.phoneNumber}}
+				{{contactInfo.phoneNumber}}<br/>
 				{{contactInfo.email}}<br/>
-				{{contactInfo.address}}<br/>
+				{{contactInfo.address}}
 			</p>
-			<div>
-			<span *ngFor="let socialMediaLink of contactInfo.socialMediaLinks">
-				<abc-social-media [socialMediaData]="socialMediaLink"></abc-social-media>
-			</span>
+			<div *ngFor="let socialMediaLink of contactInfo.socialMediaLinks">
+				<a
+					[href]="socialMediaLink.href"
+					[class]="socialMediaLink.class"
+					target="_blank">
+				</a>
+				<a [href]="socialMediaLink.href" target="_blank" class="mn-bold">{{socialMediaLink.displayLink}}</a>
 			</div>
 		</div>
 	</div>
-	<br/><hr><br />
+	<br /><hr><br />
 	<div class="media">
 		<img
 			src="../../assets/images/ehill.jpg"
-			class="align-self-start mr-3" alt="..."
-			style="height: 128px; width: 128px;">
-		<div class="media-body" style="padding: 10px; background-color:#e2e2e4;">
+			class="align-self-center mr-3 media-pic" alt="...">
+		<div class="media-body">
 			<h5 class="mt-0">{{ericContactInfo.name}}</h5>
 			<h6 class="mt-0">{{ericContactInfo.description}}</h6>
 			<p>
-				{{ericContactInfo.phoneNumber}}
-				{{ericContactInfo.email}}<br/>
+				{{ericContactInfo.phoneNumber}}<br/>
+				{{ericContactInfo.email}}
 			</p>
-			<div>
-			<span *ngFor="let socialMediaLink of ericContactInfo.socialMediaLinks">
-				<abc-social-media [socialMediaData]="socialMediaLink"></abc-social-media>
-			</span>
+			<div *ngFor="let socialMediaLink of ericContactInfo.socialMediaLinks">
+				<a
+					[href]="socialMediaLink.href"
+					[class]="socialMediaLink.class"
+					target="_blank">
+				</a>
+				<a [href]="socialMediaLink.href" target="_blank" class="mn-bold">{{socialMediaLink.displayLink}}</a>
 			</div>
 		</div>
 	</div>

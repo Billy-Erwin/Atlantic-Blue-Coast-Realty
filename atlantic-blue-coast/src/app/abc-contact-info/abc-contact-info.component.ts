@@ -10,25 +10,25 @@ export class AbcContactInfoComponent implements OnInit {
 	contactInfo = {
 		name: 'Atlantic Blue Coast Realty LLC',
 		description: 'Real Estate... easy as A B C',
-		phoneNumber: 'Phone: (910) 625-8199',
-		email: 'Email: AtlanticBlueCoast@gmail.com',
-		address: 'Address: PO Box 975, Whiteville NC 28472',
+		phoneNumber: '(910) 625-8199',
+		email: 'AtlanticBlueCoast@gmail.com',
+		address: 'PO Box 975, Whiteville NC 28472',
 		socialMediaLinks : [
-			{class: 'fa fa-facebook', href: 'http://facebook.com/AtlanticBlueCoast'},
-			{class: 'fa fa-twitter', href: 'http://twitter.com/ABlueCoastReal'},
-			{class: 'fa fa-instagram', href: 'http://instagram.com/AtlanticBlueCoast'}
+			{class: 'fa fa-facebook', href: 'http://facebook.com/AtlanticBlueCoast', displayLink: '@AtlanticBlueCoast'},
+			{class: 'fa fa-twitter', href: 'http://twitter.com/ABlueCoastReal', displayLink: '@ABlueCoastReal'},
+			{class: 'fa fa-instagram', href: 'http://instagram.com/AtlanticBlueCoast', displayLink: '@AtlanticBlueCoast'}
 		]
 	};
 
 	ericContactInfo = {
 		name: 'Eric Hill',
 		description: 'Owner / Broker In Charge',
-		phoneNumber: 'Phone: (910) 625-8199',
-		email: 'Email: erichillreal@hotmail.com',
+		phoneNumber: '(910) 625-8199',
+		email: 'erichillreal@hotmail.com',
 		socialMediaLinks: [
-			{class: 'fa fa-facebook', href: 'http://facebook.com/erichillreal'},
-			{class: 'fa fa-twitter', href: 'http://twitter.com/erichillreal'},
-			{class: 'fa fa-instagram', href: 'http://instagram.com/erichillreal'}
+			{class: 'fa fa-facebook', href: 'http://facebook.com/erichillreal', displayLink: '@erichillreal'},
+			{class: 'fa fa-twitter', href: 'http://twitter.com/erichillreal', displayLink: '@erichillreal'},
+			{class: 'fa fa-instagram', href: 'http://instagram.com/erichillreal', displayLink: '@erichillreal'}
 		]
 	};
 
