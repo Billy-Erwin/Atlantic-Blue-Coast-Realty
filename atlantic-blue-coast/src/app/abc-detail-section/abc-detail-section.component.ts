@@ -7,19 +7,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AbcDetailSectionComponent implements OnInit {
 
-	// @Input() tableData;
-	tableData: {};
+	@Input() tableData;
+	@Input() tableLabel;
+	fields;
 	constructor() { }
 
 	ngOnInit() {
-		this.tableData = {
-			category: 'Basic Info',
-			fields: [
-				{label: 'Beds', value: 3},
-				{label: 'Baths', value: 2},
-				{label: 'Sqft', value: 3}
-			]
-		}
+		// console.log('tableLabel : ', this.tableLabel);
+		// console.log('tableData : ', this.tableData);
+		this.fields = Object.keys(this.tableData);
+		// console.log('fields : ', this.fields);
+		// this.tableData = {
+		// 	category: 'Basic Info',
+		// 	fields: [
+		// 		{label: 'Beds', value: 3},
+		// 		{label: 'Baths', value: 2},
+		// 		{label: 'Sqft', value: 3}
+		// 	]
+		// }
 	}
 
 }

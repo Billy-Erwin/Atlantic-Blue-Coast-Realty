@@ -8,11 +8,15 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AbcListingDetailsComponent implements OnInit {
 
 	@Input() aInfoList;
-	infoList = [];
+	keys;
+
 	constructor() { }
 
 	ngOnInit() {
-		console.log(this.aInfoList);
+		console.log('aInfoList : ', this.aInfoList);
+		// console.log('Main : ', this.aInfoList[0]);
+		// console.log('keys : ', Object.keys(this.aInfoList['Main']));
+		this.keys = Object.keys(this.aInfoList['Main']);
 	}
 
 }

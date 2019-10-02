@@ -1,4 +1,4 @@
-<abc-detail-section></abc-detail-section>
-<abc-detail-section></abc-detail-section>
-<abc-detail-section></abc-detail-section>
-<abc-detail-section></abc-detail-section>
+
+<div *ngFor="let key of keys">
+	<abc-detail-section [tableData]="aInfoList['Main'][key]" [tableLabel]="key"></abc-detail-section>
+</div>
