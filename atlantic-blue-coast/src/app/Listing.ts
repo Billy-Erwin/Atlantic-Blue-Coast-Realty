@@ -1,9 +1,14 @@
+import * as theData from '../assets/files/customCategoryList.json';
+
 export class Listing {
 	standardFields: object[];
 	customFields: {};
 	id: string;
 	primaryPhoto: string;
 	defaultPhoto: string = '../../assets/images/abc_logo_2.jpg';
+	customMain: string[] = theData.customMain;
+	customTrueFalse: string[] = theData.customTrueFalse;
+	detailSections = new Map();
 
 	constructor(listingObject: object){
 		if(listingObject != null && listingObject['StandardFields'] != null){
@@ -33,8 +38,8 @@ export class Listing {
 				}
 				this.customFields = customList;
 			}
+			this.buildSections();
 		}
-		// console.log('standardFields : ', this.standardFields);
 	}
 
 	getStreetAddress(): string{
@@ -59,5 +64,28 @@ export class Listing {
 		let sqft = 'Sqft: ' + (this.standardFields['BuildingAreaTotal'] != null ? this.standardFields['BuildingAreaTotal']: '');
 		let yearBuilt = 'Year Built: ' + (this.standardFields['YearBuilt'] != null ? this.standardFields['YearBuilt']: '');
 		return `${beds} | ${baths} | ${sqft} | ${yearBuilt}`;
+	}
+
+	buildSections(): void {
+		if(this.customFields && this.customFields['Main']){
+			for(let customFieldKey of this.customMain){
+				this.detailSections.set(customFieldKey, this.customFields['Main'][customFieldKey]);
+			}
+			let trueFalseConversion = {};
+			for(let customFieldKey of this.customTrueFalse){
+				let values = '';
+				let aComma = ''
+				if(this.customFields['Main'][customFieldKey]){
+					for(let key of Object.keys(this.customFields['Main'][customFieldKey])){
+						values += aComma + key;
+						if(aComma === ''){
+							aComma = ', ';
+						}
+					}
+					trueFalseConversion[customFieldKey] = values;
+				}
+			}
+			this.detailSections.set('Misc', trueFalseConversion);
+		}
 	}
 }

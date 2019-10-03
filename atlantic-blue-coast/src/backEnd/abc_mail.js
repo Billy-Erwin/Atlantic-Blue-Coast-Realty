@@ -1,7 +1,6 @@
 let nodeMailer = require('nodemailer');
 let tukus = require('../assets/files/tukus');
 
-
 let transporter = nodeMailer.createTransport({
 	service: 'gmail',
 	auth: {
@@ -40,6 +39,5 @@ exports.sendIt = function(response, queryObj){
 	mailOptions.text += model.emailAddress + '\n';
 	mailOptions.text += model.phoneNumber + '\n';
 	mailOptions.text += model.message + '\n';
-
 	mailCarrier(response);
 }

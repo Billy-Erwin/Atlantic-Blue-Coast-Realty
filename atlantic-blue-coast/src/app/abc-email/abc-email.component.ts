@@ -34,7 +34,7 @@ export class AbcEmailComponent {
 	}
 
 	sendMail(): Observable<any> {
-		let emailUrl = `http://localhost:4040/sendMail?model=${JSON.stringify(this.model)}`;
+		let emailUrl = `http://localhost:4040/sendMail?model=${encodeURIComponent(JSON.stringify(this.model))}`;
 		return this.http.get(emailUrl).pipe(map(res => {
 			return res;
 		}));

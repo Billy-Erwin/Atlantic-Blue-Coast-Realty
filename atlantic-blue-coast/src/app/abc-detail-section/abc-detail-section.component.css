@@ -31,3 +31,10 @@
 	border: 1px solid #e2e2e4;
 	color: black;
 }
+
+.truncate{
+	width:95%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
