@@ -1,0 +1,35 @@
+{
+	"customMain": [
+		"Property Interior Info",
+		"Property Exterior Info",
+		"Contract Info",
+		"Home Warr/Termite",
+		"Legal & Taxes"
+	],
+	"customTrueFalse": [
+		"Construction",
+		"Cooling System",
+		"Dining Room Type",
+		"Exterior Features",
+		"Exterior Finish",
+		"Exterior Structures",
+		"Fencing",
+		"Fireplace",
+		"Foundation",
+		"Fuel Tank",
+		"Fuel Tank Ownership",
+		"Garage & Parking",
+		"HOA and Neigh Amenities",
+		"Heated SqFt",
+		"Heating System",
+		"Interior Features",
+		"Laundry Location",
+		"Parking/Driveway",
+		"Porch/Balcony/Deck",
+		"Road Type/Frontage",
+		"Roof",
+		"Rooms",
+		"Stories/Levels",
+		"Utilities"
+	]
+}

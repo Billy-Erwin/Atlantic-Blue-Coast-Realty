@@ -1,0 +1,13 @@
+.ncrmls {
+	border: 0pt none;
+	float:left; padding-right:10px;
+	padding-bottom:0px;
+	content: url("../../assets/images/idx-large.gif");
+}
+
+.legal {
+	margin-top: 2rem;
+	margin-bottom: -4rem;
+	padding: 5rem;
+	background-color: #8dd8f8;
+}

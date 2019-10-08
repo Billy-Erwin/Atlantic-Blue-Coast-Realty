@@ -4,60 +4,24 @@
 	*ngIf="selectedListing && selectedListing.standardFields['Photos']">
 	<div class="row">
 		<div class="col-md-6">
-
 			<div class="topLevelInfo">
-				<div>{{selectedListing.standardFields['ListPrice'] | currency}}</div>
-				<div>{{selectedListing.getStreetAddress()}}</div>
-				<small>
-					{{selectedListing.getCityAndState()}} {{selectedListing.standardFields['PostalCode']}}
-				</small>
-				<div>Status: {{selectedListing.standardFields['MlsStatus']}}</div>
+				<div><h1>{{selectedListing.standardFields['ListPrice'] | currency}}</h1></div>
+				<div><h3>{{selectedListing.standardFields['UnparsedAddress']}}</h3></div>
+				<div><h5>Status: {{selectedListing.standardFields['MlsStatus']}}</h5></div>
 			</div>
-
-			<div style="height:600px; overflow-x: scroll;">
-				<div align="left" style="height: fit-content; padding:15px;">
-
-					<abc-listing-details [aInfoList]="selectedListing.customFields"></abc-listing-details>
-
-					<div class="basicInfo">
-						<div>Beds | {{selectedListing.standardFields['BedsTotal']}}</div>
-						<div>Baths Full | {{selectedListing.standardFields['BathsFull']}} Baths Half | {{selectedListing.standardFields['BathsHalf']}}</div>
-						<div>Apx Total SqFt | {{selectedListing.standardFields['BuildingAreaTotal']}}</div>
-						<!--<div>Apx Lot Size | {{selectedListing.customFields[0]['Main'][1]['Property Information'][19]['# of Acres M/L']}}</div>-->
-						<div>Year Built | {{selectedListing.standardFields['YearBuilt']}}</div>
-					</div>
-
-
-					<div class="basicInfo">
-						<div>Subdivision | </div>
-						<div>Waterfront | </div>
-						<div>garage / parking | </div>
-						<div>porch / balcony / deck | </div>
-					</div>
-
-					<div class="basicInfo">
-						<div>Cooling System | </div>
-						<div>Heating System | </div>
-						<div>Fireplace | </div>
-						<div>Interior Features | </div>
-						<div>Exterior Features | </div>
-						<div>Exterior Structures | </div>
-					</div>
-
+			<hr/>
+			<div class="detailContainer">
+				<div class="emailMargins">
+					<abc-email [addressInfo]="selectedListing.standardFields['UnparsedAddress']"></abc-email>
 				</div>
+				<abc-listing-details [selectedListing]="selectedListing"></abc-listing-details>
+				<div class="small">Listing courtesy of {{selectedListing.standardFields['ListAgentName']}} of {{selectedListing.standardFields['ListOfficeName']}}</div>
 			</div>
 		</div>
-
 		<div class="col-md-6">
 			<abc-photo-viewer [listingPhotos]="selectedListing.standardFields['Photos']"></abc-photo-viewer>
 			<div class="description">Description: {{selectedListing.standardFields['PublicRemarks']}}</div>
 		</div>
-
-
-	</div>
-	<div class="row">
-		<div class="col-12 legal">
-			<!--Legal Stuff-->
-		</div>
 	</div>
 </div>
+<abc-legal *ngIf="selectedListing"></abc-legal>

@@ -21,7 +21,7 @@ export class AbcContactInfoComponent implements OnInit {
 	};
 
 	ericContactInfo = {
-		name: 'Eric Hill',
+		name: 'Eric D Hill',
 		description: 'Owner / Broker In Charge',
 		phoneNumber: '(910) 625-8199',
 		email: 'erichillreal@hotmail.com',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingsService } from "../listings.service";
 import { ActivatedRoute } from '@angular/router';
-import { Listing} from "../Listing";
+import { Listing } from "../Listing";
 import { StandardFieldService } from "../standard-field.service";
 
 @Component({

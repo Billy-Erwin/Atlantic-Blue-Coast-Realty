@@ -1,4 +1,9 @@
-<abc-detail-section></abc-detail-section>
-<abc-detail-section></abc-detail-section>
-<abc-detail-section></abc-detail-section>
-<abc-detail-section></abc-detail-section>
+<div *ngIf="selectedListing.detailSections != null">
+	<div *ngFor="let key of keys">
+		<abc-detail-section
+			*ngIf="selectedListing.detailSections.get(key) != null"
+			[tableData]="selectedListing.detailSections.get(key)"
+			[tableLabel]="key">
+		</abc-detail-section>
+	</div>
+</div>
