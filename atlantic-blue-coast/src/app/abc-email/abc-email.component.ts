@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbcEmailForm } from "../abc-email-form";
 import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import {NgForm} from "@angular/forms";
+import { NgForm } from "@angular/forms";
 
 @Component({
 	selector: 'abc-email',
@@ -11,14 +11,22 @@ import {NgForm} from "@angular/forms";
 	styleUrls: ['./abc-email.component.css']
 })
 
-export class AbcEmailComponent {
+export class AbcEmailComponent implements OnInit {
 
+	@Input() addressInfo: string;
 	model = new AbcEmailForm();
 	submitted = false;
 	messageHeader = 'Contact Us';
 	submitButtonText = 'Send';
 
 	constructor(private http: HttpClient) { }
+
+	ngOnInit(){
+		if(this.addressInfo){
+			this.messageHeader = 'Tell me more!'
+			this.model.message = `Hi!  I would like more info about ${this.addressInfo}`
+		}
+	}
 
 	submit(abcForm: NgForm) {
 		this.sendMail().subscribe(data =>{

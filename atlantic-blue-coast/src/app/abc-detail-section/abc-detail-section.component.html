@@ -1,10 +1,12 @@
 <ul class="list-group">
 	<li class="list-group-item active">{{tableLabel}}</li>
 	<li *ngFor="let field of fields" class="list-group-item padding-override">
-		<div class="container">
+		<div align="left" class="container">
 			<div class="row">
 				<div class="col-6 fieldLabel"><div class="addPad">{{field}}</div></div>
-				<div class="col-6 fieldValue"><div class="addPad truncate">{{tableData[field]}}</div></div>
+				<div class="col-6 fieldValue">
+					<div class="addPad truncate">{{tableData[field]}}</div>
+				</div>
 			</div>
 		</div>
 	</li>

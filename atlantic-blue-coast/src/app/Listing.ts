@@ -1,4 +1,4 @@
-import * as theData from '../assets/files/customCategoryList.json';
+import * as categories from '../assets/files/customCategoryList.json';
 
 export class Listing {
 	standardFields: object[];
@@ -6,8 +6,8 @@ export class Listing {
 	id: string;
 	primaryPhoto: string;
 	defaultPhoto: string = '../../assets/images/abc_logo_2.jpg';
-	customMain: string[] = theData.customMain;
-	customTrueFalse: string[] = theData.customTrueFalse;
+	customMain: string[] = categories.customMain;
+	customTrueFalse: string[] = categories.customTrueFalse;
 	detailSections = new Map();
 
 	constructor(listingObject: object){
@@ -40,6 +40,7 @@ export class Listing {
 			}
 			this.buildSections();
 		}
+		console.log(this.standardFields);
 	}
 
 	getStreetAddress(): string{
