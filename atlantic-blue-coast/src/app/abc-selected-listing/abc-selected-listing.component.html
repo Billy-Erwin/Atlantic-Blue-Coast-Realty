@@ -15,6 +15,7 @@
 					<abc-email [addressInfo]="selectedListing.standardFields['UnparsedAddress']"></abc-email>
 				</div>
 				<abc-listing-details [selectedListing]="selectedListing"></abc-listing-details>
+				<div class="small">Listing courtesy of {{selectedListing.standardFields['ListAgentName']}} of {{selectedListing.standardFields['ListOfficeName']}}</div>
 			</div>
 		</div>
 		<div class="col-md-6">
@@ -22,11 +23,5 @@
 			<div class="description">Description: {{selectedListing.standardFields['PublicRemarks']}}</div>
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="col-12">
-			<abc-legal></abc-legal>
-			<!--Legal Stuff-->
-		</div>
-	</div>
 </div>
+<abc-legal *ngIf="selectedListing"></abc-legal>

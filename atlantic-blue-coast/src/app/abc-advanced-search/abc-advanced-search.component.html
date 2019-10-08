@@ -181,3 +181,4 @@
 		[listings]="listingsService.filteredListings">
 	</abc-listing-card-deck>
 </div>
+<abc-legal *ngIf="listingsService.filteredListings?.length"></abc-legal>
