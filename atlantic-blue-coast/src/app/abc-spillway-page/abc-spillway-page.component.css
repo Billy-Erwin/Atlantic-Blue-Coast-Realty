@@ -1,0 +1,14 @@
+.photoViewerContainer {
+	height: 75%;
+	width: 75%;
+}
+
+.spillwayLogo {
+	height: 75%;
+	width: 75%;
+	content: url("../../assets/images/spillway/spillway.jpg");
+}
+
+.spillwayPageWrapper {
+	margin-bottom: 150px;
+}

@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'abc-spillway',
-	templateUrl: './abc-spillway.component.html',
-	styleUrls: ['./abc-spillway.component.css']
+	selector: 'abc-spillway-page',
+	templateUrl: './abc-spillway-page.component.html',
+	styleUrls: ['./abc-spillway-page.component.css']
 })
-
-export class AbcSpillwayComponent implements OnInit {
+export class AbcSpillwayPageComponent implements OnInit {
 
 	spillwayPhotos: any[] = [];
+	contactDetails: object = {
+		messageHeader: 'Reserve The Spillway',
+		messageBody: 'I would like to get reservation information about The Spillway.'
+	}
 	constructor() { }
 
 	ngOnInit() {
@@ -43,8 +46,6 @@ export class AbcSpillwayComponent implements OnInit {
 				UriLarge: '../../assets/images/spillway/stage.jpg',
 				UriThumb: '../../assets/images/spillway/stage.jpg'
 			});
-		(<any>$('#spillwayCarouselControls')).carousel({interval: 5000});
-
 	}
 
 }

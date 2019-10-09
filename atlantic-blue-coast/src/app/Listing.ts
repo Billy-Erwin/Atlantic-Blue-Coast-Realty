@@ -9,6 +9,7 @@ export class Listing {
 	customMain: string[] = categories.customMain;
 	customTrueFalse: string[] = categories.customTrueFalse;
 	detailSections = new Map();
+	contactComponentInfo: object;
 
 	constructor(listingObject: object){
 		if(listingObject != null && listingObject['StandardFields'] != null){
@@ -19,6 +20,10 @@ export class Listing {
 					(listingObject['StandardFields']['Photos'][0] &&
 					listingObject['StandardFields']['Photos'][0]['Uri300'])?
 					listingObject['StandardFields']['Photos'][0]['Uri300'] : this.defaultPhoto;
+				this.contactComponentInfo = {
+					messageHeader: 'Tell me more!',
+					messageBody: `Hi!  I would like more info about ${this.standardFields['UnparsedAddress']}!`
+				}
 			}
 			if(listingObject['CustomFields'] != null) {
 				let customList = {};

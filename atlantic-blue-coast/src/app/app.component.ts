@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {StandardFieldService} from "./standard-field.service";
+import { StandardFieldService } from "./standard-field.service";
 
 @Component({
 	selector: 'app-root',

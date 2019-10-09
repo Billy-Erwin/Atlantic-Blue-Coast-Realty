@@ -1,0 +1,27 @@
+.spillwayBannerWrapper * {
+	color: black;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	text-align: center;
+}
+
+.outerSpillway {
+	background-color: #1982ce;
+	padding: 2rem 0 3rem 0;
+	cursor: pointer;
+}
+
+.spillwayHeader {
+	padding-bottom: 1rem;
+}
+
+.spillwayBanner {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.spillwayLogo {
+	height: 25rem;
+	width: 10rem;
+	content: url("../../assets/images/spillway/spillway.jpg");
+}

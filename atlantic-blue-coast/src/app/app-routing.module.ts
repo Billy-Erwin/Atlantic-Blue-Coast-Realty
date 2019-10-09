@@ -7,6 +7,7 @@ import {AbcListingsPageComponent} from "./abc-listings-page/abc-listings-page.co
 import {AbcCommunityComponent} from "./abc-community/abc-community.component";
 import {AbcSearchPropertiesComponent} from "./abc-search-properties/abc-search-properties.component";
 import {AbcContactUsComponent} from "./abc-contact-us/abc-contact-us.component";
+import {AbcSpillwayPageComponent} from "./abc-spillway-page/abc-spillway-page.component";
 
 const routes: Routes = [
 	{
@@ -48,6 +49,11 @@ const routes: Routes = [
 		path: 'about',
 		component: AbcAboutComponent,
 		data: { title: 'About' }
+	},
+	{
+		path: 'spillway',
+		component: AbcSpillwayPageComponent,
+		data: { title: 'The Spillway' }
 	},
 	{
 		path: '',
