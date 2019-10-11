@@ -13,7 +13,7 @@ import { NgForm } from "@angular/forms";
 
 export class AbcEmailComponent implements OnInit {
 
-	@Input() contactDetails: object;
+	@Input() contactDetails: any;
 	model = new AbcEmailForm();
 	submitted = false;
 	messageHeader = 'Contact Us';
