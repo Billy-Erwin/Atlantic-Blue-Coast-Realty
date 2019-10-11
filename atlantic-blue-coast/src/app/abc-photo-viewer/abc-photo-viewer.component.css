@@ -1,11 +1,9 @@
 .photoContainer{
 	margin: 20px 0;
 }
-img {
-	/*border-radius: .25em;*/
-	/*overflow: hidden;*/
-}
 .thumbIndicator {
+	max-height: 42px;
+	max-width: 65px;
 	margin-right: 3px;
 }
 .photoNavWrapper {

@@ -13,7 +13,7 @@ import { NgForm } from "@angular/forms";
 
 export class AbcEmailComponent implements OnInit {
 
-	@Input() addressInfo: string;
+	@Input() contactDetails: any;
 	model = new AbcEmailForm();
 	submitted = false;
 	messageHeader = 'Contact Us';
@@ -22,9 +22,9 @@ export class AbcEmailComponent implements OnInit {
 	constructor(private http: HttpClient) { }
 
 	ngOnInit(){
-		if(this.addressInfo){
-			this.messageHeader = 'Tell me more!'
-			this.model.message = `Hi!  I would like more info about ${this.addressInfo}`
+		if(this.contactDetails){
+			this.messageHeader = this.contactDetails.messageHeader;
+			this.model.message = this.contactDetails.messageBody;
 		}
 	}
 

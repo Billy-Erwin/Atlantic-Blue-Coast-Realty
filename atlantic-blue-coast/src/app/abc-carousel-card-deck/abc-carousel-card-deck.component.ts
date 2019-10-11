@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {ListingsService} from "../listings.service";
+import { Component, Input } from '@angular/core';
+import { ListingsService } from "../listings.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -15,6 +15,7 @@ export class AbcCarouselCardDeckComponent {
 
 	ngAfterViewInit() {
 		let theRouter = this.router;
+		(<any>$('#recipeCarousel')).carousel({interval: 5000});
 		$('.carousel .carousel-item').each(function(){
 			let minPerSlide = 4;
 			let next = $(this).next();

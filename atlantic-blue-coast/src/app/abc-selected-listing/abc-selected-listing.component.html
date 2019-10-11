@@ -12,14 +12,14 @@
 			<hr/>
 			<div class="detailContainer">
 				<div class="emailMargins">
-					<abc-email [addressInfo]="selectedListing.standardFields['UnparsedAddress']"></abc-email>
+					<abc-email [contactDetails]="selectedListing.contactComponentInfo"></abc-email>
 				</div>
 				<abc-listing-details [selectedListing]="selectedListing"></abc-listing-details>
 				<div class="small">Listing courtesy of {{selectedListing.standardFields['ListAgentName']}} of {{selectedListing.standardFields['ListOfficeName']}}</div>
 			</div>
 		</div>
 		<div class="col-md-6">
-			<abc-photo-viewer [listingPhotos]="selectedListing.standardFields['Photos']"></abc-photo-viewer>
+			<abc-photo-viewer [carouselPhotos]="selectedListing.standardFields['Photos']"></abc-photo-viewer>
 			<div class="description">Description: {{selectedListing.standardFields['PublicRemarks']}}</div>
 		</div>
 	</div>

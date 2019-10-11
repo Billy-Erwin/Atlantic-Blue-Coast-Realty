@@ -1,0 +1,27 @@
+.photoViewerContainer {
+	height: 75%;
+	width: 75%;
+}
+
+.spillwayLogo {
+	height: 50%;
+	width: 60%;
+	content: url("../../assets/images/spillway/spillway.jpg");
+}
+
+.spillwayPageWrapper {
+	margin-bottom: 150px;
+}
+
+.spillwayTextContainer {
+	margin: 1rem;
+	text-align: left;
+}
+
+.spillwayLink {
+	color: black;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	text-decoration: none;
+	cursor: pointer;
+}
