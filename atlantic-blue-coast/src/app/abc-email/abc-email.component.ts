@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { NgForm } from "@angular/forms";
+import {ListingsService} from "../listings.service";
 
 @Component({
 	selector: 'abc-email',
@@ -19,7 +20,7 @@ export class AbcEmailComponent implements OnInit {
 	messageHeader = 'Contact Us';
 	submitButtonText = 'Send';
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient, private listingsService: ListingsService) { }
 
 	ngOnInit(){
 		if(this.contactDetails){
@@ -42,7 +43,7 @@ export class AbcEmailComponent implements OnInit {
 	}
 
 	sendMail(): Observable<any> {
-		let emailUrl = `http://localhost:4040/sendMail?model=${encodeURIComponent(JSON.stringify(this.model))}`;
+		let emailUrl = `${this.listingsService.baseUrl}sendMail?model=${encodeURIComponent(JSON.stringify(this.model))}`;
 		return this.http.get(emailUrl).pipe(map(res => {
 			return res;
 		}));

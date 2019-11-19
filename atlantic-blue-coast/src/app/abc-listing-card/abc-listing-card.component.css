@@ -2,10 +2,19 @@
 	cursor: pointer;
 	border-radius: .25rem;
 	border: 1px solid rgba(0,0,0,.125);
+	width: 235px;
+	height: 365px;
 }
+
 .card-img-top {
 	height: 150px;
 }
+
 div.card-body {
 	height: 140px;
+	padding: 0.75rem;
+}
+
+.addressLine {
+	font-size: small;
 }

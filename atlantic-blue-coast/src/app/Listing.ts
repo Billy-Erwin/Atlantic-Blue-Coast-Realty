@@ -62,14 +62,22 @@ export class Listing {
 		let city = this.standardFields['City'] != null ? this.standardFields['City'] : '' ;
 		let stateOrProvince = this.standardFields['StateOrProvince'] != null ? this.standardFields['StateOrProvince'] : '';
 		return `${city} ${stateOrProvince}`;
-	};
+	}
 
 	getBasicDetails(): string{
-		let beds = 'Beds: ' + (this.standardFields['BedsTotal'] != null ? this.standardFields['BedsTotal']: '');
-		let baths = 'Baths: ' + (this.standardFields['BathsFull'] != null ? this.standardFields['BathsFull']: '');
-		let sqft = 'Sqft: ' + (this.standardFields['BuildingAreaTotal'] != null ? this.standardFields['BuildingAreaTotal']: '');
-		let yearBuilt = 'Year Built: ' + (this.standardFields['YearBuilt'] != null ? this.standardFields['YearBuilt']: '');
+		let beds =
+			'Beds: ' + (this.validateField(this.standardFields['BedsTotal']) ? this.standardFields['BedsTotal'] : '');
+		let baths =
+			'Baths: ' + (this.validateField(this.standardFields['BathsFull']) ? this.standardFields['BathsFull'] : '');
+		let sqft =
+			'Sqft: ' + (this.validateField(this.standardFields['BuildingAreaTotal']) ? this.standardFields['BuildingAreaTotal'] : '');
+		let yearBuilt =
+			'Year Built: ' + (this.validateField(this.standardFields['YearBuilt']) ? this.standardFields['YearBuilt'] : '');
 		return `${beds} | ${baths} | ${sqft} | ${yearBuilt}`;
+	}
+
+	validateField(field): boolean{
+		return(field != null && field != '********');
 	}
 
 	buildSections(): void {
@@ -80,7 +88,7 @@ export class Listing {
 			let trueFalseConversion = {};
 			for(let customFieldKey of this.customTrueFalse){
 				let values = '';
-				let aComma = ''
+				let aComma = '';
 				if(this.customFields['Main'][customFieldKey]){
 					for(let key of Object.keys(this.customFields['Main'][customFieldKey])){
 						values += aComma + key;

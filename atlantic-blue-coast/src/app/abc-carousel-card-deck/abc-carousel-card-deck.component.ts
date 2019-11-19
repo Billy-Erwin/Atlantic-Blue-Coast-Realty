@@ -15,10 +15,25 @@ export class AbcCarouselCardDeckComponent {
 
 	ngAfterViewInit() {
 		let theRouter = this.router;
-		(<any>$('#recipeCarousel')).carousel({interval: 5000});
-		$('.carousel .carousel-item').each(function(){
-			let minPerSlide = 4;
+		this.setCarouselSize(4);
+
+		$('.listing-card').each(function(){
+			$(this).click(function () {
+				theRouter.navigate(['/selected-listing', this.id])
+			});
+		});
+
+		$(window).resize(() => {
+			console.log('this.width : ', $(window).width());
+		})
+	}
+
+	setCarouselSize(theNumber: number){
+		let theRouter = this.router;
+		$('#recipeCarousel .carousel-item').each(function(){
+			let minPerSlide = theNumber;
 			let next = $(this).next();
+			console.log('id : ', this.id);
 			if (!next.length) {
 				next = $(this).siblings(':first');
 			}
@@ -31,11 +46,6 @@ export class AbcCarouselCardDeckComponent {
 				}
 				next.children(':first-child').clone().appendTo($(this));
 			}
-		});
-		$('.listing-card').each(function(){
-			$(this).click(function () {
-				theRouter.navigate(['/selected-listing', this.id])
-			});
 		});
 	}
 }

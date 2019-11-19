@@ -1,24 +1,12 @@
-<div [routerLink]="['/spillway']" class="spillwayBannerWrapper outerSpillway">
-	<div class="container spillwayBanner">
-		<div class="row spillwayHeader">
-			<div class="col-12">
-				The Spillway
+<div [routerLink]="['/spillway']" class="outerSpillway">
+	<div class="container-fluid spillwayBanner">
+		<div class="row">
+			<div class="col-md-6">
+				<img class="spillwayLogo img-fluid" />
 			</div>
-		</div>
-		<div class="row ">
-			<div class="col-6 photoBox spillwayLogo"></div>
-			<div class="col-6 photoBox">
-				<div
-					id="spillwayCarouselControls"
-					class="carousel slide spillwayPhotoContainer"
-					data-ride="carousel">
-					<div class="carousel-inner">
-						<div style="height: 25rem; width: 25rem;"
-							*ngFor="let photo of spillwayPhotos"
-							[ngClass]="{'carousel-item': true, 'active': photo.Primary}">
-							<img src="{{photo.UriLarge}}" class="d-block w-100" alt="...">
-						</div>
-					</div>
+			<div class="col-md-6">
+				<div align="center">
+					<abc-photo-viewer [hideNavigation]="true" [carouselPhotos]="spillwayPhotos"></abc-photo-viewer>
 				</div>
 			</div>
 		</div>

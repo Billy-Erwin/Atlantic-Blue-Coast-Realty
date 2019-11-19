@@ -13,7 +13,29 @@
 	display: flex;
 }
 
-@media (min-width: 768px) {
+.carousel-inner .carousel-item.active {
+	border: 3px solid red;
+}
+
+.carousel-inner .carousel-item-next {
+	border: 3px solid blue;
+}
+
+.carousel-inner .carousel-item-prev {
+	border: 3px solid green;
+}
+
+.carousel-inner .carousel-item-right.active {
+	border: 3px solid orange;
+}
+
+.carousel-inner .carousel-item-left.active {
+	border: 3px solid hotpink;
+}
+
+
+
+@media (min-width: 1200px) {
 	.carousel-inner .carousel-item-right.active,
 	.carousel-inner .carousel-item-next {
 		transform: translateX(25%);
@@ -25,6 +47,19 @@
 	}
 }
 
+@media (min-width: 768px) and (max-width: 1199px) {
+	.carousel-inner {
+		border: 3px solid black;
+	}
+	/*.carousel-inner .carousel-item-next {*/
+		/*transform: translateX(33%);*/
+	/*}*/
+
+	/*.carousel-inner .carousel-item-prev {*/
+		/*transform: translateX(-33%);*/
+	/*}*/
+}
+
 .carousel-inner .carousel-item-right,
 .carousel-inner .carousel-item-left{
 	transform: translateX(0);
@@ -33,11 +68,13 @@
 .carousel {
 	padding: 20px;
 }
+
 .listing-indicators{
-	margin:5px;
+	margin-bottom: -5px;
 }
+
 .listing-indicator-item {
-	border:3px solid #1982ce;
+	border: 3px solid #1982ce;
 }
 
 .carouselWrapper * {
@@ -45,6 +82,7 @@
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
 }
+
 .carouselHeader{
 	font-size: 2rem;
 }
