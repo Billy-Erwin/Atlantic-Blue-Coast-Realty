@@ -1,3 +1,7 @@
-<p>
-	abc-about works!
-</p>
+<div class="container-fluid aboutWrapper">
+	<div *ngFor="let displayText of textList; index as i" class="row">
+		<div [ngClass]="(i % 2 === 0) ? 'evenRow' : 'oddRow'" class="col-12">
+			<p>{{displayText}}</p>
+		</div>
+	</div>
+</div>
