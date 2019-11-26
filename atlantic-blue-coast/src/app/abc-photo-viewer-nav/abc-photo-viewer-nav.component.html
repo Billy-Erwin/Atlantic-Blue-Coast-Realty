@@ -1,0 +1,12 @@
+<div class="photoNavWrapper">
+	<div id="photoNavContainer">
+		<div
+			*ngFor="let photo of carouselPhotos"
+			data-target="#photoViewerCarouselControls"
+			style="display:inline-block !important;"
+			attr.data-slide-to="{{carouselPhotos.indexOf(photo)}}"
+			[ngClass]="{'active': photo.Primary}">
+			<img src="{{photo.UriThumb}}" class="thumbIndicator" alt="...">
+		</div>
+	</div>
+</div>

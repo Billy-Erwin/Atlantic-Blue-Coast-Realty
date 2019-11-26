@@ -37,6 +37,7 @@ import { AbcPaginationComponent } from './abc-pagination/abc-pagination.componen
 import { AbcContactInfoComponent } from './abc-contact-info/abc-contact-info.component';
 import { AbcLegalComponent } from './abc-legal/abc-legal.component';
 import { AbcSpillwayPageComponent } from './abc-spillway-page/abc-spillway-page.component';
+import { AbcPhotoViewerNavComponent } from './abc-photo-viewer-nav/abc-photo-viewer-nav.component';
 
 @NgModule({
 	declarations: [
@@ -71,7 +72,8 @@ import { AbcSpillwayPageComponent } from './abc-spillway-page/abc-spillway-page.
 		AbcPaginationComponent,
 		AbcContactInfoComponent,
 		AbcLegalComponent,
-		AbcSpillwayPageComponent
+		AbcSpillwayPageComponent,
+		AbcPhotoViewerNavComponent
 	],
 	imports: [
 		BrowserModule,
