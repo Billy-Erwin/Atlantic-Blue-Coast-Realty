@@ -7,7 +7,7 @@
 					*ngFor="let listing of listings; index as i"
 					id="{{i}}"
 					[ngClass]="{'carousel-item': true, 'active': i === 0}">
-					<div class="col-sm-3">
+					<div [ngClass]="aClassILike">
 						<abc-listing-card [listing]="listing"></abc-listing-card>
 					</div>
 				</div>

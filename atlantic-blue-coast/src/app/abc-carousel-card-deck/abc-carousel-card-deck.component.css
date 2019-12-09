@@ -3,6 +3,7 @@
 		display: none;
 	}
 	.carousel-inner .carousel-item > div:first-child {
+		border:2px solid blue;
 		display: block;
 	}
 }
@@ -12,28 +13,6 @@
 .carousel-inner .carousel-item-prev {
 	display: flex;
 }
-
-/*.carousel-inner .carousel-item.active {*/
-	/*border: 3px solid red;*/
-/*}*/
-
-/*.carousel-inner .carousel-item-next {*/
-	/*border: 3px solid blue;*/
-/*}*/
-
-/*.carousel-inner .carousel-item-prev {*/
-	/*border: 3px solid green;*/
-/*}*/
-
-/*.carousel-inner .carousel-item-right.active {*/
-	/*border: 3px solid orange;*/
-/*}*/
-
-/*.carousel-inner .carousel-item-left.active {*/
-	/*border: 3px solid hotpink;*/
-/*}*/
-
-
 
 @media (min-width: 1200px) {
 	.carousel-inner .carousel-item-right.active,
@@ -47,17 +26,56 @@
 	}
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-	/*.carousel-inner {*/
-		/*border: 3px solid black;*/
-	/*}*/
-	/*.carousel-inner .carousel-item-next {*/
-		/*transform: translateX(33%);*/
-	/*}*/
+@media (min-width: 992px) and (max-width: 1199px) {
+	.carousel-inner .carousel-item > div {
+		display: none;
+	}
+	.carousel-inner .carousel-item > div:first-child {
+		border:2px solid blue;
+		display: block;
+	}
+	.carousel-inner .carousel-item > div:nth-child(2) {
+		border:2px solid green;
+		display: block;
+	}
+	.carousel-inner .carousel-item > div:nth-child(3) {
+		border:2px solid yellow;
+		display: block;
+	}
 
-	/*.carousel-inner .carousel-item-prev {*/
-		/*transform: translateX(-33%);*/
-	/*}*/
+	.carousel-inner .carousel-item-right.active,
+	.carousel-inner .carousel-item-next {
+		transform: translateX(33.33%);
+	}
+
+	.carousel-inner .carousel-item-left.active,
+	.carousel-inner .carousel-item-prev {
+		transform: translateX(-33.33%);
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.carousel-inner .carousel-item > div {
+		display: none;
+	}
+	.carousel-inner .carousel-item > div:first-child {
+		border:2px solid blue;
+		display: block;
+	}
+	.carousel-inner .carousel-item > div:nth-child(2) {
+		border:2px solid green;
+		display: block;
+	}
+
+	.carousel-inner .carousel-item-right.active,
+	.carousel-inner .carousel-item-next {
+		transform: translateX(50%);
+	}
+
+	.carousel-inner .carousel-item-left.active,
+	.carousel-inner .carousel-item-prev {
+		transform: translateX(-50%);
+	}
 }
 
 .carousel-inner .carousel-item-right,
@@ -85,4 +103,8 @@
 
 .carouselHeader{
 	font-size: 2rem;
+}
+
+.test{
+	border: 3px solid red;
 }

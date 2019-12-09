@@ -45,7 +45,7 @@ export class Listing {
 			}
 			this.buildSections();
 		}
-		console.log(this.standardFields);
+		// console.log(this.standardFields);
 	}
 
 	getStreetAddress(): string{
