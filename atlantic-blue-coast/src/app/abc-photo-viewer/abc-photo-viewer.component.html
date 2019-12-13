@@ -3,7 +3,7 @@
 		<div
 			*ngFor="let photo of carouselPhotos"
 			[ngClass]="{'carousel-item': true, 'active': photo.Primary}">
-			<img src="{{photo.UriLarge}}" class="d-block w-100" alt="...">
+			<img src="{{photo.UriLarge}}" class="d-block img-fluid" alt="..." />
 		</div>
 	</div>
 	<a class="carousel-control-prev" href="#photoViewerCarouselControls" role="button" data-slide="prev">
@@ -14,15 +14,4 @@
 		<span class="carousel-control-next-icon" aria-hidden="true"></span>
 		<span class="sr-only">Next</span>
 	</a>
-</div>
-<div class="photoNavWrapper">
-	<div id="photoNavContainer">
-		<div *ngFor="let photo of carouselPhotos"
-			data-target="#photoViewerCarouselControls"
-			style="display:inline-block !important;"
-			attr.data-slide-to="{{carouselPhotos.indexOf(photo)}}"
-			[ngClass]="{'active': photo.Primary}">
-			<img src="{{photo.UriThumb}}" class="thumbIndicator" alt="...">
-		</div>
-	</div>
 </div>

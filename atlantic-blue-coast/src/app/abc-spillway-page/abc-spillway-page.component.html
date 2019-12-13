@@ -1,31 +1,38 @@
 <div class="container-fluid spillwayPageWrapper">
 	<div class="row">
-		<div class="col-6">
-			<div class="photoViewerContainer" align="center">
-				<img class="spillwayLogo"/>
-				<div class="spillwayTextContainer">
-					<p>Here is some stuff about the spillway...</p>
-				</div>
-				<div class="spillwayTextContainer">
-					Visit The Spillway website&nbsp;
-					<a class="spillwayLink" href="https://www.spillwayevents.com" target="_blank">HERE...</a>
-				</div>
-				<div class="spillwayTextContainer">
-					Download The Spillway rules&nbsp;
-					<a
-						class="spillwayLink"
-						href="../../assets/documents/THE_SPILLWAY_rules_v4.1.pdf"
-						target="_blank" download="">
-						HERE...
-					</a>
-				</div>
-				<abc-email [contactDetails]="contactDetails"></abc-email>
+		<div class="col-md-6" style="">
+			<div align="center">
+				<img class="img-fluid spillwayLogo"/>
 			</div>
 		</div>
-		<div class="col-6">
-			<div class="photoViewerContainer" align="center">
+		<div class="col-md-6">
+			<div align="center">
 				<abc-photo-viewer [carouselPhotos]="spillwayPhotos"></abc-photo-viewer>
+				<abc-photo-viewer-nav [carouselPhotos]="spillwayPhotos"></abc-photo-viewer-nav>
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="spillwayTextContainer">
+				<p>Here is some stuff about the spillway...</p>
+			</div>
+			<div class="spillwayTextContainer">
+				Visit The Spillway website&nbsp;
+				<a class="spillwayLink" href="https://www.spillwayevents.com" target="_blank">HERE...</a>
+			</div>
+			<div class="spillwayTextContainer">
+				Download The Spillway rules&nbsp;
+				<a
+					class="spillwayLink"
+					href="../../assets/documents/THE_SPILLWAY_rules_v4.1.pdf"
+					target="_blank" download="">
+					HERE...
+				</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<abc-email [contactDetails]="contactDetails"></abc-email>
 		</div>
 	</div>
 </div>

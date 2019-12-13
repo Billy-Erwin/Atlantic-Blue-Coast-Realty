@@ -1,11 +1,21 @@
-.listing-card{
+.listing-card {
 	cursor: pointer;
 	border-radius: .25rem;
 	border: 1px solid rgba(0,0,0,.125);
+	max-width: 260px;
+	height: 365px;
+	margin: 0 auto;
 }
+
 .card-img-top {
 	height: 150px;
 }
+
 div.card-body {
 	height: 140px;
+	padding: 0.75rem;
+}
+
+.addressLine {
+	font-size: small;
 }

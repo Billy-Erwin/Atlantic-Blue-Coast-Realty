@@ -2,8 +2,10 @@
 	<img class="card-img-top" [src]="listing.primaryPhoto">
 	<div class="card-body">
 		<h5 class="card-title">{{listing.standardFields['ListPrice'] | currency}}</h5>
-		<p class="card-text">{{listing.getStreetAddress()}}</p>
-		<p class="card-text">{{listing.getCityAndState()}}</p>
+		<div class="addressLine">
+			{{listing.standardFields['UnparsedFirstLineAddress']}}<br/>
+			{{listing.getCityAndState()}}
+		</div>
 	</div>
 	<div class="card-footer">
 		<small class="text-muted">{{listing.getBasicDetails()}}</small>

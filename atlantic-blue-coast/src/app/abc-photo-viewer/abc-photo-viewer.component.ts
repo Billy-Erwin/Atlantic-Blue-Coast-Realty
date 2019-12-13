@@ -8,15 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AbcPhotoViewerComponent implements OnInit {
 
 	@Input() carouselPhotos;
-
 	constructor() { }
 
 	ngOnInit() {
-		$('.photoNavWrapper').width($('.carousel-inner').width());
-		$('#photoNavContainer').width(this.carouselPhotos.length * 68);
-		$(window).on('resize',function(){
-			$('.photoNavWrapper').width($('.carousel-inner').width());
-		});
 		(<any>$('#photoViewerCarouselControls')).carousel({interval: 5000});
 	}
 }
