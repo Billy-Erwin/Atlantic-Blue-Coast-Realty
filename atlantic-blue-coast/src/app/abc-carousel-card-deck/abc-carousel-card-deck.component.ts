@@ -15,13 +15,10 @@ export class AbcCarouselCardDeckComponent implements OnInit{
 	constructor(private router: Router, private listingsService: ListingsService) { }
 
 	ngOnInit() {
-		this.updateTheSlides($(window).width());
-
 		$(window).resize(() => {
 			this.updateTheSlides($(window).width());
 			this.setCarouselSize();
 		});
-
 	}
 
 	updateTheSlides(windowWidth: number) {
@@ -42,15 +39,14 @@ export class AbcCarouselCardDeckComponent implements OnInit{
 
 		$('#recipeCarousel .carousel-item .thisOne').each(function(){
 			$(this).removeClass(theOldClass);
-			console.log($(this));
 			$(this).addClass(aNewClass);
 		});
 	}
 
 	ngAfterViewInit() {
 		let theRouter = this.router;
+		this.updateTheSlides($(window).width());
 		this.setCarouselSize();
-		// this.setCarouselSize(this.numberOfSlides);
 
 		$('.listing-card').each(function(){
 			$(this).click(function () {
