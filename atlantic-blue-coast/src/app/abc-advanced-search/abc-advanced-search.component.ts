@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as searchOptions from '../../assets/files/advanced_search_options.json';
 import { ListingsService } from "../listings.service";
 import { AbcAdvancedSearch } from "../abc-advanced-search";

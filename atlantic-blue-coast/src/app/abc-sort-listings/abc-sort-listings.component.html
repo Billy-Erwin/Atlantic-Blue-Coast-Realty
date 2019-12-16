@@ -1,0 +1,16 @@
+<div class="dropdown">
+	<button
+		class="btn btn-secondary dropdown-toggle"
+		type="button"
+		id="dropdownMenuButton"
+		data-toggle="dropdown"
+		aria-haspopup="true"
+		aria-expanded="false">
+		{{sortIndicator}}
+	</button>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		<a *ngFor="let sortOption of sortOptions; let i = index;"
+			class="dropdown-item"
+			(click)="changeSort(i)">{{sortOption.displayName}}</a>
+	</div>
+</div>

@@ -44,7 +44,7 @@ module.exports.getFeaturedListings = function(resp){
 }
 
 module.exports.getAbcListings = function(resp, page){
-	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=20&_pagination=1&_page=${page}`;
+	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=20&_pagination=1&_page=${page}&_orderby=+ListPrice`;
 	incomingResponse = resp;
 	request(options, callback);
 }

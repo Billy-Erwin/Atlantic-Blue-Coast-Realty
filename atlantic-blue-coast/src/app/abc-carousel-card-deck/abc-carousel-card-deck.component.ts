@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ListingsService } from "../listings.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -11,8 +10,8 @@ export class AbcCarouselCardDeckComponent implements OnInit{
 
 	@Input() listings;
 	title: string = 'Atlantic Blue Coast Featured Listings';
-	aClassILike;
-	constructor(private router: Router, private listingsService: ListingsService) { }
+	currentClassState;
+	constructor(private router: Router) { }
 
 	ngOnInit() {
 		$(window).resize(() => {
@@ -22,24 +21,23 @@ export class AbcCarouselCardDeckComponent implements OnInit{
 	}
 
 	updateTheSlides(windowWidth: number) {
-
-		let aNewClass = '';
-		let theOldClass = this.aClassILike;
+		let newClassState = '';
+		let oldClassState = this.currentClassState;
 
 		if(windowWidth > 1199){
-			aNewClass = 'col-3';
+			newClassState = 'col-3';
 		} else if (windowWidth >= 992 && windowWidth < 1200) {
-			aNewClass = 'col-4';
+			newClassState = 'col-4';
 		} else if (windowWidth >= 768 && windowWidth < 992) {
-			aNewClass = 'col-6';
+			newClassState = 'col-6';
 		} else if (windowWidth  < 768) {
-			aNewClass = 'col-12';
+			newClassState = 'col-12';
 		}
-		this.aClassILike = aNewClass;
+		this.currentClassState = newClassState;
 
-		$('#recipeCarousel .carousel-item .thisOne').each(function(){
-			$(this).removeClass(theOldClass);
-			$(this).addClass(aNewClass);
+		$('#recipeCarousel .carousel-item .listingCardContainer').each(function(){
+			$(this).removeClass(oldClassState);
+			$(this).addClass(newClassState);
 		});
 	}
 
