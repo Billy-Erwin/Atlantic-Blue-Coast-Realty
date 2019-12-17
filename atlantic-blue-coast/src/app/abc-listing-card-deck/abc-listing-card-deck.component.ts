@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ListingsService } from "../listings.service";
 
 @Component({
 	selector: 'abc-listing-card-deck',
@@ -10,7 +11,6 @@ export class AbcListingCardDeckComponent {
 
 	@Input() listings;
 	@Input() title;
-	@Input() paginationHash;
 
-	constructor() { }
+	constructor(public listingsService: ListingsService) { }
 }

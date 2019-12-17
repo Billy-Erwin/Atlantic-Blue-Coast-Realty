@@ -10,6 +10,14 @@ export class ListingsService {
 	featuredListings: Listing[] = [];
 	abcListings: Listing[] = [];
 	filteredListings: Listing[] = [];
+
+	paginationObject: any = {};
+	activeComponent: string = '';
+	searchText: string = '';
+	filterString: string = '';
+	sortKey: string =  '';
+	pageNumbers: number[] = [1, 2, 3, 4, 5];
+
 	baseUrl: string = 'http://localhost:4040/';
 	// baseUrl: string = 'http://52.15.233.116:4040/';
 	constructor(private http: HttpClient) {}

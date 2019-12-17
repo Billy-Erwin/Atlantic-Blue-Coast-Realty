@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
-		<div *ngIf="paginationHash" class="col-6 pull-left">
-			<abc-pagination [paginationObject]="paginationHash"></abc-pagination>
+		<div *ngIf="listings?.length" class="col-6 pull-left">
+			<abc-pagination></abc-pagination>
 		</div>
-		<div *ngIf="paginationHash" class="col-6 pull-right">
+		<div *ngIf="listings?.length" class="col-6 pull-right">
 			<abc-sort-listings></abc-sort-listings>
 		</div>
 	</div>

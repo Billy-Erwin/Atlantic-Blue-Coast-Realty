@@ -1,4 +1,4 @@
-import {Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ListingsService } from "../listings.service";
 
 @Component({
@@ -9,31 +9,24 @@ import { ListingsService } from "../listings.service";
 
 export class AbcPaginationComponent {
 
-	@Input() paginationObject;
-	pageNumbers: number[];
-
-	constructor(private listingsService: ListingsService) { }
-
-	ngOnChanges() {
-		this.pageNumbers = [1, 2, 3, 4, 5];
-	}
+	constructor(public listingsService: ListingsService) { }
 
 	changePage(pageNumber) {
-		this.paginationObject['CurrentPage'] = pageNumber;
-		if (this.pageNumbers[4] == this.paginationObject['CurrentPage'] ||
-			this.paginationObject['CurrentPage'] == 1 ||
-			this.paginationObject['CurrentPage'] == this.pageNumbers[0] - 1 ||
-			this.paginationObject['CurrentPage'] == this.paginationObject['TotalPages']) {
-			this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
+		this.listingsService.paginationObject['CurrentPage'] = pageNumber;
+		if (this.listingsService.pageNumbers[4] == this.listingsService.paginationObject['CurrentPage'] ||
+			this.listingsService.paginationObject['CurrentPage'] == 1 ||
+			this.listingsService.paginationObject['CurrentPage'] == this.listingsService.pageNumbers[0] - 1 ||
+			this.listingsService.paginationObject['CurrentPage'] == this.listingsService.paginationObject['TotalPages']) {
+			this.listingsService.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
 		}
 
-		if (this.paginationObject.page === 'filteredListings') {
+		if (this.listingsService.activeComponent === 'filteredListings') {
 			this.listingsService.getFilteredListings(
-				this.paginationObject.filterString,
-				this.paginationObject.searchText,
+				this.listingsService.filterString,
+				this.listingsService.searchText,
 				pageNumber).subscribe(data => {});
-		} else if (this.paginationObject.page === 'abcListings') {
-			this.listingsService.setAbcListings(this.paginationObject['CurrentPage']).subscribe(data => {});
+		} else if (this.listingsService.activeComponent === 'abcListings') {
+			this.listingsService.setAbcListings(this.listingsService.paginationObject['CurrentPage']).subscribe(data => {});
 		}
 
 	}

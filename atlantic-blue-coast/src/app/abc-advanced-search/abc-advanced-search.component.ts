@@ -24,8 +24,6 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		maxLotSizeOptions : searchOptions['default']['max_lot_size']
 	}
 
-	paginationObject: any;
-
 	model = new AbcAdvancedSearch();
 
 	constructor(private listingsService: ListingsService, private route: ActivatedRoute) { }
@@ -40,17 +38,22 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 
 	ngOnDestroy(){
 		this.listingsService.filteredListings = [];
-		this.paginationObject = {};
+		this.listingsService.pageNumbers = [1,2,3,4,5];
+		this.listingsService.paginationObject = {};
+		this.listingsService.activeComponent = '';
+		this.listingsService.searchText = '';
+		this.listingsService.filterString = '';
+		this.listingsService.sortKey =  '';
 	}
 
 	onSubmit(){
 		this.model.formatQuery();
 		this.listingsService.getFilteredListings(
 			this.model.filterString, this.model.searchText, 1).subscribe(data => {
-				this.paginationObject = data;
-				this.paginationObject.filterString = this.model.filterString;
-				this.paginationObject.searchText = this.model.searchText;
-				this.paginationObject.page = 'filteredListings';
+				this.listingsService.paginationObject = data;
+				this.listingsService.filterString = this.model.filterString;
+				this.listingsService.searchText = this.model.searchText;
+				this.listingsService.activeComponent = 'filteredListings';
 		});
 	}
 
