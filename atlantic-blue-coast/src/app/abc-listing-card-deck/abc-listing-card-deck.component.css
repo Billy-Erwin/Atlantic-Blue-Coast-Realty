@@ -1,13 +1,11 @@
-.listing-indicators{
-	margin:5px;
+.listing-indicators {
+	margin: 5px;
 }
 
 .listing-indicator-item {
-	border:3px solid #1982ce;
+	border: 3px solid #1982ce;
 }
 
 .listing-card-wrapper {
-	margin:50px 10px;
-	/*width:200px;*/
-	/*height:300px;*/
+	margin: 20px 10px;
 }
