@@ -1,16 +1,29 @@
-<div class="container text-center">
-	<div class="row">
-		<div class="col-12">
-			<abc-pagination *ngIf="paginationHash" [paginationObject]="paginationHash"></abc-pagination>
+<div class="container">
+	<div [hidden]="listingsService.activeComponent === ''" class="row justify-content-end">
+		<div class="col-auto">
+			<abc-pagination class="pull-right"></abc-pagination>
+		</div>
+		<div class="col-auto">
+			<abc-sort-listings class="pull-right"></abc-sort-listings>
 		</div>
 	</div>
 </div>
-<div *ngIf="listings?.length" class="container justify-content-center">
-	<div class="row justify-content-left">
+<div *ngIf="listings?.length" class="container">
+	<div class="row justify-content-around" >
 		<div *ngFor="let listing of listings; index as i">
 			<div class="listing-card-wrapper">
 				<abc-listing-card [listing]="listing"></abc-listing-card>
 			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div [hidden]="!listings?.length" class="row justify-content-end">
+		<div class="col-auto">
+			<abc-pagination class="pull-right"></abc-pagination>
+		</div>
+		<div class="col-auto">
+			<abc-sort-listings class="pull-right"></abc-sort-listings>
 		</div>
 	</div>
 </div>

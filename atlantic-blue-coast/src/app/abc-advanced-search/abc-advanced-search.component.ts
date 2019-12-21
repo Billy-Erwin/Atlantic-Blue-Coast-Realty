@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as searchOptions from '../../assets/files/advanced_search_options.json';
 import { ListingsService } from "../listings.service";
 import { AbcAdvancedSearch } from "../abc-advanced-search";
@@ -24,8 +24,6 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		maxLotSizeOptions : searchOptions['default']['max_lot_size']
 	}
 
-	paginationObject: any;
-
 	model = new AbcAdvancedSearch();
 
 	constructor(private listingsService: ListingsService, private route: ActivatedRoute) { }
@@ -39,18 +37,17 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 	}
 
 	ngOnDestroy(){
-		this.listingsService.filteredListings = [];
-		this.paginationObject = {};
+		this.listingsService.initializeSession();
 	}
 
 	onSubmit(){
 		this.model.formatQuery();
 		this.listingsService.getFilteredListings(
 			this.model.filterString, this.model.searchText, 1).subscribe(data => {
-				this.paginationObject = data;
-				this.paginationObject.filterString = this.model.filterString;
-				this.paginationObject.searchText = this.model.searchText;
-				this.paginationObject.page = 'filteredListings';
+				this.listingsService.paginationObject = data;
+				this.listingsService.filterString = this.model.filterString;
+				this.listingsService.searchText = this.model.searchText;
+				this.listingsService.activeComponent = 'filteredListings';
 		});
 	}
 

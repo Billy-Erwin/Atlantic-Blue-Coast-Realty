@@ -1,0 +1,10 @@
+.btn-secondary.dropdown-toggle {
+	background-color: #8dd8f8;
+	border-color: #dee2e6;
+	margin-top: 1rem;
+	color: black;
+	width: 11rem;
+}
+.dropdown-toggle:focus {
+	box-shadow: none;
+}
