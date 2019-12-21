@@ -44,9 +44,15 @@ module.exports.getFeaturedListings = function(resp){
 }
 
 module.exports.getAbcListings = function(resp, query){
-	let page = query['page'];
-	let orderby = query['orderby'];
-	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=20&_pagination=1&_page=${page}&_orderby=${orderby}`;
+	let page = 1;
+	let orderBy = '-ListPrice';
+	if (query && query['page']) {
+		page = query['page'];
+	}
+	if (query['orderBy']) {
+		orderBy = query['orderBy'];
+	}
+	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=20&_pagination=1&_page=${page}&_orderby=${orderBy}`;
 	incomingResponse = resp;
 	request(options, callback);
 }

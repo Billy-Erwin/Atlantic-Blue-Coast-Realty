@@ -50,7 +50,7 @@ export class ListingsService {
 
 	setAbcListings(page): Observable<any[]> {
 		this.abcListings = [];
-		let listingUrl = `${this.baseUrl}getAbcListings?page=${page}&orderby=${this.sortKey}`;
+		let listingUrl = `${this.baseUrl}getAbcListings?page=${page}&orderBy=${this.sortKey}`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let listing of <object[]> data['listings']){
 				this.abcListings.push(new Listing(listing));
