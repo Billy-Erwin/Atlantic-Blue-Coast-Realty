@@ -43,8 +43,10 @@ module.exports.getFeaturedListings = function(resp){
 	request(options, callback);
 }
 
-module.exports.getAbcListings = function(resp, page){
-	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=20&_pagination=1&_page=${page}&_orderby=+ListPrice`;
+module.exports.getAbcListings = function(resp, query){
+	let page = query['page'];
+	let orderby = query['orderby'];
+	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${listingFilter}&_limit=20&_pagination=1&_page=${page}&_orderby=${orderby}`;
 	incomingResponse = resp;
 	request(options, callback);
 }

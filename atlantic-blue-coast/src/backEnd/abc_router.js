@@ -24,7 +24,7 @@ exports.routeRequest = function(req, resp){
 	} else if(resourcePath === '/getSimpleFilteredListings') {
 		filteredListings.getSimpleFilteredListings(resp, urlObj.query.searchText);
 	} else if(resourcePath === '/getAbcListings'){
-		featuredListings.getAbcListings(resp, urlObj.query.page);
+		featuredListings.getAbcListings(resp, urlObj.query);
 	} else if(resourcePath === '/sendMail'){
 		abcMail.sendIt(resp, urlObj.query);
 	}

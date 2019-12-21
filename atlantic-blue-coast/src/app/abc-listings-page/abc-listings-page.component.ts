@@ -20,12 +20,6 @@ export class AbcListingsPageComponent implements OnInit {
 		});
 	}
 	ngOnDestroy(){
-		this.listingsService.filteredListings = [];
-		this.listingsService.pageNumbers = [1,2,3,4,5];
-		this.listingsService.paginationObject = {};
-		this.listingsService.activeComponent = '';
-		this.listingsService.searchText = '';
-		this.listingsService.filterString = '';
-		this.listingsService.sortKey =  '';
+		this.listingsService.initializeSession();
 	}
 }

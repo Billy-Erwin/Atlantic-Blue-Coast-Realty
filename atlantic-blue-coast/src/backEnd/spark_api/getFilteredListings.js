@@ -76,6 +76,7 @@ function usaStates(stateString){
 
 module.exports.getFilteredListings = function(resp, filterFieldsMap){
 	let filterSegment = '';
+	let orderBy = '-ListPrice';
 	if(filterFieldsMap.searchText && filterFieldsMap.searchText != 'undefined'){
 		filterSegment = `(${buildLocationSegment(filterFieldsMap.searchText)})`;
 	}
@@ -86,15 +87,18 @@ module.exports.getFilteredListings = function(resp, filterFieldsMap){
 			filterSegment = filterFieldsMap.filterString.trim();
 		}
 	}
+	if(filterFieldsMap.orderBy){
+		orderBy = filterFieldsMap.orderBy;
+	}
 
-	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_limit=20&_pagination=1&_page=${filterFieldsMap.page}&_filter=${encodeURI(filterSegment)}`;
+	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_limit=20&_pagination=1&_page=${filterFieldsMap.page}&_filter=${encodeURI(filterSegment)}&_orderby=${orderBy}`;
 	incomingResponse = resp;
 	request(options, callback);
 }
 
 module.exports.getSimpleFilteredListings = function(resp, locationText){
 	options.url =
-		`https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=${encodeURI(buildLocationSegment(locationText))}`;
+		`https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&_filter=${encodeURI(buildLocationSegment(locationText))}&_orderby=-ListPrice`;
 	incomingResponse = resp;
 	request(options, callback);
 }

@@ -15,15 +15,30 @@ export class ListingsService {
 	activeComponent: string = '';
 	searchText: string = '';
 	filterString: string = '';
-	sortKey: string =  '';
+	sortKey: string =  '-ListPrice';
+	sortIndex: number = 0;
 	pageNumbers: number[] = [1, 2, 3, 4, 5];
 
 	baseUrl: string = 'http://localhost:4040/';
 	// baseUrl: string = 'http://52.15.233.116:4040/';
 	constructor(private http: HttpClient) {}
 
+	initializeSession(){
+		this.abcListings = [];
+		this.filteredListings = [];
+		this.sortIndex = 0;
+		this.sortKey = '-ListPrice';
+		this.pageNumbers = [1, 2, 3, 4, 5];
+		this.paginationObject = {};
+		this.activeComponent = '';
+		this.searchText = '';
+		this.filterString = '';
+	}
+
 	setFeaturedListings(): Observable<Listing[]> {
-		this.featuredListings = [];
+		if (this.featuredListings.length > 0){
+			return new Observable<Listing[]>();
+		}
 		let listingUrl = `${this.baseUrl}getFeaturedListings`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let i = 0; i < 6; i++){
@@ -35,7 +50,7 @@ export class ListingsService {
 
 	setAbcListings(page): Observable<any[]> {
 		this.abcListings = [];
-		let listingUrl = `${this.baseUrl}getAbcListings?page=${page}`;
+		let listingUrl = `${this.baseUrl}getAbcListings?page=${page}&orderby=${this.sortKey}`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let listing of <object[]> data['listings']){
 				this.abcListings.push(new Listing(listing));
@@ -46,7 +61,7 @@ export class ListingsService {
 
 	getFilteredListings(filterString, searchText, page): Observable<any[]> {
 		this.filteredListings = [];
-		let listingUrl = `${this.baseUrl}getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}`;
+		let listingUrl = `${this.baseUrl}getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}&orderBy=${this.sortKey}`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let listing of data['listings']){
 				this.filteredListings.push(new Listing(listing));

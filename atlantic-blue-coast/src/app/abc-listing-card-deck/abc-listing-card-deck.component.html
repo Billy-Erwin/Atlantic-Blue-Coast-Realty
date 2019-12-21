@@ -1,5 +1,5 @@
 <div class="container">
-	<div *ngIf="listings?.length" class="row justify-content-end">
+	<div [hidden]="listingsService.activeComponent === ''" class="row justify-content-end">
 		<div class="col-auto">
 			<abc-pagination class="pull-right"></abc-pagination>
 		</div>
@@ -18,7 +18,7 @@
 	</div>
 </div>
 <div class="container">
-	<div *ngIf="listings?.length" class="row justify-content-end">
+	<div [hidden]="!listings?.length" class="row justify-content-end">
 		<div class="col-auto">
 			<abc-pagination class="pull-right"></abc-pagination>
 		</div>
