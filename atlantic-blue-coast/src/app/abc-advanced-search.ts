@@ -22,6 +22,7 @@ export class AbcAdvancedSearch {
 		this.setPriceCondition();
 		this.setYearBuiltCondition();
 		this.setSqftCondition();
+		this.filterParameters.push("MlsStatus Ne 'Closed'");
 		for(let i = 0; i < this.filterParameters.length; i++){
 			this.filterString += `${this.filterParameters[i]} And `
 		}

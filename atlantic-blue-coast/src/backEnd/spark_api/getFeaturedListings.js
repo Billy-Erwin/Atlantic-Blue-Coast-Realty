@@ -4,7 +4,7 @@ let tukus = require('../../assets/files/tukus');
 let token = tukus['tukus'];
 let agentId = '20151215165859922194000000';
 
-let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}'`);
+let listingFilter = encodeURI(`_filter=ListAgentId Eq '${agentId}' And MlsStatus Ne 'Closed'`);
 
 let options = {
 	method: 'GET',

@@ -22,7 +22,8 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		maxSqftOptions : searchOptions['default']['max_sqft'],
 		minLotSizeOptions : searchOptions['default']['min_lot_size'],
 		maxLotSizeOptions : searchOptions['default']['max_lot_size']
-	}
+	};
+	title:string = 'Advanced MLS Search'
 
 	model = new AbcAdvancedSearch();
 

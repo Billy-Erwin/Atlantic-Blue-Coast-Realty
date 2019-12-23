@@ -1,6 +1,6 @@
 <div class="container-fluid advancedSearch advancedSearchWrapper">
 	<div class="row justify-content-center">
-		<div class="searchHeader">Advanced Search</div>
+		<div class="searchHeader">{{title}}</div>
 	</div>
 	<form (ngSubmit)="onSubmit()" #AbcSimpleSearch="ngForm">
 		<div class="row justify-content-center">
@@ -23,7 +23,7 @@
 					id="beds"
 					name="beds">
 					<option *ngFor="let bed of advancedSearchOptions.bedOptions" [value]="bed">
-						{{bed}}
+						{{bed}} {{bed == 'Any' ? '' : '+'}}
 					</option>
 				</select>
 			</div>
@@ -37,7 +37,7 @@
 					name="baths"
 					#baths="ngModel">
 					<option *ngFor="let bath of advancedSearchOptions.bathOptions" [value]="bath">
-						{{bath}}
+						{{bath}} {{bath == 'Any' ? '' : '+'}}
 					</option>
 				</select>
 			</div>
