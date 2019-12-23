@@ -14,10 +14,9 @@
 	background-color: #1882cd;
 	padding: 2rem 10rem;
 	color: white;
-
 }
 
 .row {
-	margin-top: 5rem;
 	text-align: center;
+	white-space: pre-line;
 }
