@@ -12,10 +12,12 @@
 	margin-left: 1rem;
 	font-size: 1.25rem;
 }
+
 a {
 	text-decoration: none;
 	color: black;
 }
+
 .mn-black {
 	font-family: mostra-nuova, sans-serif;
 	font-style: normal;
