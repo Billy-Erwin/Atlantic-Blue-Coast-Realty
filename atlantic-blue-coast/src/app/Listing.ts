@@ -66,17 +66,18 @@ export class Listing {
 
 	getBasicDetails(): string{
 		let beds =
-			'Beds: ' + (this.validateField(this.standardFields['BedsTotal']) ? this.standardFields['BedsTotal'] : '');
+			(this.validateField(this.standardFields['BedsTotal']) ? this.standardFields['BedsTotal'] : 0) + ' Bedrooms';
 		let baths =
-			'Baths: ' + (this.validateField(this.standardFields['BathsFull']) ? this.standardFields['BathsFull'] : '');
+			(this.validateField(this.standardFields['BathsFull']) ? this.standardFields['BathsFull'] : 0) + ' Baths';
 		let sqft =
-			'Sqft: ' + (this.validateField(this.standardFields['BuildingAreaTotal']) ? this.standardFields['BuildingAreaTotal'] : '');
+			(this.validateField(this.standardFields['BuildingAreaTotal']) ? this.standardFields['BuildingAreaTotal'] : 0) + ' Sqft';
 		let yearBuilt =
-			'Year Built: ' + (this.validateField(this.standardFields['YearBuilt']) ? this.standardFields['YearBuilt'] : '');
-		return `${beds} | ${baths} | ${sqft} | ${yearBuilt}`;
+			'Built in ' + (this.validateField(this.standardFields['YearBuilt']) ? this.standardFields['YearBuilt'] : '');
+		return `${beds} ${baths}
+		${sqft} ${yearBuilt}`;
 	}
 
-	validateField(field): boolean{
+	validateField(field): boolean {
 		return(field != null && field != '********');
 	}
 

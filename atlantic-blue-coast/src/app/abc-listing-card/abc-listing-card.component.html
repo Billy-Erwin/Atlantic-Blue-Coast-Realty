@@ -4,7 +4,8 @@
 		<h5 class="card-title">{{listing.standardFields['ListPrice'] | currency}}</h5>
 		<div class="addressLine">
 			{{listing.standardFields['UnparsedFirstLineAddress']}}<br/>
-			{{listing.getCityAndState()}}
+			{{listing.getCityAndState()}}<br/>
+			{{listing.standardFields['MlsStatus']}}
 		</div>
 	</div>
 	<div class="card-footer">
