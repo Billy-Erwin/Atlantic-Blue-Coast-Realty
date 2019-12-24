@@ -1,9 +1,9 @@
-.mainRow{
+.mainRow {
 	height: 100%;
 	background-image:url("../../assets/images/ABCReal1.jpg");
 	background-size: 100% 100%;
 }
-.logoContainer{
+.logoContainer {
 	background-repeat: no-repeat !important;
 	background-image:url("../../assets/images/abc_logo_1.jpg");
 	background-position: 0% 50% !important;
