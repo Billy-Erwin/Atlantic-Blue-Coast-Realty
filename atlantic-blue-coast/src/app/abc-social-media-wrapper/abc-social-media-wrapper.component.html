@@ -5,16 +5,17 @@
 		</span>
 	</div>
 	<div class="col-md-4">
-		<div
-			id="slogan"
-			[attr.data-title]="popoverTitle"
-			class="abc-slogan"
-			data-container="body"
-			data-toggle="popover"
-			data-placement="top"
-			data-html="true">
-			{{slogan}}
-		</div>
+		<div  [routerLink]="['home']" class="abc-slogan">{{slogan}}</div>
+		<!--<div-->
+			<!--id="slogan"-->
+			<!--[attr.data-title]="popoverTitle"-->
+			<!--class="abc-slogan"-->
+			<!--data-container="body"-->
+			<!--data-toggle="popover"-->
+			<!--data-placement="top"-->
+			<!--data-html="true">-->
+			<!--{{slogan}}-->
+		<!--</div>-->
 	</div>
 	<div class="col-md-4 text-md-right" >
 		<span *ngFor="let socialMediaLink of socialMediaLinks">

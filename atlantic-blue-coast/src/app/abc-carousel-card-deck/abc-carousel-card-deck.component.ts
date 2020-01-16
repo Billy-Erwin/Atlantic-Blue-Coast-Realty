@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 export class AbcCarouselCardDeckComponent implements OnInit{
 
 	@Input() listings;
-	title: string = 'Atlantic Blue Coast Featured Listings';
+	title: string = 'Atlantic Blue Coast Realty Featured Listings';
 	currentClassState;
 	constructor(private router: Router) { }
 
