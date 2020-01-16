@@ -13,7 +13,6 @@ export class AbcPhotoViewerNavComponent implements OnInit {
 	ngOnInit() {
 		$('.photoNavWrapper').width($('.carousel-inner').width());
 		$('#photoNavContainer').width(this.carouselPhotos.length * 68);
-		console.log('stuff : ', this.carouselPhotos.length * 68);
 		$(window).on('resize', function () {
 			$('.photoNavWrapper').width($('.carousel-inner').width());
 		});

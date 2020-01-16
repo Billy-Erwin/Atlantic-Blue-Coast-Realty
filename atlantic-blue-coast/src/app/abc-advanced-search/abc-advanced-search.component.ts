@@ -10,7 +10,7 @@ import { ActivatedRoute } from "@angular/router";
 	styleUrls: ['./abc-advanced-search.component.css']
 })
 
-export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
+export class AbcAdvancedSearchComponent implements OnInit, OnDestroy {
 	advancedSearchOptions = {
 		bedOptions : searchOptions['default']['beds'],
 		bathOptions : searchOptions['default']['baths'],
@@ -23,28 +23,40 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		minLotSizeOptions : searchOptions['default']['min_lot_size'],
 		maxLotSizeOptions : searchOptions['default']['max_lot_size']
 	};
-	title:string = 'Advanced MLS Search'
+	title: string = 'Advanced MLS Search'
 
-	model = new AbcAdvancedSearch();
+	model = new AbcAdvancedSearch({});
 
 	constructor(private listingsService: ListingsService, private route: ActivatedRoute) { }
 
-	ngOnInit(){
-		let searchText = this.route.snapshot.paramMap.get('searchText');
-		if(searchText && searchText !== null){
-			this.model.searchText = searchText;
-			this.onSubmit();
+	ngOnInit() {
+		if (this.route.snapshot.paramMap.get('queryData')) {
+			let queryData = JSON.parse(this.route.snapshot.paramMap.get('queryData'));
+			if (queryData['advancedSearchOptions']) {
+				this.model =  new AbcAdvancedSearch(queryData['advancedSearchOptions']);
+				this.listingsService.pageNumbers = queryData['pageNumbers'];
+				this.listingsService.sortIndex = queryData['sortIndex'];
+				this.listingsService.sortKey = queryData['sortKey'];
+				this.onSubmit(queryData['currentPage']);
+			} else if (queryData['searchText']) {
+				this.model.searchText = queryData['searchText'];
+				this.onSubmit(1);
+			}
 		}
 	}
 
-	ngOnDestroy(){
+	ngOnDestroy() {
 		this.listingsService.initializeSession();
 	}
 
-	onSubmit(){
+	onSubmit(page) {
+		if(!page) {
+			page = 1;
+		}
 		this.model.formatQuery();
+		this.listingsService.advancedSearchOptions = this.model;
 		this.listingsService.getFilteredListings(
-			this.model.filterString, this.model.searchText, 1).subscribe(data => {
+			this.model.filterString, this.model.searchText, page).subscribe(data => {
 				this.listingsService.paginationObject = data;
 				this.listingsService.filterString = this.model.filterString;
 				this.listingsService.searchText = this.model.searchText;
@@ -52,14 +64,14 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		});
 	}
 
-	minChanged(minValue, maxList, defaultListName){
-		if(minValue != null){
-			if(minValue == 'Any'){
+	minChanged(minValue, maxList, defaultListName) {
+		if (minValue != null) {
+			if (minValue == 'Any') {
 				this.advancedSearchOptions[maxList] = searchOptions['default'][defaultListName];
 			} else {
 				this.advancedSearchOptions[maxList] = [];
 				searchOptions['default'][defaultListName].forEach(searchOption => {
-					if(searchOption >= minValue){
+					if (searchOption >= minValue) {
 						this.advancedSearchOptions[maxList].push(searchOption);
 					}
 				});
@@ -67,14 +79,14 @@ export class AbcAdvancedSearchComponent implements OnInit, OnDestroy{
 		}
 	}
 
-	maxChanged(maxValue, minList, defaultListName){
-		if(maxValue != null){
-			if(maxValue == 'Any'){
+	maxChanged(maxValue, minList, defaultListName) {
+		if (maxValue != null) {
+			if (maxValue == 'Any') {
 				this.advancedSearchOptions[minList] = searchOptions['default'][defaultListName];
 			} else {
 				this.advancedSearchOptions[minList] = [];
 				searchOptions['default'][defaultListName].forEach(searchOption => {
-					if(searchOption <= maxValue){
+					if (searchOption <= maxValue) {
 						this.advancedSearchOptions[minList].push(searchOption);
 					}
 				});

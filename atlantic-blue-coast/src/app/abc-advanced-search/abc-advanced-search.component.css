@@ -19,6 +19,7 @@ label {
 	font-size: 2rem;
 	margin-bottom: 20px;
 }
+
 .advancedSearchButtonWrapper{
 	width:100px;
 }
@@ -47,4 +48,8 @@ select {
 	background-position: 95% 50%;
 	background-repeat: no-repeat;
 	background-size: 16px;
+}
+
+.listing-card {
+	min-width: 258px;
 }

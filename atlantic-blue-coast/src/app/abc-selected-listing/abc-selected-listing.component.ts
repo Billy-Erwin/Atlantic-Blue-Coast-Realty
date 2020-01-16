@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingsService } from "../listings.service";
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Listing } from "../Listing";
 import { StandardFieldService } from "../standard-field.service";
 
@@ -11,9 +11,14 @@ import { StandardFieldService } from "../standard-field.service";
 })
 
 export class AbcSelectedListingComponent implements OnInit {
+
 	selectedListing: Listing;
+	queryData;
+	returnToSearch: boolean = false;
+
 	constructor(
 		private route: ActivatedRoute,
+		private router: Router,
 		private listingsService: ListingsService,
 		private standardFieldService: StandardFieldService) { }
 
@@ -22,9 +27,15 @@ export class AbcSelectedListingComponent implements OnInit {
 	}
 
 	getSelectedListing(): void {
-		let id = this.route.snapshot.paramMap.get('id');
+		this.queryData = this.route.snapshot.paramMap.get('queryData');
+		let id = JSON.parse(this.queryData)['id'];
+		this.returnToSearch = (JSON.parse(this.queryData)['advancedSearchOptions']);
 		this.listingsService.getSelectedListing(id).subscribe(data => {
 			this.selectedListing = data;
 		});
+	}
+
+	backToSearch() {
+		this.router.navigate(['search', this.queryData]);
 	}
 }

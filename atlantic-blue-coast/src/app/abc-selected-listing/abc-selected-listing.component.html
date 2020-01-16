@@ -4,6 +4,7 @@
 	*ngIf="selectedListing && selectedListing.standardFields['Photos']">
 	<div class="row">
 		<div class="col-md-6">
+			<div *ngIf="returnToSearch" class="topLevelInfo backToSearchResults" (click)="backToSearch()">Back to search results</div>
 			<div class="topLevelInfo">
 				<div><h1>{{selectedListing.standardFields['ListPrice'] | currency}}</h1></div>
 				<div><h3>{{selectedListing.standardFields['UnparsedAddress']}}</h3></div>
@@ -11,11 +12,11 @@
 			</div>
 			<hr/>
 			<div class="detailContainer">
+				<abc-listing-details [selectedListing]="selectedListing"></abc-listing-details>
+				<div class="small">Listing courtesy of {{selectedListing.standardFields['ListAgentName']}} of {{selectedListing.standardFields['ListOfficeName']}}</div>
 				<div class="emailMargins">
 					<abc-email [contactDetails]="selectedListing.contactComponentInfo"></abc-email>
 				</div>
-				<abc-listing-details [selectedListing]="selectedListing"></abc-listing-details>
-				<div class="small">Listing courtesy of {{selectedListing.standardFields['ListAgentName']}} of {{selectedListing.standardFields['ListOfficeName']}}</div>
 			</div>
 		</div>
 		<div class="col-md-6">

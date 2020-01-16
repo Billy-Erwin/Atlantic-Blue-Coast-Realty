@@ -16,8 +16,8 @@ export class AbcSimpleSearchComponent {
 	constructor(private listingsService: ListingsService, private router: Router) { }
 
 	onSubmit(){
-		let searchTextParameter = {searchText: this.model.searchText};
-		this.router.navigate(['search', this.model.searchText]);
+		let queryData = {searchText: this.model.searchText};
+		this.router.navigate(['search', JSON.stringify(queryData)]);
 	}
 
 }

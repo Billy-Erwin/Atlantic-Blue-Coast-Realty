@@ -4,6 +4,11 @@
 	padding: 1rem;
 }
 
+.backToSearchResults {
+	cursor: pointer;
+	color: blue;
+}
+
 .description {
 	text-align: left;
 }

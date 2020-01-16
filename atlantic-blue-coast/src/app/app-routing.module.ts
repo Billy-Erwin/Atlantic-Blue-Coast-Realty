@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AbcSelectedListingComponent} from "./abc-selected-listing/abc-selected-listing.component";
-import {AbcHomePageComponent} from "./abc-home-page/abc-home-page.component";
-import {AbcAboutComponent} from "./abc-about/abc-about.component";
-import {AbcListingsPageComponent} from "./abc-listings-page/abc-listings-page.component";
-import {AbcCommunityComponent} from "./abc-community/abc-community.component";
-import {AbcSearchPropertiesComponent} from "./abc-search-properties/abc-search-properties.component";
-import {AbcContactUsComponent} from "./abc-contact-us/abc-contact-us.component";
-import {AbcSpillwayPageComponent} from "./abc-spillway-page/abc-spillway-page.component";
+import { AbcSelectedListingComponent } from "./abc-selected-listing/abc-selected-listing.component";
+import { AbcHomePageComponent } from "./abc-home-page/abc-home-page.component";
+import { AbcAboutComponent } from "./abc-about/abc-about.component";
+import { AbcListingsPageComponent } from "./abc-listings-page/abc-listings-page.component";
+import { AbcCommunityComponent } from "./abc-community/abc-community.component";
+import { AbcSearchPropertiesComponent } from "./abc-search-properties/abc-search-properties.component";
+import { AbcContactUsComponent } from "./abc-contact-us/abc-contact-us.component";
+import { AbcSpillwayPageComponent } from "./abc-spillway-page/abc-spillway-page.component";
 
 const routes: Routes = [
 	{
-		path: 'selected-listing/:id',
+		path: 'selected-listing/:queryData',
 		component: AbcSelectedListingComponent,
 		data: { title: 'Selected Listing' }
 	},
@@ -31,7 +31,7 @@ const routes: Routes = [
 		data: { title: 'Search Properties' }
 	},
 	{
-		path: 'search/:searchText',
+		path: 'search/:queryData',
 		component: AbcSearchPropertiesComponent,
 		data: { title: 'Search Properties' }
 	},

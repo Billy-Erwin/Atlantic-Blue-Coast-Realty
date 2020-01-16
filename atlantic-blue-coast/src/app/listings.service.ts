@@ -3,6 +3,7 @@ import { Listing } from "./Listing";
 import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { AbcAdvancedSearch } from "./abc-advanced-search";
 
 @Injectable({providedIn: "root"})
 
@@ -18,6 +19,7 @@ export class ListingsService {
 	sortKey: string =  '-ListPrice';
 	sortIndex: number = 0;
 	pageNumbers: number[] = [1, 2, 3, 4, 5];
+	advancedSearchOptions: AbcAdvancedSearch;
 
 	baseUrl: string = 'http://localhost:4040/';
 	// baseUrl: string = 'http://52.15.233.116:4040/';
@@ -33,6 +35,7 @@ export class ListingsService {
 		this.activeComponent = '';
 		this.searchText = '';
 		this.filterString = '';
+		this.advancedSearchOptions = new AbcAdvancedSearch({});
 	}
 
 	setFeaturedListings(): Observable<Listing[]> {
@@ -61,7 +64,10 @@ export class ListingsService {
 
 	getFilteredListings(filterString, searchText, page): Observable<any[]> {
 		this.filteredListings = [];
-		let listingUrl = `${this.baseUrl}getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}&orderBy=${this.sortKey}`;
+		this.searchText = searchText;
+
+		let listingUrl =
+			`${this.baseUrl}getFilteredListings?filterString=${filterString}&searchText=${searchText}&page=${page}&orderBy=${this.sortKey}`;
 		return this.http.get(listingUrl).pipe(map(data => {
 			for(let listing of data['listings']){
 				this.filteredListings.push(new Listing(listing));
@@ -75,5 +81,15 @@ export class ListingsService {
 		return this.http.get(listingUrl).pipe(map(res => {
 			return new Listing(res[0]);
 		}));
+	}
+
+	setPageNumberArray(pageNumber){
+		this.paginationObject['CurrentPage'] = pageNumber;
+		if (this.pageNumbers[4] == this.paginationObject['CurrentPage'] ||
+			this.paginationObject['CurrentPage'] == 1 ||
+			this.paginationObject['CurrentPage'] == this.pageNumbers[0] - 1 ||
+			this.paginationObject['CurrentPage'] == this.paginationObject['TotalPages']) {
+			this.pageNumbers = [pageNumber, pageNumber + 1, pageNumber + 2, pageNumber + 3, pageNumber + 4];
+		}
 	}
 }
