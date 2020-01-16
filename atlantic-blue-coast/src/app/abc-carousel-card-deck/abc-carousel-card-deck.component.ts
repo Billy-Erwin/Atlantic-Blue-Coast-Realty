@@ -48,7 +48,7 @@ export class AbcCarouselCardDeckComponent implements OnInit{
 
 		$('.listing-card').each(function(){
 			$(this).click(function () {
-				theRouter.navigate(['/selected-listing', this.id])
+				theRouter.navigate(['/selected-listing', JSON.stringify({id: this.id})])
 			});
 		});
 	}

@@ -1,4 +1,7 @@
-<div [routerLink]="['/selected-listing', listing.id]" id="{{listing.id}}" class="listing-card shadow-sm">
+<div
+	[routerLink]="['/selected-listing', queryData]"
+	id="{{listing.id}}"
+	class="listing-card shadow-sm">
 	<img class="card-img-top" [src]="listing.primaryPhoto">
 	<div class="card-body">
 		<h5 class="card-title">{{listing.standardFields['ListPrice'] | currency}}</h5>

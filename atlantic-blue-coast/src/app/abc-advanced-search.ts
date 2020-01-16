@@ -14,7 +14,13 @@ export class AbcAdvancedSearch {
 	filterParameters: string[];
 	filterString: string;
 
-	formatQuery(){
+	constructor(data) {
+		for (let key of Object.keys(data)) {
+			this[key] = data[key];
+		}
+	}
+
+	formatQuery() {
 		this.filterString = '';
 		this.filterParameters = [];
 		this.setBedsCondition();
@@ -23,55 +29,55 @@ export class AbcAdvancedSearch {
 		this.setYearBuiltCondition();
 		this.setSqftCondition();
 		this.filterParameters.push("MlsStatus Ne 'Closed'");
-		for(let i = 0; i < this.filterParameters.length; i++){
+		for (let i = 0; i < this.filterParameters.length; i++) {
 			this.filterString += `${this.filterParameters[i]} And `
 		}
 		this.filterString = this.filterString.substring(0, this.filterString.length - 5);
 	}
 
-	setBedsCondition(){
-		if(this.beds !== null && this.beds > 0){
+	setBedsCondition() {
+		if (this.beds !== null && this.beds > 0) {
 			this.filterParameters.push(`BedsTotal Ge ${this.beds}`);
 		}
 	}
 
-	setBathsCondition(){
-		if(this.baths !== null && this.baths > 0){
+	setBathsCondition() {
+		if (this.baths !== null && this.baths > 0) {
 			this.filterParameters.push(`BathsFull Ge ${this.baths}`);
 		}
 	}
 
-	setPriceCondition(){
-		if(this.min_price && (this.min_price as any) !== 'Any' && this.max_price && (this.max_price as any) !== 'Any'){
+	setPriceCondition() {
+		if (this.min_price && (this.min_price as any) !== 'Any' && this.max_price && (this.max_price as any) !== 'Any') {
 			this.filterParameters.push(`ListPrice Bt ${this.min_price}, ${this.max_price}`);
-		} else if (this.min_price && (this.min_price as any) !== 'Any'){
+		} else if (this.min_price && (this.min_price as any) !== 'Any') {
 			this.filterParameters.push(`ListPrice Ge ${this.min_price}`);
-		} else if (this.max_price && (this.max_price as any) !== 'Any'){
+		} else if (this.max_price && (this.max_price as any) !== 'Any') {
 			this.filterParameters.push(`ListPrice Le ${this.max_price}`);
 		}
 	}
 
-	setSqftCondition(){
-		if(this.min_sqft && (this.min_sqft as any) !== 'Any' && this.max_sqft && (this.max_sqft as any) !== 'Any'){
+	setSqftCondition() {
+		if (this.min_sqft && (this.min_sqft as any) !== 'Any' && this.max_sqft && (this.max_sqft as any) !== 'Any') {
 			this.filterParameters.push(`BuildingAreaTotal Bt ${this.min_sqft}, ${this.max_sqft}`);
-		} else if (this.min_sqft && (this.min_sqft as any) !== 'Any'){
+		} else if (this.min_sqft && (this.min_sqft as any) !== 'Any') {
 			this.filterParameters.push(`BuildingAreaTotal Ge ${this.min_sqft}`);
-		} else if (this.max_sqft && (this.max_sqft as any) !== 'Any'){
+		} else if (this.max_sqft && (this.max_sqft as any) !== 'Any') {
 			this.filterParameters.push(`BuildingAreaTotal Le ${this.max_sqft}`);
 		}
 	}
 
-	setLotSizeCondition(){
+	setLotSizeCondition() {
 
 	}
 
-	setYearBuiltCondition(){
-		if(this.min_year_built && (this.min_year_built as any) !== 'Any' &&
-			this.max_year_built && (this.max_year_built as any) !== 'Any'){
+	setYearBuiltCondition() {
+		if (this.min_year_built && (this.min_year_built as any) !== 'Any' &&
+			this.max_year_built && (this.max_year_built as any) !== 'Any') {
 			this.filterParameters.push(`YearBuilt Bt ${this.min_year_built}, ${this.max_year_built}`);
-		} else if (this.min_year_built && (this.min_year_built as any) !== 'Any'){
+		} else if (this.min_year_built && (this.min_year_built as any) !== 'Any') {
 			this.filterParameters.push(`YearBuilt Ge ${this.min_year_built}`);
-		} else if (this.max_year_built && (this.max_year_built as any) !== 'Any'){
+		} else if (this.max_year_built && (this.max_year_built as any) !== 'Any') {
 			this.filterParameters.push(`YearBuilt Le ${this.max_year_built}`);
 		}
 	}

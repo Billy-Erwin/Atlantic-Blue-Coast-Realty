@@ -29,7 +29,7 @@ import { AbcSpillwayComponent } from './abc-spillway/abc-spillway.component';
 import { AbcPhotoViewerComponent } from './abc-photo-viewer/abc-photo-viewer.component';
 import { AbcSimpleSearchComponent } from './abc-simple-search/abc-simple-search.component';
 import { AbcAdvancedSearchComponent } from './abc-advanced-search/abc-advanced-search.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { AbcEmailComponent } from './abc-email/abc-email.component';
 import { AbcDetailSectionComponent } from './abc-detail-section/abc-detail-section.component';
 import { AbcListingDetailsComponent } from './abc-listing-details/abc-listing-details.component';
