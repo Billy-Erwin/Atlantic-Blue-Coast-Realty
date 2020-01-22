@@ -1,0 +1,21 @@
+
+<span class="dropdown">
+	<button
+		class="btn header headerItems dropdown-toggle"
+		type="button"
+		id="dropdownMenuButton"
+		data-toggle="dropdown"
+		aria-haspopup="true"
+		aria-expanded="false">
+		Documents
+	</button>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		<a *ngFor="let availableDocument of availableDocuments"
+			class="dropdown-item"
+			target="_blank"
+			download=""
+			href="{{availableDocument.documentLink}}">
+			{{availableDocument.documentLabel}}
+		</a>
+	</div>
+</span>

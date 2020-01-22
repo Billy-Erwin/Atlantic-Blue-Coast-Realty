@@ -1,4 +1,4 @@
-.header{
+.header {
 	background-color:#1882cd;
 	text-align: center;
 	text-decoration: none;
@@ -9,28 +9,40 @@
 	top: 0;
 	z-index: 100;
 	margin-right:10px;
+	vertical-align: middle;
 }
-.headerItems{
+
+.headerItems {
 	margin-right: 40px;
 }
-.header-welcome{
+
+.header-welcome {
 	font-size: 1.5rem;
 	padding-top: 10px;
 	padding-right: 10px;
 }
-.header-contact{
+
+.header-navigation {
 	font-size: 1rem;
-	padding-top: 17px;
+	padding-top: 0.5rem;
 }
-.header-contact-name{
+
+.header-contact {
+	font-size: 1rem;
+	padding-top: 15px;
+}
+
+.header-contact-name {
 	color: black;
 	padding-right: 10px;
 	font-weight: 700;
 }
-.header-contact-phone{
+
+.header-contact-phone {
 	text-decoration: underline
 }
-.header-logo{
+
+.header-logo {
 	/*background-image: url("../../assets/images/abc_logo_white.png");*/
 	background-image: url("../../assets/images/abc_logo_white.png");
 	/*background-image: url("../../assets/images/abc_logo_white_1_no_text_120.svg");*/
@@ -40,9 +52,11 @@
 	height: 42px;
 	width: 56px;
 }
-.header-logo:focus, .header:focus{
+
+.header-logo:focus, .header:focus {
 	outline: none !important;
 }
-.header span{
+
+.header span {
 	cursor: pointer;
 }

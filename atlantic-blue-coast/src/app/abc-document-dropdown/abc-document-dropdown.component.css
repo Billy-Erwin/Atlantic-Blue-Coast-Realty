@@ -1,0 +1,15 @@
+.header {
+	background-color:#1882cd;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-family: mostra-nuova, sans-serif;
+	font-style: normal;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	margin-right: 40px;
+	padding-left: unset;
+	padding-right: unset;
+	border: none;
+}

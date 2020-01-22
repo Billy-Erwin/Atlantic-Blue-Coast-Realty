@@ -39,6 +39,7 @@ import { AbcLegalComponent } from './abc-legal/abc-legal.component';
 import { AbcSpillwayPageComponent } from './abc-spillway-page/abc-spillway-page.component';
 import { AbcPhotoViewerNavComponent } from './abc-photo-viewer-nav/abc-photo-viewer-nav.component';
 import { AbcSortListingsComponent } from './abc-sort-listings/abc-sort-listings.component';
+import { AbcDocumentDropdownComponent } from './abc-document-dropdown/abc-document-dropdown.component';
 
 @NgModule({
 	declarations: [
@@ -75,7 +76,8 @@ import { AbcSortListingsComponent } from './abc-sort-listings/abc-sort-listings.
 		AbcLegalComponent,
 		AbcSpillwayPageComponent,
 		AbcPhotoViewerNavComponent,
-		AbcSortListingsComponent
+		AbcSortListingsComponent,
+		AbcDocumentDropdownComponent
 	],
 	imports: [
 		BrowserModule,
