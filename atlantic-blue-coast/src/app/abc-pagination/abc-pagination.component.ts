@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListingsService } from "../listings.service";
+import { ListingsService } from '../listings.service';
 
 @Component({
 	selector: 'abc-pagination',
