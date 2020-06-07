@@ -13,8 +13,8 @@ export class AbcDocumentDropdownComponent implements OnInit {
 	ngOnInit() {
 		this.availableDocuments.push(
 			{
-				documentLink: '../../assets/documents/THE_SPILLWAY_rules_v4.1.pdf',
-				documentLabel: 'The Spillway Rules'
+				documentLink: '../../assets/documents/spillway_reservation_request_form.pdf',
+				documentLabel: 'Reservation Request Form'
 			},
 			{
 				documentLink: '../../assets/documents/Working_With_Real_Estate_Agents_NCREC.pdf',

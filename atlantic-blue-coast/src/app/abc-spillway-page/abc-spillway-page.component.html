@@ -5,7 +5,7 @@
 				<img class="img-fluid spillwayLogo"/>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div *ngIf="spillwayPhotos?.length"  class="col-md-6">
 			<div align="center">
 				<abc-photo-viewer [carouselPhotos]="spillwayPhotos"></abc-photo-viewer>
 				<abc-photo-viewer-nav [carouselPhotos]="spillwayPhotos"></abc-photo-viewer-nav>
@@ -14,18 +14,53 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
+			<div class="row no-gutters">
+				<div class="col-2 no-gutters">
+					<img class="spillwayLogoSmall"/>
+				</div>
+				<div class="col-10 no-gutters">
+					<div class="spillwayAddressText">
+						<h4>{{addressInfo.name}}</h4>
+						<h5>{{addressInfo.streetAddress}}</h5>
+						<h5>{{addressInfo.cityStateZip}}</h5>
+					</div>
+				</div>
+			</div>
 			<div class="spillwayTextContainer">
-				<p>Here is some stuff about the spillway...</p>
+				<h4>{{generalInfo}}</h4>
+			</div>
+			<div class="spillwayTextContainer">
+				<h4>{{rateInfo.title}}</h4>
+				<h5>{{rateInfo.weekDays}}</h5>
+				<h5>{{rateInfo.weekends}}</h5>
+				<h5>{{rateInfo.sunday}}</h5>
+				<h5>{{rateInfo.holidays}}</h5>
+				<h6>{{rateInfo.special}}</h6>
+			</div>
+			<div class="spillwayTextContainer">
+				<h4>{{requirementInfo.requirements}}</h4>
+				<h5>
+					-&nbsp;{{requirementInfo.form1}}
+					<a
+						class="spillwayLink"
+						href="../../assets/documents/spillway_reservation_request_form.pdf"
+						target="_blank" download="">
+						{{requirementInfo.form2}}
+					</a>
+				</h5>
+				<h5>-&nbsp;{{requirementInfo.deposit}}</h5>
+				<h5>-&nbsp;{{requirementInfo.holdTheDate}}</h5>
+				<h5>{{requirementInfo.exceptions}}</h5>
 			</div>
 			<div class="spillwayTextContainer">
 				Visit The Spillway website&nbsp;
 				<a class="spillwayLink" href="https://www.spillwayevents.com" target="_blank">HERE...</a>
 			</div>
 			<div class="spillwayTextContainer">
-				Download The Spillway rules&nbsp;
+				Download the Reservation Agreement&nbsp;
 				<a
 					class="spillwayLink"
-					href="../../assets/documents/THE_SPILLWAY_rules_v4.1.pdf"
+					href="../../assets/documents/spillway_reservation_request_form.pdf"
 					target="_blank" download="">
 					HERE...
 				</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'abc-spillway',
@@ -6,45 +6,5 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./abc-spillway.component.css']
 })
 
-export class AbcSpillwayComponent implements OnInit {
+export class AbcSpillwayComponent {}
 
-	spillwayPhotos: any[] = [];
-	constructor() { }
-
-	ngOnInit() {
-		this.spillwayPhotos.push(
-			{
-				UriLarge: '../../assets/images/spillway/deck_view.jpg',
-				UriThumb: '../../assets/images/spillway/deck_view.jpg',
-				Primary: true
-			});
-		this.spillwayPhotos.push(
-			{
-				UriLarge: '../../assets/images/spillway/dragonFly.jpg',
-				UriThumb: '../../assets/images/spillway/dragonFly.jpg'
-			});
-		this.spillwayPhotos.push(
-			{
-				UriLarge: '../../assets/images/spillway/ducks.jpg',
-				UriThumb: '../../assets/images/spillway/ducks.jpg'
-			});
-		this.spillwayPhotos.push(
-			{
-				UriLarge: '../../assets/images/spillway/fence.jpg',
-				UriThumb: '../../assets/images/spillway/fence.jpg'
-			});
-		this.spillwayPhotos.push(
-			{
-				UriLarge: '../../assets/images/spillway/overlooking_water.jpg',
-				UriThumb: '../../assets/images/spillway/overlooking_water.jpg'
-			});
-		this.spillwayPhotos.push(
-			{
-				UriLarge: '../../assets/images/spillway/stage.jpg',
-				UriThumb: '../../assets/images/spillway/stage.jpg'
-			});
-		(<any>$('#spillwayCarouselControls')).carousel({interval: 5000});
-
-	}
-
-}

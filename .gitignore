@@ -42,3 +42,6 @@ tslint.json
 /.idea/
 /AtlanticBlueCoast.iml
 /atlantic-blue-coast/src/assets/files/tukus.json
+/node_modules
+atlantic-blue-coast/node_modules/*
+atlantic-blue-coast/.idea*

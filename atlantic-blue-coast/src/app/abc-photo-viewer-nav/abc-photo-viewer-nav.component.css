@@ -7,7 +7,7 @@
 }
 
 .thumbIndicator {
-	max-height: 42px;
-	max-width: 65px;
+	height: 42px;
+	width: 65px;
 	margin-right: 3px;
 }

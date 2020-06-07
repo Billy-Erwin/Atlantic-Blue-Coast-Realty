@@ -9,6 +9,6 @@
 	text-align: center;
 }
 
-.spillwayLogo {
-	content: url("../../assets/images/spillway/spillway.png");
+.bannerPhoto {
+	max-height: 500px;
 }
