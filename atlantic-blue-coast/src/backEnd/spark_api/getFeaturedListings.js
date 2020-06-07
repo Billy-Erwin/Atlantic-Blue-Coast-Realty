@@ -38,17 +38,17 @@ function callback(error, response, body) {
 }
 
 module.exports.getFeaturedListings = function(resp) {
-  let listingFilter = `_filter=ListAgentId Eq '${agentId}' And MlsStatus Ne 'Closed'  And (`;
-
-  for(let i = 0; i < featuredListings.length; i++) {
-    if (i !== 0) {
-      listingFilter += ' Or ';
-    }
-    listingFilter += `ListingKey Eq '${featuredListings[i]}'`;
-    if (i === featuredListings.length -1) {
-      listingFilter += ')';
-    }
-  }
+  let listingFilter = `_filter=ListAgentId Eq '${agentId}' And MlsStatus Ne 'Closed'`//And (`;
+  // Use for configureable featured listings in the future
+  // for(let i = 0; i < featuredListings.length; i++) {
+  //   if (i !== 0) {
+  //     listingFilter += ' Or ';
+  //   }
+  //   listingFilter += `ListingKey Eq '${featuredListings[i]}'`;
+  //   if (i === featuredListings.length -1) {
+  //     listingFilter += ')';
+  //   }
+  // }
 
 	options.url = `https://sparkapi.com/v1/listings?_expand=PrimaryPhoto&${encodeURI(listingFilter)}&_limit=6`;
 	incomingResponse = resp;

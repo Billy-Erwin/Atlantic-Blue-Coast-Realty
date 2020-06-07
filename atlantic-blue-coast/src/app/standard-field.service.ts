@@ -3,7 +3,7 @@ import { StandardField } from "./StandardField";
 import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import {ListingsService} from "./listings.service";
+import { ListingsService } from "./listings.service";
 
 @Injectable({providedIn: 'root'})
 export class StandardFieldService {

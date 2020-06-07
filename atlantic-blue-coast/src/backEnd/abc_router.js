@@ -3,7 +3,8 @@ const featuredListings = require('./spark_api/getFeaturedListings');
 const selectedListing = require('./spark_api/getSelectedListing');
 const standardFieldMetadata = require('./spark_api/getStandardFieldMetaData');
 const filteredListings = require('./spark_api/getFilteredListings');
-const abcMail = require('./abc_mail')
+const abcMail = require('./abc_mail');
+const photoService = require('./abc_photo_service');
 
 //@param req = HTTP request object
 //@param resp = HTTP response object
@@ -27,5 +28,7 @@ exports.routeRequest = function(req, resp){
 		featuredListings.getAbcListings(resp, urlObj.query);
 	} else if(resourcePath === '/sendMail'){
 		abcMail.sendIt(resp, urlObj.query);
+	} else if (resourcePath === '/photoService') {
+		photoService.getPhotosFromDirectory(resp, urlObj.query);
 	}
 }

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { NgForm } from "@angular/forms";
-import {ListingsService} from "../listings.service";
+import { ListingsService } from "../listings.service";
 
 @Component({
 	selector: 'abc-email',
