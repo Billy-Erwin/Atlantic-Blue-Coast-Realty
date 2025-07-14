@@ -14,7 +14,10 @@ exports.routeRequest = function(req, resp){
 	let resourcePath = urlObj.pathname.toString();
 	// console.log('resourcePath : ', resourcePath);
 
-	if(resourcePath === '/getFeaturedListings') {
+	if(resourcePath === '/health') {
+		resp.writeHead(200, { 'Content-Type': 'application/json' });
+		resp.end(JSON.stringify({ status: 'ok' }));
+	} else if(resourcePath === '/getFeaturedListings') {
 		featuredListings.getFeaturedListings(resp);
 	} else if(resourcePath === '/getSelectedListing') {
 		selectedListing.getSelectedListing(resp, urlObj.query.id);
